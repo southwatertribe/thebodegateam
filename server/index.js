@@ -1,20 +1,19 @@
+const config =  require('./config/index.js');
 const express = require("express");
-require('dotenv').config();
-//The config file has our global port var
-const { PORT } = require('./config/index.js');
 
 const startServer = async() => {
 
   const app = express();
-
+  console.log(`NODE_ENV=${config.NODE_ENV}`);
+  
 
   app.get("/api", (req, res) => {
     res.json({ message: "Hey baby" });
   });
 
 
-  app.listen(PORT, () => {
-    console.log(`Spun up on ${PORT}`);
+  app.listen(config.PORT, () => {
+    console.log(`Spun up on ${config.PORT}`);
   });
 
 
