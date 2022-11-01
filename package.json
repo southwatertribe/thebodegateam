@@ -1,0 +1,25 @@
+{
+  "name": "team_bodega",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/southwatertribe/team_bodega.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/southwatertribe/team_bodega/issues"
+  },
+  "homepage": "https://github.com/southwatertribe/team_bodega#readme",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2"
+  },
+  "description": ""
+}
