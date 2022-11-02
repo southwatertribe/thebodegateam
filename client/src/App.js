@@ -1,34 +1,48 @@
 import React from "react";
-import logo from './logo.svg';
+import ReactDOM from "react-dom/client";
+import { Route, Routes } from "react-router-dom";
+
 import './App.css';
+//Pages
+import Browser from "./pages/Browser";
+import Welcome from "./pages/Welcome";
+import About from "./pages/About";
 
 function App() {
-  const [data, setData] = React.useState(null);
+  // const [data, setData] = React.useState(null);
 
-  React.useEffect(() => {
-    fetch("/api")
-      .then((res) => res.json())
-      .then((data) => setData(data.message));
-  }, []);
+  // React.useEffect(() => {
+  //   fetch("/api")
+  //     .then((res) => res.json())
+  //     .then((data) => setData(data.message));
+  // }, []);
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-        {!data ? "loading..." : data} 
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Routes>
+      <Route path="/" element={<Welcome/>} />
+      <Route path="/browser" element={<Browser/>} />
+      <Route path="/about" element={<About/>}/>
+    </Routes>
   );
 }
 
 export default App;
+
+
+// <div className="App">
+//       {/* <header className="App-header">
+//         <img src={logo} className="App-logo" alt="logo" />
+//         <p>
+//         {!data ? "loading..." : data} 
+//         </p>
+//         <a
+//           className="App-link"
+//           href="https://reactjs.org"
+//           target="_blank"
+//           rel="noopener noreferrer"
+//         >
+//           Learn React
+//         </a>
+//       </header> */}
+//       <Header/>
+//     </div>

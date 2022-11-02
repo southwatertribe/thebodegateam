@@ -1,0 +1,1 @@
+Run npm install in the server directory as well
