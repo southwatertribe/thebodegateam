@@ -1,1 +1,1 @@
-Make sure to run 'npm install' in the server directory, no where else
+
