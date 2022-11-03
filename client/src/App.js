@@ -7,6 +7,7 @@ import './App.css';
 import Browser from "./pages/Browser";
 import Welcome from "./pages/Welcome";
 import About from "./pages/About";
+import Header from "./components/header/Header";
 
 function App() {
   // const [data, setData] = React.useState(null);
@@ -18,11 +19,14 @@ function App() {
   // }, []);
 
   return (
-    <Routes>
-      <Route path="/" element={<Welcome/>} />
-      <Route path="/browser" element={<Browser/>} />
-      <Route path="/about" element={<About/>}/>
-    </Routes>
+    <>
+      <Header/>
+      <Routes>
+        <Route path="/" element={<Welcome/>} /> {}
+        <Route path="/browser" element={<Browser/>} />
+        <Route path="/about" element={<About/>}/>
+      </Routes>
+    </>
   );
 }
 
