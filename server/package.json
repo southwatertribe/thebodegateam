@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "nodemon": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
     "dev": "set NODE_ENV=development&& node index.js",
@@ -22,7 +23,10 @@
   "homepage": "https://github.com/southwatertribe/team_bodega#readme",
   "dependencies": {
     "dotenv": "^16.0.3",
-    "express": "^4.18.2",
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "jest": "^29.2.2",
     "nodemon": "^2.0.20"
   }
 }
