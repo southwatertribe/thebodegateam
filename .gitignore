@@ -1,1 +1,11 @@
+
+node_modules
+
+#environmental variables
+*.env
+
+# General
 .DS_Store
+.AppleDouble
+.LSOverride
+

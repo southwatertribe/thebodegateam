@@ -9,12 +9,13 @@ function Browser() {
   const[CFO_lastname, setCFOlastname] = useState('')
   const[CFO_list, setCFOlist] = useState([]);
 
-  useEffect(()=> {
+ /* useEffect(()=> {
     Axios.get("http://localhost:3001/api/get").then((response)=>{
       console.log(response.data);
       setCFOlist(response.data);
     })
   }, [])
+  */
 
   const submitCFO = () => {
     Axios.post("http://localhost:3001/api/insert", 
@@ -44,10 +45,10 @@ function Browser() {
       <input type="text" id="foodTag" placeholder="FoodTag" />
       <button onClick={submitCFO} type="submit" value="Submit">
         Submit
-      </button>
-      {CFO_list.map((val) => {
+      </button> 
+       {CFO_list.map((val) => {
         return <h1>CFO Name: {val.CFO_firstname}</h1>
-      })}
+      })} 
       <button type="reset" value="Reset">
         Reset
       </button>
