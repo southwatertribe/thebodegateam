@@ -1,14 +1,54 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./pages.css";
+import Axios from "axios";
 function CreateCFOProfile() {
+  const [cfoFirstName, setCfoFirstName] = useState("");
+  const [cfoMiddleName, setCfoMiddleName] = useState("");
+  const [cfoLastName, setCfoLastName] = useState("");
+
+  const submitCFOProfile = () => {
+    Axios.post("http://localhost:3001/api/insert", {
+      cfoFirstName: cfoFirstName,
+      cfoMiddleName: cfoMiddleName,
+      cfoLastName: cfoLastName,
+    }).then(() => {
+      alert("Successfully added profile");
+    });
+  };
   return (
     //CREATE CFO PROFILE PAGE
     <div className="CFOProfileForm">
       <h2>Create CFO Profile</h2>
       <label>Full Name</label>
-      <input type="text" id="firstName" placeholder="First name" />
-      <input type="text" id="midleName" placeholder="Midle name" />
-      <input type="text" id="lastName" placeholder="Last name" />
+
+      <input
+        type="text"
+        id="cfoFirstName"
+        placeholder="First name"
+        onChange={(e) => {
+          setCfoFirstName(e.target.value);
+        }}
+      />
+
+      <input
+        type="text"
+        id="cfoMiddleName"
+        placeholder="Middle name"
+        onChange={(e) => {
+          setCfoMiddleName(e.target.value);
+        }}
+      />
+
+      <input
+        type="text"
+        id="cfoLastName"
+        placeholder="Last name"
+        onChange={(e) => {
+          setCfoLastName(e.target.value);
+        }}
+      />
+      <button onClick={submitCFOProfile}>Submit</button>
+
       <label>Phone Number</label>
       <input
         type="tel"
@@ -19,22 +59,25 @@ function CreateCFOProfile() {
       />
       <label>Email Address</label>
       <input type="email" id="email" placeholder="Email address" />
-      <label for="foodTag">Food Tag</label>
+      <label htmlFor="foodTag">Food Tag</label>
       <input type="text" id="foodTag" name="FoodTag" />
-      <label for="Menu">Website</label>
+      <label htmlFor="Menu">Website</label>
       <input type="url" id="foodTag" name="website" placeholder="link" />
-      <label for=""> Address</label>
+      <label htmlFor=""> Address</label>
       <input type="street" id="autocomplete" placeholder="Street" />
       <input type="city" id="inputCity" placeholder="City" />
       <input type="state" id="inputState" placeholder="State" />
-      <input type="zip" class="form-control" id="inputZip" placeholder="Zip" />
+      <input
+        type="zip"
+        className="form-control"
+        id="inputZip"
+        placeholder="Zip"
+      />
       <input type="county" id="inputCounty" placeholder="County" />
       <input type="country" id="inputCountry" placeholder="Country" />
-      <label for="Menu">Upload Menu</label>
+      <label htmlFor="Menu">Upload Menu</label>
       <input type="file" id="Menu" name="File Name" accept="application/pdf" />
-      <button type="submit" value="Submit">
-        Submit
-      </button>
+
       <button type="reset" value="Reset">
         Reset
       </button>
