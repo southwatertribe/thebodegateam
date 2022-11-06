@@ -16,4 +16,24 @@ connection.connect(function (err) {
   console.log("Connected to database.");
 });
 
+
+/*
+// Script 1 Testing
+  var sql1 = "UPDATE BodegaDB.CFO SET CFO_firstname = TRIM(\"    Danny      \"), CFO_midlename = \"K\", CFO_lastname = \"Rob\" WHERE CFO_id = 1;";
+  connection.query(sql1, function (err, result) {
+    if (err) throw err;
+    console.log("Result: " + result);
+  });
+
+  var sql2 = "Select * from BodegaDB.CFO; ";
+  connection.query(sql2, function (err, result) {
+    if (err) throw err;
+    let test = result
+    console.log("Result: " + test);
+  });
+
+  */
+
+module.exports = connection;
+
 connection.end();
