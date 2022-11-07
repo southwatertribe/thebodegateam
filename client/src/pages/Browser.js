@@ -18,7 +18,8 @@ function Browser() {
   */
 
   const submitCFO = () => {
-    Axios.post("http://localhost:3001/api/insert", 
+    //Axios.post("http://localhost:3001/api/get",
+    Axios.post("http://localhost:3001/browser", 
     {CFO_firstname: CFO_firstname, 
     CFO_lastname: CFO_lastname,
     }).then(() => {

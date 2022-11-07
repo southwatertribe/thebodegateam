@@ -14,6 +14,13 @@ const startServer = async() => {
   app.use(express.json());
   app.use(bodyParser.urlencoded({extended: true}))
 
+  const CFOuserRoute = require('./routes/CFOUser')
+  app.use('/browser', CFOuserRoute)
+
+
+
+  
+  /*
   app.get("/api/get", (req, res) => {
     
     const CFO_firstname = req.body.CFO_firstname;
@@ -48,6 +55,7 @@ const startServer = async() => {
     });
   });
 
+  */
 
   app.listen(config.PORT, () => {
     console.log(`Spun up on ${config.PORT}`);
