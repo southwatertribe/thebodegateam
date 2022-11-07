@@ -1,7 +1,11 @@
 .btn {
     width: 90px;
-    height: 40px;
-    padding: 10px 20px;
-    border-radius: 4px;
+    height: 30px;
+    padding: 20px 20px;
+    border-radius: 10px;
     border: none;
+    color: blue;
+    font-size: medium;
+    font-variant: small-caps;
+
 }
