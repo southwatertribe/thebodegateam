@@ -17,8 +17,6 @@ const startServer = async() => {
   const CFOuserRoute = require('./routes/CFOUser')
   app.use('/browser', CFOuserRoute)
 
-
-
   
   /*
   app.get("/api/get", (req, res) => {
