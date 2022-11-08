@@ -1,8 +1,8 @@
 .navdiv {
     display: flex;
-    background-color: hotpink;
+    background-color: pink;
     
-    height: 130px;
+    height: 90px;
     align-items: stretch;
 }
 

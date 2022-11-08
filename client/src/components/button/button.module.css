@@ -7,5 +7,7 @@
     color: blue;
     font-size: medium;
     font-variant: small-caps;
+    position: absolute;
+    right: 0;
 
 }

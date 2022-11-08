@@ -8,6 +8,7 @@ import Browser from "./pages/Browser";
 import Welcome from "./pages/Welcome";
 import About from "./pages/About";
 import Header from "./components/header/Header";
+import Footer from "./components/botHeader/botHeader";
 
 function App() {
   // const [data, setData] = React.useState(null);
@@ -21,6 +22,7 @@ function App() {
   return (
     <>
       <Header/>
+      <Footer/>
       <Routes>
         <Route path="/" element={<Welcome/>} /> {}
         <Route path="/browser" element={<Browser/>} />
