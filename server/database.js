@@ -1,3 +1,4 @@
+//This JS file handles the Connection to the Database Stored in AWS RDS
 const mysql = require("mysql2");
 require("dotenv").config();
 

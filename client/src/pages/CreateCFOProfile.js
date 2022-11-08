@@ -7,12 +7,12 @@ function CreateCFOProfile() {
   const [cfoLastName, setCfoLastName] = useState("");
 
   const submitCFOProfile = () => {
-    Axios.post("http://localhost:3001/api/insert", {
+    Axios.post("http://localhost:3001/CreateCFOProfile", {
       cfoFirstName: cfoFirstName,
       cfoMiddleName: cfoMiddleName,
       cfoLastName: cfoLastName,
     }).then(() => {
-      alert("Successfully added profile");
+      alert("Successfully added CFO profile");
     });
   };
   return (
