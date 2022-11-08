@@ -10,9 +10,12 @@ function Header() {
   return (
   <div className={styles.navdiv}>
 
+      <a href="client\src\images\BodegaCat.png">
       <img 
-      src="C:\Users\bsaab\OneDrive\Pictures\Screenshots\Bodega Cat.png"
-      alt='BodegaCat'/>
+      src="client\src\images\BodegaCat.png"
+      alt="BodegaCat"
+      width="200" />
+      </a>
       {/* <h1>This is Bodega</h1> */}
       <ul className={styles.navul}>
         <li><Link to="/">Home</Link></li>
