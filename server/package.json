@@ -2,12 +2,12 @@
   "name": "team_bodega",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js",
-    "dev": "set NODE_ENV=development&& set PORT=3001&& nodemon index.js",
-    "prod": "set NODE_ENV=production&& set PORT=8000&& node index.js"
+    "start": "node app.js",
+    "dev": "set NODE_ENV=development&& set PORT=3001&& nodemon app.js",
+    "prod": "set NODE_ENV=production&& set PORT=8000&& node app.js"
   },
   "repository": {
     "type": "git",
