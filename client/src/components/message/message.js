@@ -1,9 +1,10 @@
 import React from "react";
+import Style from "./message.module.css"
 
 
 export default function Message() {
     return(
-        <div>
+        <div className={Style.mdiv}>
             <p>
                 Welcome to Bodega! 
                 A hub where local cottage-food operators can bridge the gap of

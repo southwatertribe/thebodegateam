@@ -1,9 +1,12 @@
 import React from 'react'
+import Button from '../components/button/button'
 
 function Browser() {
   return (
     //TODO MAKE BROWSER
-    <div>Browser</div>
+    <div>
+      <Button/>
+    </div>
   )
 }
 
