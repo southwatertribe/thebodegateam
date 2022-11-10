@@ -1,5 +1,5 @@
 const mysql = require('mysql2')
-const config =  require('./config/app.js');
+const config =  require('../config/app.js');
 require("dotenv").config();
 
 const dbconnect = () => {
