@@ -1,19 +1,23 @@
 const config =  require('./config/app.js');
 const express = require("express");
 const path = require('path')
-const shopsRouter = require('./routes/shops.js')
+//Database connect function
+const dbconnect = require('./database/database_conn.js')
+//routes
+const shopsRouter = require('./routes/shop_creation.js');
+//const { default: dbconnect } = require('./database/database_conn.js');
 
 var isprod = process.env.NODE_ENV === 'production'
 
 const startServer = async() => {
 
   const app = express();
-
+  dbconnect();
   //Json Middleware
   app.use(express.json())
 
   //Routes Middle Ware
-  app.use("/shops", shopsRouter);
+  app.use("/shop_creation", shopsRouter);
 
   console.log(`NODE_ENV=${process.env.NODE_ENV}`);
   

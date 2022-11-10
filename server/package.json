@@ -22,7 +22,8 @@
   "homepage": "https://github.com/southwatertribe/team_bodega#readme",
   "dependencies": {
     "dotenv": "^16.0.3",
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "mysql2": "^2.3.3"
   },
   "devDependencies": {
     "jest": "^29.2.2",
