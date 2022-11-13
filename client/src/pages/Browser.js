@@ -8,6 +8,7 @@ function Browser() {
   const[CFO_firstname, setCFOfirstname] = useState('')
   const[CFO_lastname, setCFOlastname] = useState('')
   const[CFO_list, setCFOlist] = useState([]);
+  const [cfoList, setCFOlist2] = useState([]);
 
  /* useEffect(()=> {
     Axios.get("http://localhost:3001/api/get").then((response)=>{
@@ -26,6 +27,14 @@ function Browser() {
       alert("successful insert");
     });
   }
+
+
+  const getCFOdata = () => {
+    Axios.get("http://localhost:3001/browser").then((response) => {
+      setCFOlist2(response.data);
+    });
+  };
+
 
   return (
     //TODO MAKE BROWSER
@@ -53,9 +62,38 @@ function Browser() {
       <button type="reset" value="Reset">
         Reset
       </button>
-    </div>
 
-  )
-}
+    <div className="Browse CFO 2">
+    <h2>Browser 2</h2>
+    <button onClick={getCFOdata}>Show CFO Data</button>
+    {cfoList.map((val, key) => {
+      return (
+        <div className="cfo">
+          <div>
+            <h3>CFO_firstname: {val.CFO_firstname}</h3>
+            <h3>CFO_midlename: {val.CFO_midlename}</h3>
+            <h3>CFO_lastname: {val.CFO_lastname}</h3>
+            <h3>food_tag: {val.food_tag}</h3>
+            <h3>website_link: {val.website_link}</h3>
+            <h3>review_score: {val.review_score}</h3>
+            <h3>address1: {val.address1}</h3>
+            <h3>address2: {val.address2}</h3>
+            <h3>state: {val.state}</h3>
+            <h3>city: {val.city}</h3>
+            <h3>zipcode: {val.zipcode}</h3>
+            <h3>phone_number: {val.phone_number}</h3>
+            <h3>emai_address: {val.emai_address}</h3>
+          </div>
+        </div>
+      ); //end inner return
+    })}
+  </div>
+
+</div>
+
+  )//end return
+
+}//end Browser Page
+
 
 export default Browser
