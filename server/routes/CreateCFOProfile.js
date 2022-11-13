@@ -19,6 +19,22 @@ router.post("/", (req, res) => {
   const phone_number = "818-321-1234";
   const emai_address = "ghita@gmail.com";
 
+  const insertVariables = [
+    cfoFirstName,
+    cfoMidleName,
+    cfoLastName,
+    food_tag,
+    website_link,
+    review_score,
+    address1,
+    address2,
+    state,
+    city,
+    zipcode,
+    phone_number,
+    emai_address,
+  ];
+
   //Queery statement to insert CFO profile information into Database
   const sqlInsert = `Insert into BodegaDB.CFO (CFO_firstname, CFO_midlename, CFO_lastname, food_tag, website_link, review_score)
     values (?, ?, ?, ?, ?, ?);
@@ -34,32 +50,13 @@ router.post("/", (req, res) => {
     update BodegaDB.CFO
     set address_id = @tempid_address, contact_id = @tempid_contact where CFO_id = @tempid_cfo;`;
 
-  db.query(
-    sqlInsert,
-    [
-      cfoFirstName,
-      cfoMidleName,
-      cfoLastName,
-      food_tag,
-      website_link,
-      review_score,
-      address1,
-      address2,
-      state,
-      city,
-      zipcode,
-      phone_number,
-      emai_address,
-    ],
-
-    (err, resuslt) => {
-      if (err) {
-        console.log(err);
-      } else {
-        res.send("SQL Query Completed!");
-      }
+  db.query(sqlInsert, insertVariables, (err, resuslt) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.send("SQL Query Completed!");
     }
-  );
+  });
 });
 
 module.exports = router;
