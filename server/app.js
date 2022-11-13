@@ -1,20 +1,18 @@
-const config =  require('./config/app.js');
+const config = require("./config/app.js");
 const express = require("express");
-const path = require('path')
+const path = require("path");
 //Database connect function
-const dbconnect = require('./database/database_conn.js')
+const dbconnect = require("./database/database_conn.js");
 //routes
-const shopsRouter = require('./routes/shops.js');
+const shopsRouter = require("./routes/shops.js");
 //const { default: dbconnect } = require('./database/database_conn.js');
 
-var isprod = process.env.NODE_ENV === 'production'
+var isprod = process.env.NODE_ENV === "production";
 
-const startServer = async() => {
-
+const startServer = async () => {
   const app = express();
-  dbconnect();
   //Json Middleware
-  app.use(express.json())
+  app.use(express.json());
 
   //Routes Middle Ware
   app.use("/shops", shopsRouter);
@@ -24,14 +22,10 @@ const startServer = async() => {
     res.json({ message: "Updating foh docker" });
   });
 
-
   app.listen(process.env.PORT, () => {
     console.log(`Spun up on ${process.env.PORT}`);
-    if (isprod == false) console.log("running in dev mode")
+    if (isprod == false) console.log("running in dev mode");
   });
-
-
-}
+};
 
 startServer();
-  
