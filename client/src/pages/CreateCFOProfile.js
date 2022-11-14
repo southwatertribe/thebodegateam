@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./pages.css";
 import Axios from "axios";
 function CreateCFOProfile() {
@@ -7,7 +7,7 @@ function CreateCFOProfile() {
   const [cfoLastName, setCfoLastName] = useState("");
 
   const submitCFOProfile = () => {
-    Axios.post("http://localhost:3001/CreateCFOProfile", {
+    Axios.post("http://localhost:3001/CreateCFOShop", {
       cfoFirstName: cfoFirstName,
       cfoMiddleName: cfoMiddleName,
       cfoLastName: cfoLastName,
@@ -18,7 +18,7 @@ function CreateCFOProfile() {
   return (
     //CREATE CFO PROFILE PAGE
     <div className="CFOProfileForm">
-      <h2>Create CFO Profile</h2>
+      <h2>Create CFO Shop</h2>
       <label>Full Name</label>
 
       <input
