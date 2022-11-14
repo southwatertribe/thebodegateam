@@ -13,7 +13,7 @@ const startServer = async () => {
   app.use(bodyParser.urlencoded({ extended: true }));
 
   const createCFOProfileRoute = require("./routes/CreateCFOProfile");
-  app.use("/CreateCFOProfile", createCFOProfileRoute);
+  app.use("/CreateCFOShop", createCFOProfileRoute);
 
   app.listen(config.PORT, () => {
     console.log("Running on port: " + config.PORT);

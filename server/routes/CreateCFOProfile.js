@@ -1,10 +1,10 @@
-//Create CFO Profile Rounting file
-
-const db = require("../database");
+//Create CFO Shop Rounting file
 const express = require("express");
+const CfoShopDbServices = require("../database/CFOShopDbServices");
 const router = express.Router();
 
 router.post("/", (req, res) => {
+  const db = CfoShopDbServices.getCFOShopDbInstance();
   const cfoFirstName = req.body.cfoFirstName;
   const cfoMidleName = req.body.cfoMiddleName;
   const cfoLastName = req.body.cfoLastName;
@@ -34,29 +34,7 @@ router.post("/", (req, res) => {
     phone_number,
     emai_address,
   ];
-
-  //Queery statement to insert CFO profile information into Database
-  const sqlInsert = `Insert into BodegaDB.CFO (CFO_firstname, CFO_midlename, CFO_lastname, food_tag, website_link, review_score)
-    values (?, ?, ?, ?, ?, ?);
-    Select LAST_INSERT_ID() into @tempid_cfo;
-    SELECT @tempid_cfo;
-    INSERT INTO BodegaDB.Address (address1, address2, state, city, zipcode) values (?, 
-      ?, ?, ?, ?);
-    Select LAST_INSERT_ID() into @tempid_address;
-    SELECT @tempid_address;
-    INSERT INTO BodegaDB.Contact (phone_number, emai_address) values (?, ?);
-    Select LAST_INSERT_ID() into @tempid_contact;
-    SELECT @tempid_contact;
-    update BodegaDB.CFO
-    set address_id = @tempid_address, contact_id = @tempid_contact where CFO_id = @tempid_cfo;`;
-
-  db.query(sqlInsert, insertVariables, (err, resuslt) => {
-    if (err) {
-      console.log(err);
-    } else {
-      res.send("SQL Query Completed!");
-    }
-  });
+  db.insertNewCFOShop(insertVariables);
 });
 
 module.exports = router;
