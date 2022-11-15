@@ -1,5 +1,6 @@
 //This JS file handles the Connection to the Database Stored in AWS RDS
 const mysql = require("mysql2");
+const { connect } = require("../routes/shops");
 require("dotenv").config();
 
 const connection = mysql.createConnection({
@@ -10,11 +11,20 @@ const connection = mysql.createConnection({
   multipleStatements: true /* turn on multiple statements */,
 });
 
+// connection.connect(function (err) {
+//   if (err) {
+//     console.error("Database connection  failed: " + err.stack);
+//     return;
+//   }
+//   console.log("Connected to database.");
+// });
 connection.connect(function (err) {
-  if (err) {
+  try {
+    console.log("Connected to database")
+  } catch (error) {
     console.error("Database connection  failed: " + err.stack);
-    return;
+     return;
   }
-  console.log("Connected to database.");
-});
+})
+
 module.exports = connection;
