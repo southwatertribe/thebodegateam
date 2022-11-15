@@ -1,23 +1,21 @@
-const config =  require('./config/index.js');
+const config = require("./config/index.js");
+const bodyParser = require("body-parser");
+const cors = require("cors");
 const express = require("express");
 
-const startServer = async() => {
-
+const startServer = async () => {
   const app = express();
-  console.log(`NODE_ENV=${3001}`);
+  console.log(`NODE_ENV=${config.NODE_ENV}`);
   
 
   app.get("/api", (req, res) => {
-    res.json({ message: "Updating foh docker" });
+    res.json({ message: "Hey baby" });
   });
 
 
-  app.listen(3001, () => {
-    console.log(`Spun up on ${3001}`);
+  app.listen(config.PORT, () => {
+    console.log(`Spun up on ${config.PORT}`);
   });
-
-
-}
+};
 
 startServer();
-  

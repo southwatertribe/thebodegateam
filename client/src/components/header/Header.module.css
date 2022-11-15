@@ -1,17 +1,15 @@
 .navdiv {
-    display: flex;
-    background-color: hotpink;
-    
-    height: 130px;
-    align-items: stretch;
+  display: flex;
+  background-color: hotpink;
+
+  height: 130px;
+  align-items: stretch;
 }
 
-
-
 .navul {
-    display: flex;
-    list-style: none;
-    line-height: 180%;
-    text-decoration: none;
-    list-style: none;
+  display: flex;
+  list-style: none;
+  line-height: 180%;
+  text-decoration: none;
+  list-style: none;
 }
