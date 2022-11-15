@@ -2,7 +2,7 @@ const config = require("./config/app.js");
 const express = require("express");
 const path = require("path");
 //Database connect function
-const dbconnect = require("./database/database_conn.js");
+const dbconnect = require("./database/database_connection.js");
 //routes
 const shopsRouter = require("./routes/shops.js");
 //const { default: dbconnect } = require('./database/database_conn.js');

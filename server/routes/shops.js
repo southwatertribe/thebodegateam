@@ -11,7 +11,7 @@ var shops_controller = require('../controllers/shops_controller.js')
 
 //Everything below has /shop tacked on before the route
 //Get create shop
-router.post("/create", shops_controller.shops_create)
+router.get("/create", shops_controller.shops_create)
 //Post to create shop (MUST COME BEFORE SHOPS,ID)
 router.post("/create", shops_controller.shops_create)
 
