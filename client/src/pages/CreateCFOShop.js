@@ -1,23 +1,25 @@
 import React, { useState } from "react";
 import "./pages.css";
 import Axios from "axios";
-function CreateCFOProfile() {
+
+function CreateCFOShop() {
   const [cfoFirstName, setCfoFirstName] = useState("");
   const [cfoMiddleName, setCfoMiddleName] = useState("");
   const [cfoLastName, setCfoLastName] = useState("");
 
-  const submitCFOProfile = () => {
+  //Axios alert message not working properly, alert message not beeing displayed
+  const submitCFOShop = () => {
     Axios.post("http://localhost:3001/CreateCFOShop", {
       cfoFirstName: cfoFirstName,
       cfoMiddleName: cfoMiddleName,
       cfoLastName: cfoLastName,
     }).then(() => {
-      alert("Successfully added CFO profile");
+      alert("Successfully added CFO Shop");
     });
   };
   return (
     //CREATE CFO PROFILE PAGE
-    <div className="CFOProfileForm">
+    <div className="CFOShopForm">
       <h2>Create CFO Shop</h2>
       <label>Full Name</label>
 
@@ -47,7 +49,7 @@ function CreateCFOProfile() {
           setCfoLastName(e.target.value);
         }}
       />
-      <button onClick={submitCFOProfile}>Submit</button>
+      <button onClick={submitCFOShop}>Submit</button>
 
       <label>Phone Number</label>
       <input
@@ -85,4 +87,4 @@ function CreateCFOProfile() {
   );
 }
 
-export default CreateCFOProfile;
+export default CreateCFOShop;

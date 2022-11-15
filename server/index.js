@@ -12,7 +12,7 @@ const startServer = async () => {
   //Midleware
   app.use(bodyParser.urlencoded({ extended: true }));
 
-  const createCFOProfileRoute = require("./routes/CreateCFOProfile");
+  const createCFOProfileRoute = require("./routes/CreateCFOShopRoute");
   app.use("/CreateCFOShop", createCFOProfileRoute);
 
   app.listen(config.PORT, () => {
