@@ -4,9 +4,10 @@ import { Route, Routes } from "react-router-dom";
 
 import './App.css';
 //Pages
-import Browser from "./pages/Browser";
-import Welcome from "./pages/Welcome";
-import About from "./pages/About";
+import Browser from "./pages/Browser/Browser";
+import Welcome from "./pages/Welcome/Welcome";
+import About from "./pages/About/About";
+import YourShop from "./pages/Individual Shop/IndividualShop";
 import Header from "./components/header/Header";
 import Footer from "./components/botHeader/botHeader";
 
@@ -27,6 +28,7 @@ function App() {
         <Route path="/" element={<Welcome/>} /> {}
         <Route path="/browser" element={<Browser/>} />
         <Route path="/about" element={<About/>}/>
+        <Route path="/yourshop" element={<YourShop/>}/>
       </Routes>
     </>
   );
