@@ -1,26 +1,40 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styles from "./Header.module.css";
+import Cat from '../header/BodegaCat.jpg'
+
+
+
+
 
 function Header() {
   return (
-    <div className={styles.navdiv}>
-      <h1>This is Bodega</h1>
+  <div className={styles.navdiv}>
+
+      
+      <img 
+      src= {Cat}
+      alt="BodegaCat"
+      width="100" />
+      {/* <h1>This is Bodega</h1> */}
+      
       <ul className={styles.navul}>
-        <li>
+        <li className={styles.navli}>
           <Link to="/">Home-</Link>
         </li>
-        <li>
+        <li className={styles.navli} >
           <Link to="/browser">Browse Shops-</Link>
         </li>
-        <li>
+        <li className={styles.navli}>
           <Link to="/about">About-</Link>
         </li>
         <li>
           <Link to="/CreateCFOProfile">Create CFO Profile</Link>
         </li>
       </ul>
-    </div>
+        
+      
+  </div>
   );
 }
 

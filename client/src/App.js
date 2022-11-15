@@ -7,11 +7,13 @@ import Welcome from "./pages/Welcome";
 import About from "./pages/About/About";
 import Header from "./components/header/Header";
 import CreateCFOProfile from "./pages/CreateCFOProfile";
+import Footer from "./components/botHeader/botHeader";
 
 function App() {
   return (
     <div className="Initial page">
       <Header />
+      <Footer/>
       <Routes>
         <Route path="/" element={<Welcome />} /> {}
         <Route path="/browser" element={<Browser />} />
