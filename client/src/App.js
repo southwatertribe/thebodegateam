@@ -4,7 +4,7 @@ import "./App.css";
 //Pages
 import Browser from "./pages/Browser";
 import Welcome from "./pages/Welcome";
-import About from "./pages/About";
+import About from "./pages/About/About";
 import Header from "./components/header/Header";
 import CreateCFOProfile from "./pages/CreateCFOProfile";
 
