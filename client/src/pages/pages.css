@@ -1,0 +1,19 @@
+.CFOShopForm {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.CFOShopForm input {
+  width: 200px;
+  height: 30px;
+  margin: 10px;
+  font-size: 15px;
+}
+.CFOShopForm button {
+  width: 200px;
+  height: 30px;
+  margin: 5px;
+  background-color: pink;
+}
