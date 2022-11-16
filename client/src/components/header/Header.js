@@ -20,15 +20,15 @@ function Header() {
       
       <ul className={styles.navul}>
         <li className={styles.navli}>
-          <Link to="/">Home-</Link>
+          <Link to="/">Home</Link>
         </li>
         <li className={styles.navli} >
-          <Link to="/browser">Browse Shops-</Link>
+          <Link to="/browser">Browse Shops</Link>
         </li>
         <li className={styles.navli}>
-          <Link to="/about">About-</Link>
+          <Link to="/about">About</Link>
         </li>
-        <li>
+        <li className={styles.navli}>
           <Link to="/CreateCFOProfile">Create CFO Profile</Link>
         </li>
       </ul>

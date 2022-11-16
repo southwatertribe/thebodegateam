@@ -13,14 +13,17 @@ function App() {
   return (
     <div className="Initial page">
       <Header />
-      <Footer/>
       <Routes>
         <Route path="/" element={<Welcome />} /> {}
         <Route path="/browser" element={<Browser />} />
         <Route path="/about" element={<About />} />
         <Route path="/CreateCFOProfile" element={<CreateCFOProfile />} />
       </Routes>
+      <div>
+      <Footer/>
+      </div>
     </div>
+    
   );
 }
 

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import React from "react";
 import "./pages.css";
 import Axios from "axios";
 function CreateCFOProfile() {
@@ -24,7 +25,10 @@ function CreateCFOProfile() {
       <input
         type="text"
         id="cfoFirstName"
-        placeholder="First name"
+        placeholder="First name" 
+        aria-errormessage="Name should be letters only!"
+        pattern="^[A-Za-z]$"
+        require('./CreateCFOProfile.js')
         onChange={(e) => {
           setCfoFirstName(e.target.value);
         }}
