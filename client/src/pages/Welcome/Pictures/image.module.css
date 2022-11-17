@@ -1,0 +1,17 @@
+.btrightpic {
+    position:fixed;
+    right:10px;
+    bottom: 10px 
+}
+
+.toprightpic {
+    position:fixed;
+    right: 0px;
+    top: 0px 
+}
+
+.middlerightpic {
+    position:fixed;
+    right: 10px;
+    align-items: center; 
+}
