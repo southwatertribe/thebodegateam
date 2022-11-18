@@ -34,7 +34,7 @@ router.post("/", (req, res) => {
     phone_number,
     emai_address,
   ];
-  db.insertNewCFOShop(insertVariables);
+  db.createNewCFOShop(insertVariables);
   res.send("Successfully inserted");
 });
 
