@@ -15,7 +15,7 @@ class CFOShopDbServices {
       //Queery statement to insert CFO profile information into Database
       const response = await new Promise((resolve, reject) => {
         const sqlInsert = `INSERT INTO BodegaDB.CFO_Shop 
-        (CFO_Shop_Name,CFO_firstname, CFO_midlename, CFO_lastname, food_tag, website_link, review_score)
+        (CFO_Shop_Name,CFO_firstname, CFO_midlename, CFO_lastname, CFO_food_tag, CFO_website_link, CFO_review_score)
         VALUES ("Robin's pasta","John", "M", "Smith", "Wings", "www.bogusshop.com", 5);
         SELECT LAST_INSERT_ID() INTO @tempid_cfo;
         SELECT @tempid_cfo;
