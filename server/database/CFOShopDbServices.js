@@ -118,7 +118,7 @@ class CFOShopDbServices {
   // *********  Delte Functionality OF DB for CFO SHOP   ********
 
   //Function purpose to permanently delete CFO Shop information  From Database
-  //Function nor impleneted properly, still need to manage address and contact information Deletion
+  //Function not impleneted properly, still need to manage address and contact information Deletion
   async deleteCFOShop(CFOId) {
     try {
       const response = await new Promise((resolve, reject) => {
