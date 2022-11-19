@@ -8,6 +8,7 @@ router.post("/", (req, res) => {
   const cfoFirstName = req.body.cfoFirstName;
   const cfoMidleName = req.body.cfoMiddleName;
   const cfoLastName = req.body.cfoLastName;
+  const cfoShopName = "Robin's Pasta";
   const food_tag = "Burger";
   const website_link = "www.facebook.com";
   const review_score = 1;
@@ -20,6 +21,7 @@ router.post("/", (req, res) => {
   const emai_address = "ghita@gmail.com";
 
   const insertVariables = [
+    cfoShopName,
     cfoFirstName,
     cfoMidleName,
     cfoLastName,

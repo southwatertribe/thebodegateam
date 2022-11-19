@@ -1,6 +1,7 @@
-//This File is for a database File class That will mange the CRUD operations of the DB
+//class CFOShopDbServices purpose to manage all CFO Shop Database Services
 let instance = null;
 const connection = require("../database/database_connection");
+
 class CFOShopDbServices {
   static getCFOShopDbInstance() {
     return instance ? instance : new CFOShopDbServices();
@@ -13,19 +14,20 @@ class CFOShopDbServices {
     try {
       //Queery statement to insert CFO profile information into Database
       const response = await new Promise((resolve, reject) => {
-        const sqlInsert = `Insert into BodegaDB.CFO (CFO_firstname, CFO_midlename, CFO_lastname, food_tag, website_link, review_score)
-        values (?, ?, ?, ?, ?, ?);
-        Select LAST_INSERT_ID() into @tempid_cfo;
+        const sqlInsert = `INSERT INTO BodegaDB.CFO_Shop 
+        (CFO_Shop_Name,CFO_firstname, CFO_midlename, CFO_lastname, food_tag, website_link, review_score)
+        VALUES ("Robin's pasta","John", "M", "Smith", "Wings", "www.bogusshop.com", 5);
+        SELECT LAST_INSERT_ID() INTO @tempid_cfo;
         SELECT @tempid_cfo;
-        INSERT INTO BodegaDB.Address (address1, address2, state, city, zipcode) values (?, 
-          ?, ?, ?, ?);
-        Select LAST_INSERT_ID() into @tempid_address;
+        INSERT INTO BodegaDB.Address (address1, address2, state, city, zipcode) values ("9299 Hart Avenue", 
+        "Suite 109", "CA", "Northridge", "98341");
+        SELECT LAST_INSERT_ID() INTO @tempid_address;
         SELECT @tempid_address;
-        INSERT INTO BodegaDB.Contact (phone_number, emai_address) values (?, ?);
-        Select LAST_INSERT_ID() into @tempid_contact;
+        INSERT INTO BodegaDB.Contact (phone_number, emai_address) values ("818-555-1345", "csun@gmail.com");
+        SELECT LAST_INSERT_ID() INTO @tempid_contact;
         SELECT @tempid_contact;
-        update BodegaDB.CFO
-        set address_id = @tempid_address, contact_id = @tempid_contact where CFO_id = @tempid_cfo;`;
+        UPDATE BodegaDB.CFO_Shop
+        SET address_id = @tempid_address, contact_id = @tempid_contact where CFO_id = @tempid_cfo;`;
 
         connection.query(sqlInsert, CFOInsertData, (err, resuslts) => {
           if (err) reject(new Error(err.message));
@@ -48,7 +50,7 @@ class CFOShopDbServices {
   async readCFOShopAddress(CFOId) {}
 
   //Function Purpose to pull CFO shop name from the database
-  async readCFOShopName(CFOId) {}
+  async readCFOId(CFOId) {}
 
   //Function Purpose to pull CFO review information from the database
   async readCFOShopReviewScore(CFOId) {}
@@ -61,28 +63,77 @@ class CFOShopDbServices {
 
   //       *********  Update Functionality OF DB for CFO SHOP   ********
 
+  //Fucntion purpose to update the CFO Shop name
+  async updateCFOShopName(newCFOShopName, CFOId) {
+    try {
+      const response = await new Promise((resolve, reject) => {
+        const sqlUpdate =
+          "UPDATE BodegaDB.CFO_Shop SET CFO_Shop_Name = ? WHERE CFO_id = ?";
+
+        connection.query(sqlUpdate, newCFOShopName, CFOId, (err, resuslts) => {
+          if (err) reject(new Error(err.message));
+          resolve(resuslts);
+        });
+      });
+
+      if (err) reject(new Error(err.message));
+      resolve(resuslts);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   //Function Purpose to update CFO's Name in DB
-  async updateCFOName(newCFOName, CFOid) {}
+  async updateCFOName(newCFOName, CFOId) {}
 
   //Function Purpose to update CFO Adrress
-  async updateCFOAddress(newCFOAddress, CFOid) {}
+  async updateCFOAddress(newCFOAddress, CFOId) {}
 
   //Fucntion purpose to update CFO Menu
-  async updateCFOMenu(newCFOMenu, CFOid) {}
+  async updateCFOMenu(newCFOMenu, CFOId) {
+    try {
+      const response = await new Promise((resolve, reject) => {
+        const sqlUpdate =
+          "UPDATE BodegaDB.CFO_Shop SET CFO_menu = ? WHERE CFO_id = ?";
+
+        connection.query(sqlUpdate, newCFOMenu, CFOId, (err, resuslts) => {
+          if (err) reject(new Error(err.message));
+          resolve(resuslts);
+        });
+      });
+
+      if (err) reject(new Error(err.message));
+      resolve(resuslts);
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   //Fucntion purpose to update the CFO review score affter a new CFO Score is added
-  async updateCFOReviewScore(newCFOReviewScore, CFOid) {}
+  async updateCFOReviewScore(newCFOReviewScore, CFOId) {}
 
   //Fucntion purpose to update the CFO websitelink
-  async updateCFOWebsiteLink(newCFOWebsiteLink, CFOid) {}
-
-  //Fucntion purpose to update the CFO Shop name
-  async updateCFOShopName(newCFOShopName, CFOid) {}
+  async updateCFOWebsiteLink(newCFOWebsiteLink, CFOId) {}
 
   // *********  Delte Functionality OF DB for CFO SHOP   ********
 
   //Function purpose to permanently delete CFO Shop information  From Database
-  async deleteCFOShop(CFOid) {}
+  //Function nor impleneted properly, still need to manage address and contact information Deletion
+  async deleteCFOShop(CFOId) {
+    try {
+      const response = await new Promise((resolve, reject) => {
+        const sqlDelete = "DELETE FROM BodegaDB.CFO_Shop WHERE CFO_id = ?";
+
+        connection.query(sqlDelete, CFOId, (err, resuslts) => {
+          if (err) reject(new Error(err.message));
+          resolve(resuslts);
+        });
+      });
+
+      if (err) reject(new Error(err.message));
+      resolve(resuslts);
+    } catch (error) {}
+  }
 } //End of Class CFOShopDbServices
 
 module.exports = CFOShopDbServices;
