@@ -1,5 +1,6 @@
 //Create CFO Shop Rounting file
 const express = require("express");
+const app = require("../config/app");
 const CfoShopDbServices = require("../database/CFOShopDbServices");
 const router = express.Router();
 
@@ -36,7 +37,7 @@ router.post("/", (req, res) => {
     phone_number,
     emai_address,
   ];
-  db.createNewCFOShop(insertVariables);
+  const result = db.createNewCFOShop(insertVariables);
   res.send("Successfully inserted");
 });
 

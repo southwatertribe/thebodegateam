@@ -16,18 +16,13 @@ class CFOShopDbServices {
       const response = await new Promise((resolve, reject) => {
         const sqlInsert = `INSERT INTO BodegaDB.CFO_Shop 
         (CFO_Shop_Name,CFO_firstname, CFO_midlename, CFO_lastname, CFO_food_tag, CFO_website_link, CFO_review_score)
-        VALUES (?,?, ?, ?, ?, ?, ?);
-        SELECT LAST_INSERT_ID() INTO @tempid_cfo;
-        SELECT @tempid_cfo;
-        INSERT INTO BodegaDB.Address (address1, address2, state, city, zipcode) values (?, 
-          ?, ?, ?, ?);
-        SELECT LAST_INSERT_ID() INTO @tempid_address;
-        SELECT @tempid_address;
-        INSERT INTO BodegaDB.Contact (phone_number, emai_address) values (?, ?);
-        SELECT LAST_INSERT_ID() INTO @tempid_contact;
-        SELECT @tempid_contact;
-        UPDATE BodegaDB.CFO_Shop
-        SET address_id = @tempid_address, contact_id = @tempid_contact where CFO_id = @tempid_cfo;`;
+        VALUES (?, ?, ?,?, ?, ?, ?);
+        Select LAST_INSERT_ID() into @tempid_cfo;
+        INSERT INTO BodegaDB.Address (address1, address2, state, city, zipcode, CFO_Shop_id)
+        VALUES (?, ?, ?, ?, ?, @tempid_cfo); 
+        INSERT INTO BodegaDB.Contact (
+        phone_number,email_address,CFO_Shop_id)
+        VALUES (?, ?,@tempid_cfo);`;
 
         connection.query(sqlInsert, CFOInsertData, (err, resuslts) => {
           if (err) reject(new Error(err.message));
