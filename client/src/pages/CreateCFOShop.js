@@ -6,6 +6,7 @@ function CreateCFOShop() {
   const [cfoFirstName, setCfoFirstName] = useState("");
   const [cfoMiddleName, setCfoMiddleName] = useState("");
   const [cfoLastName, setCfoLastName] = useState("");
+  const [cfoList, setCFOlist2] = useState([]);
 
   //Axios alert message not working properly, alert message not beeing displayed
   const submitCFOShop = () => {
@@ -17,6 +18,15 @@ function CreateCFOShop() {
       alert("Successfully added CFO Shop");
     });
   };
+
+
+  const getCFOdata = () => {
+    Axios.get("http://localhost:3001/CreateCFOShop/GetCFOShop/:CFO_id").then((response) => {
+      setCFOlist2(response.data);
+    });
+  };
+
+
   return (
     //CREATE CFO PROFILE PAGE
     <div className="CFOShopForm">
@@ -83,8 +93,38 @@ function CreateCFOShop() {
       <button type="reset" value="Reset">
         Reset
       </button>
+
+      <div className="Browse CFO 2">
+      <h2>Browser 2</h2>
+      <button onClick={getCFOdata}>Show CFO Data</button>
+      {cfoList.map((val, key) => {
+        return (
+          <div className="cfo">
+            <div>
+              <h3>CFO_firstname: {val.CFO_firstname}</h3>
+              <h3>CFO_midlename: {val.CFO_midlename}</h3>
+              <h3>CFO_lastname: {val.CFO_lastname}</h3>
+              <h3>food_tag: {val.food_tag}</h3>
+              <h3>website_link: {val.website_link}</h3>
+              <h3>review_score: {val.review_score}</h3>
+              <h3>address1: {val.address1}</h3>
+              <h3>address2: {val.address2}</h3>
+              <h3>state: {val.state}</h3>
+              <h3>city: {val.city}</h3>
+              <h3>zipcode: {val.zipcode}</h3>
+              <h3>phone_number: {val.phone_number}</h3>
+              <h3>emai_address: {val.emai_address}</h3>
+            </div>
+          </div>
+        ); //end inner return
+      })}
+      </div>
+
+
+
+
     </div>
-  );
+  );//end return
 }
 
 export default CreateCFOShop;

@@ -53,4 +53,17 @@ router.get("/GetCFOShopName/:CFO_id", (req, res) => {
   result.catch((err) => console.log(err));
 });
 
+// ----------------- WORKING -----------------
+///Function purpose to get CFO shop information by ID
+router.get("/GetCFOShop/:CFO_id", (req, res) => {
+  const db = CfoShopDbServices.getCFOShopDbInstance();
+  const fetchCFOId = 99;
+
+
+  const result = db.readCFOShop(fetchCFOId);
+  result.then((CFOShop) => res.send(CFOShop));
+  result.catch((err) => console.log(err));
+
+});
+
 module.exports = router;

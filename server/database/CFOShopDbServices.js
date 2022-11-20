@@ -39,7 +39,30 @@ class CFOShopDbServices {
   //        *********   Read Functionality OF DB for CFO SHOP   **********
 
   //Function Purpose to pull alll CFO shop data from the database
-  async readCFOShop(CFOId) {}
+  async readCFOShop(CFOId) {
+    try {
+      //Queery statement to insert CFO profile information into Database
+      const response = await new Promise((resolve, reject) => {
+        const sqlSelect = `select CFO_Shop_Name, CFO_firstname, CFO_midlename, CFO_lastname, CFO_food_tag, CFO_website_link, CFO_review_score,
+        address1, address2, state, city, zipcode, phone_number, email_address
+        from BodegaDB.CFO_Shop
+        left join BodegaDB.Address 
+        on BodegaDB.CFO_Shop.CFO_id = BodegaDB.Address.CFO_Shop_id
+        left join BodegaDB.Contact
+        on  BodegaDB.CFO_Shop.CFO_id = BodegaDB.Contact.CFO_Shop_id
+        where CFO_id = ?;`;
+
+        connection.query(sqlSelect, CFOId, (err, resuslts) => {
+          if (err) reject(new Error(err.message));
+          resolve(resuslts);
+        });
+      });
+
+      return response;
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   //Function Purpose to pull CFO Adrress information from the database
   async readCFOShopAddress(CFOId) {}
