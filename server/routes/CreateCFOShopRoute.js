@@ -4,7 +4,7 @@ const app = require("../config/app");
 const CfoShopDbServices = require("../database/CFOShopDbServices");
 const router = express.Router();
 
-router.post("/", (req, res) => {
+router.post("/InsertCFOShop", (req, res) => {
   const db = CfoShopDbServices.getCFOShopDbInstance();
   const cfoFirstName = req.body.cfoFirstName;
   const cfoMidleName = req.body.cfoMiddleName;
@@ -38,7 +38,19 @@ router.post("/", (req, res) => {
     emai_address,
   ];
   const result = db.createNewCFOShop(insertVariables);
-  res.send("Successfully inserted");
+
+  result.then(res.send("Successfully inserted"));
+  result.catch((err) => console.log(err));
+});
+
+///Function purpose to get CFO shop information by ID
+router.get("/GetCFOShop/:id", (req, res) => {
+  const db = CfoShopDbServices.getCFOShopDbInstance();
+  const fetchCFOId = req.params.id;
+
+  const result = db.readCFOShop(fetchCFOId);
+  result.then((CFOShop) => res.json({ CFOShop: data }));
+  result.catch((err) => console.log(err));
 });
 
 module.exports = router;

@@ -9,7 +9,7 @@ function CreateCFOShop() {
 
   //Axios alert message not working properly, alert message not beeing displayed
   const submitCFOShop = () => {
-    Axios.post("http://localhost:3001/CreateCFOShop", {
+    Axios.post("http://localhost:3001/CreateCFOShop/InsertCFOShop", {
       cfoFirstName: cfoFirstName,
       cfoMiddleName: cfoMiddleName,
       cfoLastName: cfoLastName,
