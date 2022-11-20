@@ -57,6 +57,7 @@ router.get("/GetCFOShopName/:CFO_id", (req, res) => {
 ///Function purpose to get CFO shop information by ID
 router.get("/GetCFOShop/:CFO_id", (req, res) => {
   const db = CfoShopDbServices.getCFOShopDbInstance();
+  //const fetchCFOId = req.params.id;
   const fetchCFOId = 99;
 
 
