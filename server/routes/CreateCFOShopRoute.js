@@ -49,7 +49,7 @@ router.get("/GetCFOShopName/:CFO_id", (req, res) => {
   const fetchCFOId = req.params.id;
 
   const result = db.readCFOShopName(fetchCFOId);
-  result.then((CFOShopName) => res.json({ CFOShopName: data }));
+  result.then((CFOShopName) => res.json({ CFOShopName: CFOShopName }));
   result.catch((err) => console.log(err));
 });
 
