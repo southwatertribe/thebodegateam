@@ -44,12 +44,12 @@ router.post("/InsertCFOShop", (req, res) => {
 });
 
 ///Function purpose to get CFO shop information by ID
-router.get("/GetCFOShop/:id", (req, res) => {
+router.get("/GetCFOShopName/:CFO_id", (req, res) => {
   const db = CfoShopDbServices.getCFOShopDbInstance();
   const fetchCFOId = req.params.id;
 
-  const result = db.readCFOShop(fetchCFOId);
-  result.then((CFOShop) => res.json({ CFOShop: data }));
+  const result = db.readCFOShopName(fetchCFOId);
+  result.then((CFOShopName) => res.json({ CFOShopName: data }));
   result.catch((err) => console.log(err));
 });
 

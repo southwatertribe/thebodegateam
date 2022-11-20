@@ -45,7 +45,22 @@ class CFOShopDbServices {
   async readCFOShopAddress(CFOId) {}
 
   //Function Purpose to pull CFO shop name from the database
-  async readCFOId(CFOId) {}
+  async readCFOShopName(CFOId) {
+    try {
+      const response = await new Promise((resolve, reject) => {
+        const sqlRead =
+          "SELECT CFO_Shop_Name FROM BodegaDB.CFO_Shop WHERE CFO_id = ?";
+
+        connection.query(sqlRead, CFOId, (err, resuslts) => {
+          if (err) reject(new Error(err.message));
+          resolve(resuslts);
+        });
+      });
+      return response;
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   //Function Purpose to pull CFO review information from the database
   async readCFOShopReviewScore(CFOId) {}
@@ -71,8 +86,7 @@ class CFOShopDbServices {
         });
       });
 
-      if (err) reject(new Error(err.message));
-      resolve(resuslts);
+      return response;
     } catch (error) {
       console.log(error);
     }
@@ -96,9 +110,7 @@ class CFOShopDbServices {
           resolve(resuslts);
         });
       });
-
-      if (err) reject(new Error(err.message));
-      resolve(resuslts);
+      return response;
     } catch (error) {
       console.log(error);
     }
@@ -124,9 +136,7 @@ class CFOShopDbServices {
           resolve(resuslts);
         });
       });
-
-      if (err) reject(new Error(err.message));
-      resolve(resuslts);
+      return response;
     } catch (error) {}
   }
 } //End of Class CFOShopDbServices
