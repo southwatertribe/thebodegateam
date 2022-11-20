@@ -6,7 +6,7 @@ const connection = mysql.createConnection({
   user: process.env.RDS_USERNAME,
   password: process.env.RDS_PASSWORD,
   port: process.env.RDS_PORT,
-  multipleStatements: true
+  multipleStatements: true /* turn on multiple statements */,
 });
 
 connection.connect(function (err) {
@@ -16,8 +16,7 @@ connection.connect(function (err) {
   }
   console.log("Connected to database.");
 });
-
-
+module.exports = connection;
 /*
 // Script 1 Testing
   var sql1 = "UPDATE BodegaDB.CFO SET CFO_firstname = TRIM(\"    Danny      \"), CFO_midlename = \"K\", CFO_lastname = \"Rob\" WHERE CFO_id = 1;";

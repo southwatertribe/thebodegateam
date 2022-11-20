@@ -17,7 +17,7 @@ function Header() {
           <Link to="/about">About-</Link>
         </li>
         <li>
-          <Link to="/CreateCFOProfile">Create CFO Profile</Link>
+          <Link to="/CreateCFOShop">Create CFO Shop</Link>
         </li>
       </ul>
     </div>

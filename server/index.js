@@ -1,23 +1,24 @@
-const config =  require('./config/index.js');
+const config = require("./config/index.js");
 const express = require("express");
-const mysql = require("mysql2");
-const connection = require('./database');
-const bodyParser = require('body-parser')
-const cors = require('cors');
+//const mysql = require("mysql2");
+//const connection = require('./database');
+const bodyParser = require("body-parser");
+const cors = require("cors");
 
-const startServer = async() => {
-
+const startServer = async () => {
   const app = express();
   console.log(`NODE_ENV=${config.NODE_ENV}`);
-  
+
   app.use(cors());
   app.use(express.json());
-  app.use(bodyParser.urlencoded({extended: true}))
+  app.use(bodyParser.urlencoded({ extended: true }));
 
-  const CFOuserRoute = require('./routes/CFOUser')
-  app.use('/browser', CFOuserRoute)
+  const CFOuserRoute = require("./routes/CFOUser");
+  app.use("/browser", CFOuserRoute);
 
-  
+  const createCFOProfileRoute = require("./routes/CreateCFOShopRoute");
+  app.use("/CreateCFOShop/", createCFOProfileRoute);
+
   /*
   app.get("/api/get", (req, res) => {
     
@@ -58,7 +59,6 @@ const startServer = async() => {
   app.listen(config.PORT, () => {
     console.log(`Spun up on ${config.PORT}`);
   });
-}
+};
 
 startServer();
-  

@@ -6,7 +6,7 @@ import Browser from "./pages/Browser";
 import Welcome from "./pages/Welcome";
 import About from "./pages/About";
 import Header from "./components/header/Header";
-import CreateCFOProfile from "./pages/CreateCFOProfile";
+import CreateCFOShop from "./pages/CreateCFOShop";
 
 function App() {
   // const [data, setData] = React.useState(null);
@@ -24,7 +24,7 @@ function App() {
         <Route path="/" element={<Welcome />} /> {}
         <Route path="/browser" element={<Browser />} />
         <Route path="/about" element={<About />} />
-        <Route path="/CreateCFOProfile" element={<CreateCFOProfile />} />
+        <Route path="/CreateCFOShop" element={<CreateCFOShop />} />
       </Routes>
     </div>
   );
