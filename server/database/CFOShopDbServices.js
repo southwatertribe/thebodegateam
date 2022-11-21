@@ -64,16 +64,39 @@ class CFOShopDbServices {
     }
   }
 
-  //Function Purpose to pull CFO Adrress information from the database
-  async readCFOShopAddress(CFOId) {}
+  //Function Purpose to pull CFO Address information from the database
+  async readCFOShopAddress(CFOId) {
+    try {
+      //Query statement to insert CFO profile information into Database
+      const response = await new Promise((resolve, reject) => {
+        const sqlSelect = 
+        `select address1, address2, state, city, zipcode, phone_number, email_address
+        from BodegaDB.CFO_Shop
+        left join BodegaDB.Address 
+        on BodegaDB.CFO_Shop.CFO_id = BodegaDB.Address.CFO_Shop_id
+        left join BodegaDB.Contact
+        on  BodegaDB.CFO_Shop.CFO_id = BodegaDB.Contact.CFO_Shop_id
+        where CFO_id = ?;`;
+
+        connection.query(sqlSelect, CFOId, (err, resuslts) => {
+          if (err) reject(new Error(err.message));
+          resolve(resuslts);
+        });
+      });
+
+      return response;
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   //Function Purpose to pull CFO shop name from the database
   async readCFOShopName(CFOId) {
     try {
       const response = await new Promise((resolve, reject) => {
-        const sqlRead =
-          "SELECT CFO_Shop_Name FROM BodegaDB.CFO_Shop WHERE CFO_id = ?";
-
+        const sqlSelect = `select CFO_Shop_Name
+        from BodegaDB.CFO_Shop
+        where CFO_id = ?;`;
         connection.query(sqlRead, CFOId, (err, resuslts) => {
           if (err) reject(new Error(err.message));
           resolve(resuslts);
@@ -83,16 +106,73 @@ class CFOShopDbServices {
     } catch (error) {
       console.log(error);
     }
-  }
+  }//end readCFOShopName method
 
   //Function Purpose to pull CFO review information from the database
-  async readCFOShopReviewScore(CFOId) {}
+  async readCFOShopReviewScore(CFOId) {
+    try {
+      //Queery statement to insert CFO profile information into Database
+      const response = await new Promise((resolve, reject) => {
+        const sqlSelect = `select CFO_review_score
+        from BodegaDB.CFO_Shop
+        where CFO_id = ?;`;
+
+        connection.query(sqlSelect, CFOId, (err, resuslts) => {
+          if (err) reject(new Error(err.message));
+          resolve(resuslts);
+        });
+      });
+
+      return response;
+    } catch (error) {
+      console.log(error);
+    }
+
+  }//end readCFOShopReviewScore method
 
   //Fucntion purpose to pull CFO Menu from Database
-  async readCFOShopMenu(CFOId) {}
+  async readCFOShopMenu(CFOId) {
+    try {
+      //Queery statement to insert CFO profile information into Database
+      const response = await new Promise((resolve, reject) => {
+        const sqlSelect = `select CFO_menu
+        from BodegaDB.CFO_Shop
+        where CFO_id = ?;`;
+
+        connection.query(sqlSelect, CFOId, (err, resuslts) => {
+          if (err) reject(new Error(err.message));
+          resolve(resuslts);
+        });
+      });
+
+      return response;
+    } catch (error) {
+      console.log(error);
+    }
+
+  }//end readCFOShopMenu method
 
   //Fucntion purpose to pull CFO personal Website link from Database
-  async readCFOShopWebsite(CFOId) {}
+  async readCFOShopWebsite(CFOId) {
+    try {
+      //Queery statement to insert CFO profile information into Database
+      const response = await new Promise((resolve, reject) => {
+        const sqlSelect = `select CFO_website_link,
+        from BodegaDB.CFO_Shop
+        where CFO_id = ?;`;
+
+        connection.query(sqlSelect, CFOId, (err, resuslts) => {
+          if (err) reject(new Error(err.message));
+          resolve(resuslts);
+        });
+      });
+
+      return response;
+    } catch (error) {
+      console.log(error);
+    }
+
+  }
 
   //       *********  Update Functionality OF DB for CFO SHOP   ********
 
