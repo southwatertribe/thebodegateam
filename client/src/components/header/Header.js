@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Login from "../../pages/Login";
 import styles from "./Header.module.css";
 
 function Header() {
@@ -18,6 +19,9 @@ function Header() {
         </li>
         <li>
           <Link to="/CreateCFOShop">Create CFO Shop</Link>
+        </li>
+        <li>
+          <Login></Login>
         </li>
       </ul>
     </div>
