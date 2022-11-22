@@ -7,8 +7,7 @@ import Welcome from "./pages/Welcome";
 import About from "./pages/About";
 import Header from "./components/header/Header";
 import CreateCFOShop from "./pages/CreateCFOShop";
-//Auth
-import { GoogleOAuthProvider } from '@react-oauth/google';
+
 
 function App() {
   // const [data, setData] = React.useState(null);
@@ -20,8 +19,8 @@ function App() {
   // }, []);
 
   return (
-    <GoogleOAuthProvider clientId="377509215492-6qfh0l50l1cae9snbquq1tepv6to8fs3.apps.googleusercontent.com">
-        <div className="Initial page">
+    
+    <div className="Initial page">
       <Header />
       <Routes>
         <Route path="/" element={<Welcome />} /> {}
@@ -30,8 +29,6 @@ function App() {
         <Route path="/CreateCFOShop" element={<CreateCFOShop />} />
       </Routes>
     </div>
-    </GoogleOAuthProvider>
-    
   );
 }
 

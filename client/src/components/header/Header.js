@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Login from "../../pages/Login";
+import Login from "../loginButton/LoginButton";
 import styles from "./Header.module.css";
 
 function Header() {

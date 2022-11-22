@@ -6,4 +6,8 @@ class CustomerDbServices {
   static getCustomerDbServicesInstance() {
     return instance ? instance : new CustomerDbServices();
   }
+
+  async loginUser() {
+    
+  }
 }

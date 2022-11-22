@@ -19,6 +19,9 @@ const startServer = async () => {
   const createCFOProfileRoute = require("./routes/CreateCFOShopRoute");
   app.use("/CreateCFOShop/", createCFOProfileRoute);
 
+  const loginRoute = require("./routes/login")
+  app.use("/login", loginRoute)
+
   /*
   app.get("/api/get", (req, res) => {
     
