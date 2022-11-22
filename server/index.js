@@ -59,8 +59,8 @@ const startServer = async () => {
 
   */
 
-  app.listen(config.PORT, () => {
-    console.log(`Spun up on ${config.PORT}`);
+  app.listen(3001, () => {
+    console.log(`Spun up on ${3001}`);
   });
 };
 

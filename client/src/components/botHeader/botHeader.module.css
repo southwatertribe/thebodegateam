@@ -1,0 +1,11 @@
+.bfootdiv {
+    display: flex;
+    width: 100%;
+    background-color: pink;
+    position: fixed;
+    bottom: 0;
+    height: 70px;
+    justify-content: center;
+    align-items:center;
+}
+

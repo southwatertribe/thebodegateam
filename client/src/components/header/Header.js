@@ -2,19 +2,23 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Login from "../loginButton/LoginButton";
 import styles from "./Header.module.css";
+import Cat from "../header/BodegaCat.jpg";
 
 function Header() {
   return (
     <div className={styles.navdiv}>
-      <h1>This is Bodega</h1>
+      {/* Logo Input */}
+      <img src={Cat} alt="BodegaCat" width="100" />
+
+      {/* Navigator into Header*/}
       <ul className={styles.navul}>
-        <li>
+        <li className={styles.navli}>
           <Link to="/">Home-</Link>
         </li>
-        <li>
+        <li className={styles.navli}>
           <Link to="/browser">Browse Shops-</Link>
         </li>
-        <li>
+        <li className={styles.navli}>
           <Link to="/about">About-</Link>
         </li>
         <li>
@@ -22,6 +26,9 @@ function Header() {
         </li>
         <li>
           <Login></Login>
+        </li>
+        <li className={styles.navli}>
+          <Link to="/yourshop">Your Shop</Link>
         </li>
       </ul>
     </div>

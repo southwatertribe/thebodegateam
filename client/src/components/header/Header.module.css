@@ -1,8 +1,7 @@
 .navdiv {
   display: flex;
-  background-color: hotpink;
-
-  height: 130px;
+  background-color: pink;
+  height: 90px;
   align-items: stretch;
 }
 
@@ -10,6 +9,15 @@
   display: flex;
   list-style: none;
   line-height: 180%;
-  text-decoration: none;
   list-style: none;
+  text-decoration: none;
+  padding: 5px 5px;
+  justify-content: space-around;
+  margin-left: 30px;
+  align-items: center;
+}
+
+.navli {
+  padding-left: 10px;
+  padding-right: 10px;
 }
