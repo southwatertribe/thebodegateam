@@ -1,13 +1,14 @@
 import React from "react";
-import ReactDOM from "react-dom/client";
 import { Route, Routes } from "react-router-dom";
-
-import './App.css';
+import "./App.css";
 //Pages
-import Browser from "./pages/Browser";
-import Welcome from "./pages/Welcome";
-import About from "./pages/About";
+import Browser from "./pages/Browser/Browser";
+import Welcome from "./pages/Welcome/Welcome";
+import About from "./pages/About/About";
+import YourShop from "./pages/Individual Shop/IndividualShop";
 import Header from "./components/header/Header";
+import Footer from "./components/botHeader/botHeader";
+import CreateCFOShop from "./pages/CreateCFOShop";
 
 function App() {
   // const [data, setData] = React.useState(null);
@@ -19,25 +20,27 @@ function App() {
   // }, []);
 
   return (
-    <>
-      <Header/>
+    <div className="Initial page">
+      <Header />
+      <Footer />
       <Routes>
-        <Route path="/" element={<Welcome/>} /> {}
-        <Route path="/browser" element={<Browser/>} />
-        <Route path="/about" element={<About/>}/>
+        <Route path="/" element={<Welcome />} /> {}
+        <Route path="/browser" element={<Browser />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/CreateCFOShop" element={<CreateCFOShop />} />
+        <Route path="/yourshop" element={<YourShop />} />
       </Routes>
-    </>
+    </div>
   );
 }
 
 export default App;
 
-
 // <div className="App">
 //       {/* <header className="App-header">
 //         <img src={logo} className="App-logo" alt="logo" />
 //         <p>
-//         {!data ? "loading..." : data} 
+//         {!data ? "loading..." : data}
 //         </p>
 //         <a
 //           className="App-link"
