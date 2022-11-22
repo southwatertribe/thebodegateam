@@ -1,17 +1,37 @@
 import React, { useState } from "react";
-import React from "react";
 import "./pages.css";
 import Axios from "axios";
+import requirejs from "requirejs";
 function CreateCFOProfile() {
   const [cfoFirstName, setCfoFirstName] = useState("");
   const [cfoMiddleName, setCfoMiddleName] = useState("");
   const [cfoLastName, setCfoLastName] = useState("");
+  const [cfoPhoneNumber, setCfoPhoneNumber] = useState("");
+  const [cfoEmail, setCfoEmail] = useState("");
+  const [cfoFoodTag, setCfoFoodTag] = useState("");
+  const [cfoWebsite, setCfoWebsite] = useState("");
+  const [cfoStreet, setCfoStreet] = useState("");
+  const [cfoCity, setCfoCity] = useState("");
+  const [cfoState, setCfoState] = useState("");
+  const [cfoZip, setCfoZip] = useState("");
+  const [cfoCounty, setCfoCounty] = useState("");
+  const [cfoCountry, setCfoCountry] = useState("");
 
   const submitCFOProfile = () => {
     Axios.post("http://localhost:3001/CreateCFOShop", {
       cfoFirstName: cfoFirstName,
       cfoMiddleName: cfoMiddleName,
       cfoLastName: cfoLastName,
+      cfoPhoneNumber: cfoPhoneNumber,
+      cfoEmail: cfoEmail,
+      cfoFoodTag: cfoFoodTag,
+      cfoWebsite: cfoWebsite,
+      cfoStreet: cfoStreet,
+      cfoCity: cfoCity,
+      cfoState: cfoState,
+      cfoZip: cfoZip,
+      cfoCounty: cfoCounty,
+      cfoCountry: cfoCountry,
     }).then(() => {
       alert("Successfully added CFO profile");
     });
@@ -26,11 +46,14 @@ function CreateCFOProfile() {
         type="text"
         id="cfoFirstName"
         placeholder="First name" 
-        aria-errormessage="Name should be letters only!"
-        pattern="^[A-Za-z]$"
-        require('./CreateCFOProfile.js')
+        pattern="[^[A-Za-z]+$]"
+        required="true"
         onChange={(e) => {
           setCfoFirstName(e.target.value);
+          /*var input = document.getElementById("cfoFirstName");
+          if(!e.value.match("[^[A-Za-z]+$]")){
+            alert("Letters only!");
+          }*/ 
         }}
       />
 
@@ -60,25 +83,47 @@ function CreateCFOProfile() {
         name="phone"
         pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
         placeholder="123-45-678"
+        onChange={(e) => {
+          setCfoPhoneNumber(e.target.value);
+        }}
       />
       <label>Email Address</label>
-      <input type="email" id="email" placeholder="Email address" />
-      <label htmlFor="foodTag">Food Tag</label>
-      <input type="text" id="foodTag" name="FoodTag" />
+      <input type="email" id="email" placeholder="Email address" onChange={(e) => {
+          setCfoEmail(e.target.value);
+        }} />
+      <label htmlFor="foodTag" >Food Tag</label>
+      <input type="text" id="foodTag" name="FoodTag" onChange={(e) => {
+          setCfoFoodTag(e.target.value);
+        }} />
       <label htmlFor="Menu">Website</label>
-      <input type="url" id="foodTag" name="website" placeholder="link" />
+      <input type="url" id="foodTag" name="website" placeholder="link" onChange={(e) => {
+          setCfoWebsite(e.target.value);
+        }} />
       <label htmlFor=""> Address</label>
-      <input type="street" id="autocomplete" placeholder="Street" />
-      <input type="city" id="inputCity" placeholder="City" />
-      <input type="state" id="inputState" placeholder="State" />
+      <input type="street" id="autocomplete" placeholder="Street" onChange={(e) => {
+          setCfoStreet(e.target.value);
+        }}/>
+      <input type="city" id="inputCity" placeholder="City" onChange={(e) => {
+          setCfoCity(e.target.value);
+        }}/>
+      <input type="state" id="inputState" placeholder="State" onChange={(e) => {
+          setCfoState(e.target.value);
+        }} />
       <input
         type="zip"
         className="form-control"
         id="inputZip"
         placeholder="Zip"
+        onChange={(e) => {
+          setCfoZip(e.target.value);
+        }}
       />
-      <input type="county" id="inputCounty" placeholder="County" />
-      <input type="country" id="inputCountry" placeholder="Country" />
+      <input type="county" id="inputCounty" placeholder="County" onChange={(e) => {
+          setCfoCounty(e.target.value);
+        }} />
+      <input type="country" id="inputCountry" placeholder="Country" onChange={(e) => {
+          setCfoCountry(e.target.value);
+        }} />
       <label htmlFor="Menu">Upload Menu</label>
       <input type="file" id="Menu" name="File Name" accept="application/pdf" />
 
