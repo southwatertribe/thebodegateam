@@ -16,7 +16,7 @@ function Header() {
       <ul className={styles.navul}>
         <li className={styles.navli}><Link to="/">Home</Link></li>
         <li className={styles.navli}><Link to="/browser">Browse Shops</Link></li>
-        <li className={styles.navli}><Link to="/about">About</Link></li>
+        <li className={styles.navli}><Link to="/about">Support</Link></li>
         <li className={styles.navli}><Link to="/yourshop">Your Shop</Link></li>
       </ul>
   </div>
