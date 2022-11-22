@@ -15,3 +15,10 @@
     right: 10px;
     align-items: center; 
 }
+
+.weldiv {
+    display: flex;
+    background-color: pink;
+    height: 90px;
+    align-items: stretch;
+}
