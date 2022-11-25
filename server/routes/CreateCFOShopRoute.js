@@ -13,12 +13,12 @@ router.post("/InsertCFOShop", (req, res) => {
   const food_tag = "Burger";
   const website_link = "www.facebook.com";
   const review_score = 1;
-  const address1 = "5714 Kelvin Ave";
-  const address2 = "-";
-  const state = "CA";
-  const city = "Los Angeles";
+  const address1 = "5312 Jira Ave";
+  const address2 = "I love Jira";
+  const state = "JR";
+  const city = "Confluence";
   const zipcode = "91387";
-  const phone_number = "818-321-1234";
+  const phone_number = "818-123-1234";
   const emai_address = "ghita@gmail.com";
 
   const insertVariables = [
@@ -38,11 +38,13 @@ router.post("/InsertCFOShop", (req, res) => {
     emai_address,
   ];
 
+  const Adrress = [address1, address2, state, city, zipcode];
+
   console.log(cfoLastName);
   //const result = db.createNewCFOShop(insertVariables);
-  const result = db.updateCFOLastName(cfoLastName, 99);
-  db.deleteCFOShop(101);
+  //const result = db.updateCFOLastName(cfoLastName, 99);
 
+  const result = db.updateCFOAddress(Adrress, 99);
   result.then(res.send("Successfully inserted"));
   result.catch((err) => console.log(err));
 });
