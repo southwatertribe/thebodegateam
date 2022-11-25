@@ -253,8 +253,25 @@ class CFOShopDbServices {
     }
   }
 
-  //Function Purpose to update CFO Adrress
-  async updateCFOAddress(newCFOAddress, CFOId) {}
+  //Function Purpose to update CFO Adrress (COMPLETE)
+  async updateCFOAddress(newCFOAddress, CFOId) {
+    try {
+      newCFOAddress.push(CFOId);
+      const response = await new Promise((resolve, reject) => {
+        const sqlUpdate =
+          "UPDATE BodegaDB.Address SET address1 = ?, address2 = ?, state= ?, city = ?, zipcode = ?, WHERE CFO_Shop_id = ?;";
+
+        connection.query(sqlUpdate, newCFOAddress, (err, resuslts) => {
+          if (err) reject(new Error(err.message));
+          resolve(resuslts);
+        });
+      });
+
+      return response;
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   //Fucntion purpose to update CFO Menu (COMPLETE)
   async updateCFOMenu(newCFOMenu, CFOId) {
