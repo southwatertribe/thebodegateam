@@ -25,6 +25,9 @@ function Header() {
           <Link to="/CreateCFOShop">Create CFO Shop</Link>
         </li>
         <li>
+          <Link to="/CreateCustomer">Create Customer</Link>
+        </li>
+        <li>
           <Login></Login>
         </li>
         <li className={styles.navli}>

@@ -19,45 +19,12 @@ const startServer = async () => {
   const createCFOProfileRoute = require("./routes/CreateCFOShopRoute");
   app.use("/CreateCFOShop/", createCFOProfileRoute);
 
+  const createCustomerProfileRoute = require("./routes/CreateCustomerRoute");
+  app.use("/CreateCustomer/", createCustomerProfileRoute);
+
   const loginRoute = require("./routes/login")
   app.use("/login", loginRoute)
 
-  /*
-  app.get("/api/get", (req, res) => {
-    
-    const CFO_firstname = req.body.CFO_firstname;
-    const CFO_lastname = req.body.CFO_lastname;
-    
-    //res.json({ message: "Hey baby" });
-    //const sqlSelect = "INSERT INTO BodegaDB.CFO (CFO_firstname, CFO_lastname) VALUES (?, ?);";
-    const sqlSelect = "Select (CFO_firstname, CFO_lastname) from BodegaDB.CFO";
-    connection.query(sqlSelect, (err, result) => {
-      if (err){
-        console.log(err);
-      } else{
-        res.send(result)
-      }
-    });
-  });
-
-  app.post("/api/insert", (req, res) => {
-    
-    const CFO_firstname = req.body.CFO_firstname;
-    const CFO_lastname = req.body.CFO_lastname;
-    
-    //res.json({ message: "Hey baby" });
-    const sqlInsert = "INSERT INTO BodegaDB.CFO (CFO_firstname, CFO_lastname) VALUES (?, ?);";
-    //const sqlInsert = "Select (CFO_firstname, CFO_lastname) from BodegaDB.CFO where CFO_id = 1";
-    connection.query(sqlInsert, [CFO_firstname, CFO_lastname], (err, result) => {
-      if (err){
-        console.log(err);
-      } else{
-        res.send("SQL Query Completed!")
-      }
-    });
-  });
-
-  */
 
   app.listen(3001, () => {
     console.log(`Spun up on ${3001}`);

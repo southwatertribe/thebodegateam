@@ -40,7 +40,7 @@ router.post("/InsertCFOShop", (req, res) => {
 
   const Adrress = [address1, address2, state, city, zipcode];
 
-  console.log(cfoLastName);
+  //console.log(cfoLastName);
   //const result = db.createNewCFOShop(insertVariables);
   //const result = db.updateCFOLastName(cfoLastName, 99);
 
