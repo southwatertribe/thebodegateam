@@ -37,7 +37,11 @@ router.post("/InsertCFOShop", (req, res) => {
     phone_number,
     emai_address,
   ];
-  const result = db.createNewCFOShop(insertVariables);
+
+  console.log(cfoLastName);
+  //const result = db.createNewCFOShop(insertVariables);
+  const result = db.updateCFOLastName(cfoLastName, 99);
+  db.deleteCFOShop(101);
 
   result.then(res.send("Successfully inserted"));
   result.catch((err) => console.log(err));
@@ -60,11 +64,9 @@ router.get("/GetCFOShop/:CFO_id", (req, res) => {
   //const fetchCFOId = req.params.id;
   const fetchCFOId = 99;
 
-
   const result = db.readCFOShop(fetchCFOId);
   result.then((CFOShop) => res.send(CFOShop));
   result.catch((err) => console.log(err));
-
 });
 
 module.exports = router;

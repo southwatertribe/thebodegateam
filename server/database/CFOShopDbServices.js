@@ -9,7 +9,7 @@ class CFOShopDbServices {
 
   //       *********  Create Functionality OF DB for CFO SHOP   ********
 
-  //Function Purpose to insert a new CFO Shop into the database
+  //Function Purpose to insert a new CFO Shop into the database (COMPLETE)
   async createNewCFOShop(CFOInsertData) {
     try {
       //Queery statement to insert CFO profile information into Database
@@ -38,7 +38,7 @@ class CFOShopDbServices {
 
   //        *********   Read Functionality OF DB for CFO SHOP   **********
 
-  //Function Purpose to pull alll CFO shop data from the database
+  //Function Purpose to pull alll CFO shop data from the database (COMPLETE)
   async readCFOShop(CFOId) {
     try {
       //Queery statement to insert CFO profile information into Database
@@ -64,13 +64,12 @@ class CFOShopDbServices {
     }
   }
 
-  //Function Purpose to pull CFO Address information from the database
+  //Function Purpose to pull CFO Address information from the database (COMPLETE)
   async readCFOShopAddress(CFOId) {
     try {
       //Query statement to insert CFO profile information into Database
       const response = await new Promise((resolve, reject) => {
-        const sqlSelect = 
-        `select address1, address2, state, city, zipcode, phone_number, email_address
+        const sqlSelect = `select address1, address2, state, city, zipcode, phone_number, email_address
         from BodegaDB.CFO_Shop
         left join BodegaDB.Address 
         on BodegaDB.CFO_Shop.CFO_id = BodegaDB.Address.CFO_Shop_id
@@ -90,7 +89,7 @@ class CFOShopDbServices {
     }
   }
 
-  //Function Purpose to pull CFO shop name from the database
+  //Function Purpose to pull CFO shop name from the database (COMPLETE)
   async readCFOShopName(CFOId) {
     try {
       const response = await new Promise((resolve, reject) => {
@@ -106,9 +105,9 @@ class CFOShopDbServices {
     } catch (error) {
       console.log(error);
     }
-  }//end readCFOShopName method
+  } //end readCFOShopName method
 
-  //Function Purpose to pull CFO review information from the database
+  //Function Purpose to pull CFO review information from the database (COMPLETE)
   async readCFOShopReviewScore(CFOId) {
     try {
       //Queery statement to insert CFO profile information into Database
@@ -127,10 +126,9 @@ class CFOShopDbServices {
     } catch (error) {
       console.log(error);
     }
+  } //end readCFOShopReviewScore method
 
-  }//end readCFOShopReviewScore method
-
-  //Fucntion purpose to pull CFO Menu from Database
+  //Fucntion purpose to pull CFO Menu from Database (COMPLETE)
   async readCFOShopMenu(CFOId) {
     try {
       //Queery statement to insert CFO profile information into Database
@@ -149,10 +147,9 @@ class CFOShopDbServices {
     } catch (error) {
       console.log(error);
     }
+  } //end readCFOShopMenu method
 
-  }//end readCFOShopMenu method
-
-  //Fucntion purpose to pull CFO personal Website link from Database
+  //Fucntion purpose to pull CFO personal Website link from Database (COMPLETE)
   async readCFOShopWebsite(CFOId) {
     try {
       //Queery statement to insert CFO profile information into Database
@@ -171,19 +168,20 @@ class CFOShopDbServices {
     } catch (error) {
       console.log(error);
     }
-
   }
 
   //       *********  Update Functionality OF DB for CFO SHOP   ********
 
-  //Fucntion purpose to update the CFO Shop name
+  //Fucntion purpose to update the CFO Shop name (COMPLETE)
   async updateCFOShopName(newCFOShopName, CFOId) {
     try {
+      insertVariables = [newCFOShopName, CFOId];
+
       const response = await new Promise((resolve, reject) => {
         const sqlUpdate =
           "UPDATE BodegaDB.CFO_Shop SET CFO_Shop_Name = ? WHERE CFO_id = ?";
 
-        connection.query(sqlUpdate, newCFOShopName, CFOId, (err, resuslts) => {
+        connection.query(sqlUpdate, insertVariables, (err, resuslts) => {
           if (err) reject(new Error(err.message));
           resolve(resuslts);
         });
@@ -195,20 +193,79 @@ class CFOShopDbServices {
     }
   }
 
-  //Function Purpose to update CFO's Name in DB
-  async updateCFOName(newCFOName, CFOId) {}
+  //Function Purpose to update CFO's First Name in DB (COMPLETE)
+  async updateCFOFirstName(newCFOFirstName, CFOId) {
+    try {
+      const insertVariables = [newCFOFirstName, CFOId];
+      const response = await new Promise((resolve, reject) => {
+        const sqlUpdate =
+          "UPDATE BodegaDB.CFO_Shop SET CFO_firstname = ? WHERE CFO_id = ?;";
+
+        connection.query(sqlUpdate, insertVariables, (err, resuslts) => {
+          if (err) reject(new Error(err.message));
+          resolve(resuslts);
+        });
+      });
+
+      return response;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  //Function Purpose to update CFO's Middle Name in DB (COMPLETE)
+  async updateCFOMiddleName(newCFOMiddleName, CFOId) {
+    try {
+      const insertVariables = [newCFOMiddleName, CFOId];
+      const response = await new Promise((resolve, reject) => {
+        const sqlUpdate =
+          "UPDATE BodegaDB.CFO_Shop SET CFO_midlename = ? WHERE CFO_id = ?;";
+
+        connection.query(sqlUpdate, insertVariables, (err, resuslts) => {
+          if (err) reject(new Error(err.message));
+          resolve(resuslts);
+        });
+      });
+
+      return response;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  //Function Purpose to update CFO's Last Name in DB (COMPLETE)
+  async updateCFOLastName(newCFOLastName, CFOId) {
+    try {
+      const insertVariables = [newCFOLastName, CFOId];
+      const response = await new Promise((resolve, reject) => {
+        const sqlUpdate =
+          "UPDATE BodegaDB.CFO_Shop SET CFO_lastname = ? WHERE CFO_id = ?;";
+
+        connection.query(sqlUpdate, insertVariables, (err, resuslts) => {
+          if (err) reject(new Error(err.message));
+          resolve(resuslts);
+        });
+      });
+
+      return response;
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   //Function Purpose to update CFO Adrress
   async updateCFOAddress(newCFOAddress, CFOId) {}
 
-  //Fucntion purpose to update CFO Menu
+  //Fucntion purpose to update CFO Menu (COMPLETE)
   async updateCFOMenu(newCFOMenu, CFOId) {
     try {
+      const insertVariables = [newCFOMenu, CFOId];
+
       const response = await new Promise((resolve, reject) => {
         const sqlUpdate =
           "UPDATE BodegaDB.CFO_Shop SET CFO_menu = ? WHERE CFO_id = ?";
 
-        connection.query(sqlUpdate, newCFOMenu, CFOId, (err, resuslts) => {
+        connection.query(sqlUpdate, insertVariables, (err, resuslts) => {
           if (err) reject(new Error(err.message));
           resolve(resuslts);
         });
@@ -219,16 +276,49 @@ class CFOShopDbServices {
     }
   }
 
-  //Fucntion purpose to update the CFO review score affter a new CFO Score is added
-  async updateCFOReviewScore(newCFOReviewScore, CFOId) {}
+  //Fucntion purpose to update the CFO review score affter a new CFO Score is added (COMPLETE)
+  async updateCFOReviewScore(newCFOReviewScore, CFOId) {
+    try {
+      const insertVariables = [newCFOReviewScore, CFOId];
 
-  //Fucntion purpose to update the CFO websitelink
-  async updateCFOWebsiteLink(newCFOWebsiteLink, CFOId) {}
+      const response = await new Promise((resolve, reject) => {
+        const sqlUpdate =
+          "UPDATE BodegaDB.CFO_Shop SET CFO_review_score = ? WHERE CFO_id = ?";
+
+        connection.query(sqlUpdate, insertVariables, (err, resuslts) => {
+          if (err) reject(new Error(err.message));
+          resolve(resuslts);
+        });
+      });
+      return response;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  //Fucntion purpose to update the CFO websitelink (COMPLETE)
+  async updateCFOWebsiteLink(newCFOWebsiteLink, CFOId) {
+    try {
+      const insertVariables = [newCFOWebsiteLink, CFOId];
+
+      const response = await new Promise((resolve, reject) => {
+        const sqlUpdate =
+          "UPDATE BodegaDB.CFO_Shop SET CFO_website_link = ? WHERE CFO_id = ?";
+
+        connection.query(sqlUpdate, insertVariables, (err, resuslts) => {
+          if (err) reject(new Error(err.message));
+          resolve(resuslts);
+        });
+      });
+      return response;
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   // *********  Delte Functionality OF DB for CFO SHOP   ********
 
-  //Function purpose to permanently delete CFO Shop information  From Database
-  //Function not impleneted properly, still need to manage address and contact information Deletion
+  //Function purpose to permanently delete CFO Shop information  From Database (COMPLETE)
   async deleteCFOShop(CFOId) {
     try {
       const response = await new Promise((resolve, reject) => {
