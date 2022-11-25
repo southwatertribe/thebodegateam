@@ -3,10 +3,8 @@ import "./pages.css";
 import "./CreateCFOProfile.js"
 import Axios from "axios";
 
-var input = document.getElementById("cfoFirstName");
-/*input.oninvalid = function(event){
-    event.target.setCustomValidity('Names should only contain letters!')
-}*/
+/*var input = document.getElementById("cfoFirstName");
+input.oninvalid = function(event){event.target.setCustomValidity('Names should only contain letters!')}
 input.addEventListener('invalid', function(event){
     event.preventDefault();
     if ( ! event.target.validity.valid ) {
@@ -22,7 +20,7 @@ input.addEventListener('input', function(event){
         input.className = '';
         elem.style.display = 'none';
     }
-});
+});*/
 
 var isValid = true;
 try {
@@ -32,3 +30,11 @@ try {
 }
 
 if(!isValid) alert("Invalid regular expression");
+export default function validate(){
+    var fName = document.getElementById('cfoFirstName');
+    var nameRegex = /^[A-Za-z]+&/;
+    if(!nameRegex.test(fName.value)){
+        alert("Name should contain only letters!");
+        return false;
+    } else return true;
+}

@@ -1,40 +1,37 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Login from "../loginButton/LoginButton";
 import styles from "./Header.module.css";
-import Cat from '../header/BodegaCat.jpg'
-
-
-
-
+import Cat from "../header/BodegaCat.jpg";
 
 function Header() {
   return (
-  <div className={styles.navdiv}>
+    <div className={styles.navdiv}>
+      {/* Logo Input */}
+      <img src={Cat} alt="BodegaCat" width="100" />
 
-      
-      <img 
-      src= {Cat}
-      alt="BodegaCat"
-      width="100" />
-      {/* <h1>This is Bodega</h1> */}
-      
+      {/* Navigator into Header*/}
       <ul className={styles.navul}>
         <li className={styles.navli}>
-          <Link to="/">Home</Link>
-        </li>
-        <li className={styles.navli} >
-          <Link to="/browser">Browse Shops</Link>
+          <Link to="/">Home-</Link>
         </li>
         <li className={styles.navli}>
-          <Link to="/about">About</Link>
+          <Link to="/browser">Browse Shops-</Link>
         </li>
         <li className={styles.navli}>
-          <Link to="/CreateCFOProfile">Create CFO Profile</Link>
+          <Link to="/about">About-</Link>
+        </li>
+        <li>
+          <Link to="/CreateCFOShop">Create CFO Shop</Link>
+        </li>
+        <li>
+          <Login></Login>
+        </li>
+        <li className={styles.navli}>
+          <Link to="/yourshop">Your Shop</Link>
         </li>
       </ul>
-        
-      
-  </div>
+    </div>
   );
 }
 

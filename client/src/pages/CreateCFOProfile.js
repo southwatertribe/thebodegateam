@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./pages.css";
 import Axios from "axios";
+import validate from "./Validation.js"
 import requirejs from "requirejs";
 function CreateCFOProfile() {
   const [cfoFirstName, setCfoFirstName] = useState("");
@@ -42,21 +43,21 @@ function CreateCFOProfile() {
       <h2>Create CFO Shop</h2>
       <label>Full Name</label>
 
-      <input
+      <form >
+      <input 
         type="text"
         id="cfoFirstName"
         placeholder="First name" 
-        pattern="[^[A-Za-z]+$]"
+        pattern="^[A-Za-z]&"
         required="true"
+        title="Letters only!"
         onChange={(e) => {
           setCfoFirstName(e.target.value);
-          /*var input = document.getElementById("cfoFirstName");
-          if(!e.value.match("[^[A-Za-z]+$]")){
-            alert("Letters only!");
-          }*/ 
         }}
       />
+      </form>
 
+      <form >
       <input
         type="text"
         id="cfoMiddleName"
@@ -65,7 +66,9 @@ function CreateCFOProfile() {
           setCfoMiddleName(e.target.value);
         }}
       />
+      </form>
 
+      <form >
       <input
         type="text"
         id="cfoLastName"
@@ -74,6 +77,7 @@ function CreateCFOProfile() {
           setCfoLastName(e.target.value);
         }}
       />
+      </form>
       <button onClick={submitCFOProfile}>Submit</button>
 
       <label>Phone Number</label>
