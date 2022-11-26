@@ -194,9 +194,7 @@ function CreateCFOShop() {
       <input type="file" id="Menu" name="File Name" accept="application/pdf" />
       <button onClick={submitCFOShop}>Submit</button>
 
-      <button onClick={submitCFOShop}>
-        Submit
-      </button>  
+
       <button type="reset" value="Reset">
         Reset
       </button>
