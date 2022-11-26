@@ -1,23 +1,34 @@
-const config =  require('./config/index.js');
+const config = require("./config/index.js");
 const express = require("express");
+//const mysql = require("mysql2");
+//const connection = require('./database');
+const bodyParser = require("body-parser");
+const cors = require("cors");
 
-const startServer = async() => {
-
+const startServer = async () => {
   const app = express();
-  console.log(`NODE_ENV=${3001}`);
-  
+  console.log(`NODE_ENV=${config.NODE_ENV}`);
 
-  app.get("/api", (req, res) => {
-    res.json({ message: "Updating foh docker" });
-  });
+  app.use(cors());
+  app.use(express.json());
+  app.use(bodyParser.urlencoded({ extended: true }));
+
+  const CFOuserRoute = require("./routes/CFOUser");
+  app.use("/browser", CFOuserRoute);
+
+  const createCFOProfileRoute = require("./routes/CreateCFOShopRoute");
+  app.use("/CreateCFOShop/", createCFOProfileRoute);
+
+  const createCustomerProfileRoute = require("./routes/CreateCustomerRoute");
+  app.use("/CreateCustomer/", createCustomerProfileRoute);
+
+  const loginRoute = require("./routes/login")
+  app.use("/login", loginRoute)
 
 
   app.listen(3001, () => {
     console.log(`Spun up on ${3001}`);
   });
-
-
-}
+};
 
 startServer();
-  
