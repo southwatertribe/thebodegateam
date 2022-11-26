@@ -23,13 +23,13 @@ function App() {
   return (
     <>
       <Header/>
-      <Footer/>
       <Routes>
         <Route path="/" element={<Welcome/>} /> {}
         <Route path="/browser" element={<Browser/>} />
         <Route path="/about" element={<About/>}/>
         <Route path="/yourshop" element={<YourShop/>}/>
       </Routes>
+      <Footer/>
     </>
   );
 }
