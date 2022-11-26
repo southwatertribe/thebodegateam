@@ -28,9 +28,7 @@ function CreateCustomer() {
     setCustomerCity('');
     setCustomerZipcode('');
   };
-// const clearForm =()=>{
-//   document.getElementById("CustomerForm").reset();
-// }
+
   //Axios alert message not working properly, alert message not beeing displayed
   const submitCustomer = () => {
     Axios.post("http://localhost:3001/CreateCustomer/InsertCustomer", {

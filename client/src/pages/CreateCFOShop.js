@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./pages.css";
 import Axios from "axios";
 import clearForm from "./CreateCustomer.js";
+import './pages.css';
 
 function CreateCFOShop() {
   const [cfoFirstName, setCfoFirstName] = useState("");
