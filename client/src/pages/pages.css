@@ -6,12 +6,14 @@
 }
 
 .CFOShopForm input {
+  text-align: center;
   width: 200px;
   height: 30px;
   margin: 10px;
   font-size: 15px;
 }
 .CFOShopForm button {
+  text-align: center;
   width: 200px;
   height: 30px;
   margin: 5px;
@@ -26,30 +28,16 @@
 }
 
 .CustomerForm input {
+  text-align: center;
   width: 200px;
   height: 30px;
   margin: 10px;
   font-size: 15px;
 }
 .CustomerForm button {
+  text-align: center;
   width: 200px;
   height: 30px;
   margin: 5px;
   background-color: pink;
-}
-
-label {
-  padding-left: 70px;
-  margin-left: 13px;
-  margin-bottom: 20px;
-}
-
-button {
-  margin-left: 20px;
-  margin-bottom: 20px;
-
-  .errormessage {
-    color: red;
-    font-size: 14px;
-  }
 }
