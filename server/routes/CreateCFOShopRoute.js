@@ -6,20 +6,20 @@ const router = express.Router();
 
 router.post("/InsertCFOShop", (req, res) => {
   const db = CfoShopDbServices.getCFOShopDbInstance();
+  const cfoShopName = req.body.cfoShopName;
   const cfoFirstName = req.body.cfoFirstName;
   const cfoMidleName = req.body.cfoMiddleName;
   const cfoLastName = req.body.cfoLastName;
-  const cfoShopName = "Robin's Pasta";
-  const food_tag = "Burger";
-  const website_link = "www.facebook.com";
+  const food_tag = req.body.cfoFoodTag;
+  const website_link = req.body.cfoWebsite;
   const review_score = 1;
-  const address1 = "5312 Jira Ave";
-  const address2 = "I love Jira";
-  const state = "JR";
-  const city = "Confluence";
-  const zipcode = "91387";
-  const phone_number = "818-123-1234";
-  const emai_address = "ghita@gmail.com";
+  const address1 = req.body.cfoAddress1;
+  const address2 = req.body.cfoAddress1;
+  const state = req.body.cfoState;
+  const city = req.body.cfoCity;
+  const zipcode = req.body.cfoZip;
+  const phone_number = req.body.cfoPhoneNumber;
+  const emai_address = req.body.cfoEmail;
 
   const insertVariables = [
     cfoShopName,
@@ -38,9 +38,9 @@ router.post("/InsertCFOShop", (req, res) => {
     emai_address,
   ];
 
-  const Adrress = [address1, address2, state, city, zipcode];
+  //const Adrress = [address1, address2, state, city, zipcode];
 
-  //console.log(cfoLastName);
+  console.log(insertVariables);
   const result = db.createNewCFOShop(insertVariables);
   //const result = db.updateCFOLastName(cfoLastName, 99);
 
