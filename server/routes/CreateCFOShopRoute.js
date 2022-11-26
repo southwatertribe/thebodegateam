@@ -41,10 +41,10 @@ router.post("/InsertCFOShop", (req, res) => {
   const Adrress = [address1, address2, state, city, zipcode];
 
   //console.log(cfoLastName);
-  //const result = db.createNewCFOShop(insertVariables);
+  const result = db.createNewCFOShop(insertVariables);
   //const result = db.updateCFOLastName(cfoLastName, 99);
 
-  const result = db.updateCFOAddress(Adrress, 99);
+  //const result = db.updateCFOAddress(Adrress, 99);
   result.then(res.send("Successfully inserted"));
   result.catch((err) => console.log(err));
 });

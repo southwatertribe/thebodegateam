@@ -6,14 +6,31 @@ function CreateCustomer() {
   const [customerFirstName, setCustomerFirstName] = useState("");
   const [customerMiddleName, setCustomerMiddleName] = useState("");
   const [customerLastName, setCustomerLastName] = useState("");
+  const [customerPhoneNumber, setCustomerPhoneNumber] = useState("");
+  const [customerEmail, setCustomerEmail] = useState("");
+  const [customerStreet, setCustomerStreet] = useState("");
+  const [customerCity, setCustomerCity] = useState("");
+  const [customerState, setCustomerState] = useState("");
+  const [customerZipcode, setCustomerZipcode] = useState("");
   const [customerList, setCustomerlist2] = useState([]);
 
+  //Reset to clear form
+const clearForm =()=>{
+  setCustomerFirstName("")
+}
   //Axios alert message not working properly, alert message not beeing displayed
   const submitCustomer = () => {
     Axios.post("http://localhost:3001/CreateCustomer/InsertCustomer", {
       customerFirstName: customerFirstName,
       customerMiddleName: customerMiddleName,
       customerLastName: customerLastName,
+      setCustomerPhoneNumber: customerPhoneNumber,
+      setCustomerEmail: customerEmail,
+      setCustomerStreet: customerStreet,
+      setCustomerCity: customerCity,
+      setCustomerState: customerState,
+      setCustomerZipcode: customerZipcode,
+      
     }).then(() => {
       alert("Successfully added Customer");
     });
@@ -59,7 +76,7 @@ function CreateCustomer() {
           setCustomerLastName(e.target.value);
         }}
       />
-      <button onClick={submitCustomer}>Submit</button>
+      
 
       <label>Phone Number</label>
       <input
@@ -68,22 +85,45 @@ function CreateCustomer() {
         name="phone"
         pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
         placeholder="123-45-678"
+        onChange={(e) => {
+          setCustomerPhoneNumber(e.target.value);
+        }}
       />
       <label>Email Address</label>
-      <input type="email" id="email" placeholder="Email address" />
+        <input type="email" id="email" placeholder="Email address" 
+          onChange={(e) => {
+            setCustomerEmail(e.target.value);
+          }}/>
       <label htmlFor=""> Address</label>
-      <input type="street" id="autocomplete" placeholder="Street" />
-      <input type="city" id="inputCity" placeholder="City" />
-      <input type="state" id="inputState" placeholder="State" />
+      <input type="street" id="autocomplete" placeholder="Street" 
+        onChange={(e) => {
+          setCustomerStreet(e.target.value);
+        }}/>
+      <input type="city" id="inputCity" placeholder="City" 
+        onChange={(e) => {
+          setCustomerCity(e.target.value);
+        }}/>
+      <input type="state" id="inputState" placeholder="State" 
+        onChange={(e) => {
+          setCustomerState(e.target.value);
+        }}/>
       <input
         type="zip"
         className="form-control"
         id="inputZip"
         placeholder="Zip"
+        onChange={(e) => {
+          setCustomerZipcode(e.target.value);
+        }}
       />
-      <button type="reset" value="Reset">
-        Reset
+
+      <button 
+      onClick={submitCustomer}>Submit
       </button>
+      {/* <input type="button"
+      value="click here to clear"
+      onclick="document.getElementById('inputText').value = '' "/> */}
+      <button danger onClick={clearForm}>Reset</button>
 
       <div className="Browse Customer 2">
       <h2>Browser 2</h2>
