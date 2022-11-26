@@ -55,183 +55,142 @@ function CreateCFOShop() {
       <form onReset={clearForm}>
         <h2>Create CFO Shop</h2>
         <label>Full Name</label>
+        <input
+          type="text"
+          id="cfoShopName"
+          placeholder="CFO Shop Name"
+          pattern="^[A-Za-z]&"
+          required="true"
+          title="Letters only!"
+          onChange={(e) => {
+            setCfoShopName(e.target.value);
+          }}
+        />
+        <input
+          type="text"
+          id="cfoFirstName"
+          placeholder="First name"
+          pattern="^[A-Za-z]&"
+          required="true"
+          title="Letters only!"
+          onChange={(e) => {
+            setCfoFirstName(e.target.value);
+          }}
+        />
+        <input
+          type="text"
+          id="cfoMiddleName"
+          placeholder="Middle name"
+          onChange={(e) => {
+            setCfoMiddleName(e.target.value);
+          }}
+        />
+        <input
+          type="text"
+          id="cfoLastName"
+          placeholder="Last name"
+          onChange={(e) => {
+            setCfoLastName(e.target.value);
+          }}
+        />
+        <label>Phone Number</label>
+        <input
+          type="tel"
+          id="cfoPhoneNumber"
+          pattern="[0-9]{3}-[0-9]{2}-[0-9]{4}"
+          placeholder="123-45-6789"
+          onChange={(e) => {
+            setCfoPhoneNumber(e.target.value);
+          }}
+        />
+        <label>Email Address</label>
+        <input
+          type="email"
+          id="cfoEmail"
+          placeholder="Email address"
+          onChange={(e) => {
+            setCfoEmail(e.target.value);
+          }}
+        />
+        <label htmlFor="foodTag">Food Tag</label>
+        <input
+          type="text"
+          id="cfoFoodTag"
+          name="FoodTag"
+          onChange={(e) => {
+            setCfoFoodTag(e.target.value);
+          }}
+        />
+        <label htmlFor="Website">Website</label>
+        <input
+          type="url"
+          id="setCfoWebsite"
+          name="website"
+          placeholder="link"
+          onChange={(e) => {
+            setCfoWebsite(e.target.value);
+          }}
+        />
+        <label htmlFor=""> Address 1</label>
+        <input
+          type="address1"
+          id="cfoAddress1"
+          placeholder="address1"
+          onChange={(e) => {
+            setCfoAddress1(e.target.value);
+          }}
+        />
+        <label htmlFor=""> Address 2</label>
+        <input
+          type="address2"
+          id="cfoAddress2"
+          placeholder="address2"
+          onChange={(e) => {
+            setCfoAddress2(e.target.value);
+          }}
+        />
 
-        <form>
-          <input
-            type="text"
-            id="cfoShopName"
-            placeholder="CFO Shop Name"
-            pattern="^[A-Za-z]&"
-            required="true"
-            title="Letters only!"
-            onChange={(e) => {
-              setCfoShopName(e.target.value);
-            }}
-          />
-        </form>
+        <input
+          type="city"
+          id="cfoCity"
+          placeholder="City"
+          onChange={(e) => {
+            setCfoCity(e.target.value);
+          }}
+        />
 
-        <form>
-          <input
-            type="text"
-            id="cfoFirstName"
-            placeholder="First name"
-            pattern="^[A-Za-z]&"
-            required="true"
-            title="Letters only!"
-            onChange={(e) => {
-              setCfoFirstName(e.target.value);
-            }}
-          />
-        </form>
+        <input
+          type="state"
+          id="cfoState"
+          placeholder="State"
+          onChange={(e) => {
+            setCfoState(e.target.value);
+          }}
+        />
 
-        <form>
-          <input
-            type="text"
-            id="cfoMiddleName"
-            placeholder="Middle name"
-            onChange={(e) => {
-              setCfoMiddleName(e.target.value);
-            }}
-          />
-        </form>
+        <input
+          type="zip"
+          className="form-control"
+          id="cfoZip"
+          placeholder="Zip"
+          onChange={(e) => {
+            setCfoZip(e.target.value);
+          }}
+        />
 
-        <form>
-          <input
-            type="text"
-            id="cfoLastName"
-            placeholder="Last name"
-            onChange={(e) => {
-              setCfoLastName(e.target.value);
-            }}
-          />
-        </form>
+        <label htmlFor="Menu">Upload Menu</label>
+        <input
+          type="file"
+          id="Menu"
+          name="File Name"
+          accept="application/pdf"
+        />
 
-        <form>
-          <label>Phone Number</label>
+        <button onClick={submitCFOShop}>Submit</button>
 
-          <input
-            type="tel"
-            id="cfoPhoneNumber"
-            pattern="[0-9]{3}-[0-9]{2}-[0-9]{4}"
-            placeholder="123-45-6789"
-            onChange={(e) => {
-              setCfoPhoneNumber(e.target.value);
-            }}
-          />
-        </form>
-
-        <form>
-          <label>Email Address</label>
-          <input
-            type="email"
-            id="cfoEmail"
-            placeholder="Email address"
-            onChange={(e) => {
-              setCfoEmail(e.target.value);
-            }}
-          />
-        </form>
-
-        <form>
-          <label htmlFor="foodTag">Food Tag</label>
-          <input
-            type="text"
-            id="cfoFoodTag"
-            name="FoodTag"
-            onChange={(e) => {
-              setCfoFoodTag(e.target.value);
-            }}
-          />
-        </form>
-
-        <form>
-          <label htmlFor="Website">Website</label>
-          <input
-            type="url"
-            id="setCfoWebsite"
-            name="website"
-            placeholder="link"
-            onChange={(e) => {
-              setCfoWebsite(e.target.value);
-            }}
-          />
-        </form>
-        <form>
-          <label htmlFor=""> Address 1</label>
-          <input
-            type="address1"
-            id="cfoAddress1"
-            placeholder="address1"
-            onChange={(e) => {
-              setCfoAddress1(e.target.value);
-            }}
-          />
-        </form>
-
-        <form>
-          <label htmlFor=""> Address 2</label>
-          <input
-            type="address2"
-            id="cfoAddress2"
-            placeholder="address2"
-            onChange={(e) => {
-              setCfoAddress2(e.target.value);
-            }}
-          />
-        </form>
-
-        <form>
-          <input
-            type="city"
-            id="cfoCity"
-            placeholder="City"
-            onChange={(e) => {
-              setCfoCity(e.target.value);
-            }}
-          />
-        </form>
-
-        <form>
-          <input
-            type="state"
-            id="cfoState"
-            placeholder="State"
-            onChange={(e) => {
-              setCfoState(e.target.value);
-            }}
-          />
-        </form>
-
-        <form>
-          <input
-            type="zip"
-            className="form-control"
-            id="cfoZip"
-            placeholder="Zip"
-            onChange={(e) => {
-              setCfoZip(e.target.value);
-            }}
-          />
-        </form>
-
-        <form>
-          <label htmlFor="Menu">Upload Menu</label>
-          <input
-            type="file"
-            id="Menu"
-            name="File Name"
-            accept="application/pdf"
-          />
-        </form>
-
-        <form>
-          <button onClick={submitCFOShop}>Submit</button>
-        </form>
-        <form>
-          <button type="reset" value="Reset">
-            Reset
-          </button>
-        </form>
+        <button type="reset" value="Reset">
+          Reset
+        </button>
 
         <div className="Browse CFO 2">
           <h2>Browser 2</h2>
