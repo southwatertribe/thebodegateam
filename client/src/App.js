@@ -7,19 +7,12 @@ import Welcome from "./pages/Welcome/Welcome";
 import About from "./pages/About/About";
 import YourShop from "./pages/Individual Shop/IndividualShop";
 import Header from "./components/header/Header";
+import CreateCFOProfile from "./pages/CreateCFOProfile";
 import Footer from "./components/botHeader/botHeader";
 import CreateCFOShop from "./pages/CreateCFOShop";
 import CreateCustomer from "./pages/CreateCustomer";
 
 function App() {
-  // const [data, setData] = React.useState(null);
-
-  // React.useEffect(() => {
-  //   fetch("/api")
-  //     .then((res) => res.json())
-  //     .then((data) => setData(data.message));
-  // }, []);
-
   return (
     <div className="Initial page">
       <Header />
@@ -32,26 +25,12 @@ function App() {
         <Route path="/CreateCustomer" element={<CreateCustomer />} />
         <Route path="/yourshop" element={<YourShop />} />
       </Routes>
+      <div>
+      <Footer/>
+      </div>
     </div>
+    
   );
 }
 
 export default App;
-
-// <div className="App">
-//       {/* <header className="App-header">
-//         <img src={logo} className="App-logo" alt="logo" />
-//         <p>
-//         {!data ? "loading..." : data}
-//         </p>
-//         <a
-//           className="App-link"
-//           href="https://reactjs.org"
-//           target="_blank"
-//           rel="noopener noreferrer"
-//         >
-//           Learn React
-//         </a>
-//       </header> */}
-//       <Header/>
-//     </div>
