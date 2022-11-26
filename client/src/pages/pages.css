@@ -38,3 +38,15 @@
   margin: 5px;
   background-color: pink;
 }
+
+label {
+  padding: 20px;
+  margin-left: 13px;
+  margin-bottom: 20px;
+}
+
+button {
+  margin-left: 20px;
+  margin-bottom: 20px;
+  
+}

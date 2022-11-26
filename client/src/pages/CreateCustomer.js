@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./pages.css";
 import Axios from "axios";
+import './pages.css';
 
 function CreateCustomer() {
   const [customerFirstName, setCustomerFirstName] = useState("");
@@ -15,9 +16,21 @@ function CreateCustomer() {
   const [customerList, setCustomerlist2] = useState([]);
 
   //Reset to clear form
-const clearForm =()=>{
-  setCustomerFirstName("")
-}
+  const clearForm = () => {
+    //clear all input values in the form
+    setCustomerFirstName('');
+    setCustomerLastName('');
+    setCustomerMiddleName('');
+    setCustomerPhoneNumber('');
+    setCustomerEmail('');
+    setCustomerState('');
+    setCustomerStreet('');
+    setCustomerCity('');
+    setCustomerZipcode('');
+  };
+// const clearForm =()=>{
+//   document.getElementById("CustomerForm").reset();
+// }
   //Axios alert message not working properly, alert message not beeing displayed
   const submitCustomer = () => {
     Axios.post("http://localhost:3001/CreateCustomer/InsertCustomer", {
@@ -47,6 +60,7 @@ const clearForm =()=>{
   return (
     //CREATE Customer PROFILE PAGE
     <div className="CustomerForm">
+      <form onReset={clearForm}>
       <h2>Create Customer</h2>
       <label>Full Name</label>
 
@@ -59,7 +73,7 @@ const clearForm =()=>{
         }}
       />
 
-      <input
+      <input 
         type="text"
         id="customerMiddleName"
         placeholder="Middle name"
@@ -89,7 +103,7 @@ const clearForm =()=>{
           setCustomerPhoneNumber(e.target.value);
         }}
       />
-      <label>Email Address</label>
+      <label>Email</label>
         <input type="email" id="email" placeholder="Email address" 
           onChange={(e) => {
             setCustomerEmail(e.target.value);
@@ -117,13 +131,12 @@ const clearForm =()=>{
         }}
       />
 
-      <button 
-      onClick={submitCustomer}>Submit
+      <button onClick={submitCustomer}>
+        Submit
       </button>
-      {/* <input type="button"
-      value="click here to clear"
-      onclick="document.getElementById('inputText').value = '' "/> */}
-      <button danger onClick={clearForm}>Reset</button>
+      <button type="reset" onClick={clearForm}>
+        Reset
+        </button> 
 
       <div className="Browse Customer 2">
       <h2>Browser 2</h2>
@@ -150,7 +163,7 @@ const clearForm =()=>{
 
 
 
-
+      </form>
     </div>
   );//end return
 }
