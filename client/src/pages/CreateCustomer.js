@@ -7,12 +7,13 @@ function CreateCustomer() {
   const [customerFirstName, setCustomerFirstName] = useState("");
   const [customerMiddleName, setCustomerMiddleName] = useState("");
   const [customerLastName, setCustomerLastName] = useState("");
-  const [customerPhoneNumber, setCustomerPhoneNumber] = useState("");
-  const [customerEmail, setCustomerEmail] = useState("");
-  const [customerStreet, setCustomerStreet] = useState("");
+  const [customerAddress1, setCustomerAddress1] = useState("");
+  const [customerAddress2, setCustomerAddress2] = useState("");
   const [customerCity, setCustomerCity] = useState("");
   const [customerState, setCustomerState] = useState("");
   const [customerZipcode, setCustomerZipcode] = useState("");
+  const [customerPhoneNumber, setCustomerPhoneNumber] = useState("");
+  const [customerEmail, setCustomerEmail] = useState("");
   const [customerList, setCustomerlist2] = useState([]);
 
   //Reset to clear form
@@ -21,12 +22,13 @@ function CreateCustomer() {
     setCustomerFirstName('');
     setCustomerLastName('');
     setCustomerMiddleName('');
+    setCustomerAddress1('');
+    setCustomerAddress2('');
+    setCustomerCity('');
+    setCustomerState('');
+    setCustomerZipcode('');
     setCustomerPhoneNumber('');
     setCustomerEmail('');
-    setCustomerState('');
-    setCustomerStreet('');
-    setCustomerCity('');
-    setCustomerZipcode('');
   };
 
   //Axios alert message not working properly, alert message not beeing displayed
@@ -35,12 +37,13 @@ function CreateCustomer() {
       customerFirstName: customerFirstName,
       customerMiddleName: customerMiddleName,
       customerLastName: customerLastName,
-      setCustomerPhoneNumber: customerPhoneNumber,
-      setCustomerEmail: customerEmail,
-      setCustomerStreet: customerStreet,
-      setCustomerCity: customerCity,
-      setCustomerState: customerState,
-      setCustomerZipcode: customerZipcode,
+      customerAddress1: customerAddress1,
+      customerAddress2: customerAddress2,
+      customerCity: customerCity,
+      customerState: customerState,
+      customerZipcode: customerZipcode,
+      customerPhoneNumber: customerPhoneNumber,
+      customerEmail: customerEmail,
       
     }).then(() => {
       alert("Successfully added Customer");
@@ -93,36 +96,40 @@ function CreateCustomer() {
       <label>Phone Number</label>
       <input
         type="tel"
-        id="phone"
+        id="customerPhoneNumber"
         name="phone"
-        pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
-        placeholder="123-45-678"
+        pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+        placeholder="123-456-6789"
         onChange={(e) => {
           setCustomerPhoneNumber(e.target.value);
         }}
       />
       <label>Email</label>
-        <input type="email" id="email" placeholder="Email address" 
+        <input type="email" id="customerEmail" placeholder="Email address" 
           onChange={(e) => {
             setCustomerEmail(e.target.value);
           }}/>
       <label htmlFor=""> Address</label>
-      <input type="street" id="autocomplete" placeholder="Street" 
+      <input type="address1" id="customerAddress1" placeholder="address1" 
         onChange={(e) => {
-          setCustomerStreet(e.target.value);
+          setCustomerAddress1(e.target.value);
         }}/>
-      <input type="city" id="inputCity" placeholder="City" 
+      <input type="address2" id="customerAddress2" placeholder="address2" 
+        onChange={(e) => {
+          setCustomerAddress2(e.target.value);
+        }}/>
+      <input type="city" id="customerCity" placeholder="City" 
         onChange={(e) => {
           setCustomerCity(e.target.value);
         }}/>
-      <input type="state" id="inputState" placeholder="State" 
+      <input type="state" id="customerState" placeholder="State" 
         onChange={(e) => {
           setCustomerState(e.target.value);
         }}/>
       <input
         type="zip"
         className="form-control"
-        id="inputZip"
+        id="customerZipcode"
         placeholder="Zip"
         onChange={(e) => {
           setCustomerZipcode(e.target.value);
@@ -132,6 +139,7 @@ function CreateCustomer() {
       <button onClick={submitCustomer}>
         Submit
       </button>
+
       <button type="reset" onClick={clearForm}>
         Reset
         </button> 
