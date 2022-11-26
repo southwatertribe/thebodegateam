@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import "./pages.css";
 import Axios from "axios";
-import './pages.css';
 
 function CreateCustomer() {
   const [customerFirstName, setCustomerFirstName] = useState("");
@@ -50,38 +49,41 @@ function CreateCustomer() {
     });
   };
 
-
   const getCustomerdata = () => {
-    Axios.get("http://localhost:3001/CreateCustomer/GetCustomer/:customer_id").then((response) => {
+    Axios.get(
+      "http://localhost:3001/CreateCustomer/GetCustomer/:customer_id"
+    ).then((response) => {
       setCustomerlist2(response.data);
     });
   };
-
 
   return (
     //CREATE Customer PROFILE PAGE
     <div className="CustomerForm">
       <form onReset={clearForm}>
-      <h2>Create Customer</h2>
-      <label>Full Name</label>
+        <h2>Create Customer</h2>
+        <label>Full Name</label>
+        <form>
+          <input
+            type="text"
+            id="customerFirstName"
+            placeholder="First name"
+            onChange={(e) => {
+              setCustomerFirstName(e.target.value);
+            }}
+          />
+        </form>
 
-      <input
-        type="text"
-        id="customerFirstName"
-        placeholder="First name"
-        onChange={(e) => {
-          setCustomerFirstName(e.target.value);
-        }}
-      />
-
-      <input 
-        type="text"
-        id="customerMiddleName"
-        placeholder="Middle name"
-        onChange={(e) => {
-          setCustomerMiddleName(e.target.value);
-        }}
-      />
+        <form>
+          <input
+            type="text"
+            id="customerMiddleName"
+            placeholder="Middle name"
+            onChange={(e) => {
+              setCustomerMiddleName(e.target.value);
+            }}
+          />
+        </form>
 
       <input
         type="text"
@@ -144,34 +146,31 @@ function CreateCustomer() {
         Reset
         </button> 
 
-      <div className="Browse Customer 2">
-      <h2>Browser 2</h2>
-      <button onClick={getCustomerdata}>Show Customer Data</button>
-      {customerList.map((val, key) => {
-        return (
-          <div className="customer">
-            <div>
-              <h3>customer_firstname: {val.customer_firstname}</h3>
-              <h3>customer_midlename: {val.customer_midlename}</h3>
-              <h3>customer_lastname: {val.customer_lastname}</h3>
-              <h3>address1: {val.address1}</h3>
-              <h3>address2: {val.address2}</h3>
-              <h3>state: {val.state}</h3>
-              <h3>city: {val.city}</h3>
-              <h3>zipcode: {val.zipcode}</h3>
-              <h3>phone_number: {val.phone_number}</h3>
-              <h3>emai_address: {val.emai_address}</h3>
-            </div>
-          </div>
-        ); //end inner return
-      })}
-      </div>
-
-
-
+        <div className="Browse Customer 2">
+          <h2>Browser 2</h2>
+          <button onClick={getCustomerdata}>Show Customer Data</button>
+          {customerList.map((val, key) => {
+            return (
+              <div className="customer">
+                <div>
+                  <h3>customer_firstname: {val.customer_firstname}</h3>
+                  <h3>customer_midlename: {val.customer_midlename}</h3>
+                  <h3>customer_lastname: {val.customer_lastname}</h3>
+                  <h3>address1: {val.address1}</h3>
+                  <h3>address2: {val.address2}</h3>
+                  <h3>state: {val.state}</h3>
+                  <h3>city: {val.city}</h3>
+                  <h3>zipcode: {val.zipcode}</h3>
+                  <h3>phone_number: {val.phone_number}</h3>
+                  <h3>emai_address: {val.emai_address}</h3>
+                </div>
+              </div>
+            ); //end inner return
+          })}
+        </div>
       </form>
     </div>
-  );//end return
+  ); //end return
 }
 
 export default CreateCustomer;
