@@ -20,6 +20,7 @@ function CreateCFOShop() {
   const [cfoZip, setCfoZip] = useState("");
   const [cfoList, setCFOlist2] = useState([]);
 
+
   //Axios alert message not working properly, alert message not beeing displayed
   const submitCFOShop = () => {
     Axios.post("http://localhost:3001/CreateCFOShop/InsertCFOShop", {
@@ -55,7 +56,7 @@ function CreateCFOShop() {
       <form onReset={clearForm}>
       <h2>Create CFO Shop</h2>
       <label>Full Name</label>
-
+      
       <form>
         <input
           type="text"
@@ -226,8 +227,11 @@ function CreateCFOShop() {
       })}
       </div>
 
+      </form>
+
     </div>
-  );//end return
+
+  );//end
 }
 
 export default CreateCFOShop;
