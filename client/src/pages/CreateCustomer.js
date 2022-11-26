@@ -63,7 +63,6 @@ function CreateCustomer() {
       <form onReset={clearForm}>
         <h2>Create Customer</h2>
         <label>Full Name</label>
-        <form>
           <input
             type="text"
             id="customerFirstName"
@@ -72,9 +71,7 @@ function CreateCustomer() {
               setCustomerFirstName(e.target.value);
             }}
           />
-        </form>
 
-        <form>
           <input
             type="text"
             id="customerMiddleName"
@@ -83,7 +80,6 @@ function CreateCustomer() {
               setCustomerMiddleName(e.target.value);
             }}
           />
-        </form>
 
       <input
         type="text"
