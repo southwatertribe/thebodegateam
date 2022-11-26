@@ -38,7 +38,18 @@
   background-color: pink;
 }
 
-.errormessage {
-  color: red;
-  font-size: 14px;
+label {
+  padding-left: 70px;
+  margin-left: 13px;
+  margin-bottom: 20px;
+}
+
+button {
+  margin-left: 20px;
+  margin-bottom: 20px;
+
+  .errormessage {
+    color: red;
+    font-size: 14px;
+  }
 }

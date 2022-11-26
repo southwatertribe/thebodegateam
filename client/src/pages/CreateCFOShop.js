@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import "./pages.css";
 import Axios from "axios";
+import clearForm from "./CreateCustomer.js";
+import './pages.css';
 
 function CreateCFOShop() {
   const [cfoFirstName, setCfoFirstName] = useState("");
@@ -30,6 +32,7 @@ function CreateCFOShop() {
   return (
     //CREATE CFO PROFILE PAGE
     <div className="CFOShopForm">
+      <form onReset={clearForm}>
       <h2>Create CFO Shop</h2>
       <label>Full Name</label>
 
@@ -59,7 +62,7 @@ function CreateCFOShop() {
           setCfoLastName(e.target.value);
         }}
       />
-      <button onClick={submitCFOShop}>Submit</button>
+      
 
       <label>Phone Number</label>
       <input
@@ -90,6 +93,9 @@ function CreateCFOShop() {
       <label htmlFor="Menu">Upload Menu</label>
       <input type="file" id="Menu" name="File Name" accept="application/pdf" />
 
+      <button onClick={submitCFOShop}>
+        Submit
+      </button>  
       <button type="reset" value="Reset">
         Reset
       </button>
@@ -123,6 +129,7 @@ function CreateCFOShop() {
 
 
 
+      </form>
     </div>
   );//end return
 }
