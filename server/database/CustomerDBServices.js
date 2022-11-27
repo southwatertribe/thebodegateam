@@ -6,7 +6,7 @@ class CustomerDbServices {
   static getCustomerDbInstance() {
     return instance ? instance : new CustomerDbServices();
   }
-//       *********  Create Functionality OF DB for Customer   ********
+  //       *********  Create Functionality OF DB for Customer   ********
 
   //Function Purpose to insert a new Customer into the database (COMPLETE)
   async createNewCustomer(CustomerInsertData) {
@@ -105,7 +105,6 @@ class CustomerDbServices {
       console.log(error);
     }
   } //end readCustomerName method
-
 
   //Function Purpose to update Customer's First Name in DB (COMPLETE)
   async updateCustomerFirstName(newCustomerFirstName, CustomerId) {
@@ -206,4 +205,3 @@ class CustomerDbServices {
 } //End of Class CustomerDbServices
 
 module.exports = CustomerDbServices;
-
