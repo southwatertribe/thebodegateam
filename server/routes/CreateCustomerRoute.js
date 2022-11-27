@@ -41,7 +41,7 @@ router.post("/InsertCustomer", (req, res) => {
 });
 
 ///Function purpose to get Customer information by ID
-router.get("/GetCustomerName/:customer_id", (req, res) => {
+router.get("/GetCustomerName", (req, res) => {
   const db = CustomerDbServices.getCustomerDbInstance();
   const fetchCustomerId = req.params.id;
 
@@ -52,12 +52,13 @@ router.get("/GetCustomerName/:customer_id", (req, res) => {
 
 // ----------------- WORKING -----------------
 ///Function purpose to get Customer information by ID
-router.get("/GetCustomer/:customer_id", (req, res) => {
+router.get("/GetCustomer", (req, res) => {
   const db = CustomerDbServices.getCustomerDbInstance();
   //const fetchCustomerId = req.params.id;
-  const fetchCustomerId = 99;
+  const fetchCustomerId = 9;
 
   const result = db.readCustomer(fetchCustomerId);
+  result.then((val) => console.log(val));
   result.then((Customer) => res.send(Customer));
   result.catch((err) => console.log(err));
 });

@@ -8,7 +8,7 @@ router.post("/InsertCFOShop", (req, res) => {
   const db = CfoShopDbServices.getCFOShopDbInstance();
   const cfoShopName = req.body.cfoShopName;
   const cfoFirstName = req.body.cfoFirstName;
-  const cfoMidleName = req.body.cfoMiddleName;
+  const cfoMiddleName = req.body.cfoMiddleName;
   const cfoLastName = req.body.cfoLastName;
   const food_tag = req.body.cfoFoodTag;
   const website_link = req.body.cfoWebsite;
@@ -24,7 +24,7 @@ router.post("/InsertCFOShop", (req, res) => {
   const insertVariables = [
     cfoShopName,
     cfoFirstName,
-    cfoMidleName,
+    cfoMiddleName,
     cfoLastName,
     food_tag,
     website_link,
@@ -50,7 +50,7 @@ router.post("/InsertCFOShop", (req, res) => {
 });
 
 ///Function purpose to get CFO shop information by ID
-router.get("/GetCFOShopName/:CFO_id", (req, res) => {
+router.get("/GetCFOShopName", (req, res) => {
   const db = CfoShopDbServices.getCFOShopDbInstance();
   const fetchCFOId = req.params.id;
 
@@ -61,12 +61,13 @@ router.get("/GetCFOShopName/:CFO_id", (req, res) => {
 
 // ----------------- WORKING -----------------
 ///Function purpose to get CFO shop information by ID
-router.get("/GetCFOShop/:CFO_id", (req, res) => {
+router.get("/GetCFOShop", (req, res) => {
   const db = CfoShopDbServices.getCFOShopDbInstance();
   //const fetchCFOId = req.params.id;
-  const fetchCFOId = 99;
+  const fetchCFOId = 118;
 
   const result = db.readCFOShop(fetchCFOId);
+  result.then((val) => console.log(val));
   result.then((CFOShop) => res.send(CFOShop));
   result.catch((err) => console.log(err));
 });

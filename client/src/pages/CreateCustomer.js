@@ -51,8 +51,10 @@ function CreateCustomer() {
 
   const getCustomerdata = () => {
     Axios.get(
-      "http://localhost:3001/CreateCustomer/GetCustomer/:customer_id"
-    ).then((response) => {
+      "http://localhost:3001/CreateCustomer/GetCustomer").then((response) => {
+        console.log(response, "response only");
+        console.log(response.data,  "response.data only");
+        console.log(response.customerFirstName, "response.firstname only");
       setCustomerlist2(response.data);
     });
   };
@@ -142,6 +144,8 @@ function CreateCustomer() {
         Reset
         </button> 
 
+        </form>
+
         <div className="Browse Customer 2">
           <h2>Browser 2</h2>
           <button onClick={getCustomerdata}>Show Customer Data</button>
@@ -149,22 +153,21 @@ function CreateCustomer() {
             return (
               <div className="customer">
                 <div>
-                  <h3>customer_firstname: {val.customer_firstname}</h3>
-                  <h3>customer_midlename: {val.customer_midlename}</h3>
-                  <h3>customer_lastname: {val.customer_lastname}</h3>
-                  <h3>address1: {val.address1}</h3>
-                  <h3>address2: {val.address2}</h3>
-                  <h3>state: {val.state}</h3>
-                  <h3>city: {val.city}</h3>
-                  <h3>zipcode: {val.zipcode}</h3>
-                  <h3>phone_number: {val.phone_number}</h3>
-                  <h3>emai_address: {val.emai_address}</h3>
+                  <h3>customerFirstName: {val.customer_firstname}</h3>
+                  <h3>customerMiddleName: {val.customer_midlename}</h3>
+                  <h3>customerLastName: {val.customer_lastname}</h3>
+                  <h3>customerAddress1: {val.address1}</h3>
+                  <h3>customerAddress2: {val.address2}</h3>
+                  <h3>customerState: {val.state}</h3>
+                  <h3>customerCity: {val.city}</h3>
+                  <h3>customerZipcode: {val.zipcode}</h3>
+                  <h3>customerPhoneNumber: {val.phone_number}</h3>
+                  <h3>customerEmail: {val.email_address}</h3>
                 </div>
               </div>
             ); //end inner return
           })}
         </div>
-      </form>
     </div>
   ); //end return
 }

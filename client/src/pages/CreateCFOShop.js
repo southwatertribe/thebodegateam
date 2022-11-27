@@ -41,7 +41,7 @@ function CreateCFOShop() {
   };
 
   const getCFOdata = () => {
-    Axios.get("http://localhost:3001/CreateCFOShop/GetCFOShop/:CFO_id").then(
+    Axios.get("http://localhost:3001/CreateCFOShop/GetCFOShop").then(
       (response) => {
         setCFOlist2(response.data);
       }
@@ -192,6 +192,7 @@ function CreateCFOShop() {
           Reset
         </button>
 
+        </form>
         <div className="Browse CFO 2">
           <h2>Browser 2</h2>
           <button onClick={getCFOdata}>Show CFO Data</button>
@@ -217,7 +218,7 @@ function CreateCFOShop() {
             ); //end inner return
           })}
         </div>
-      </form>
+
     </div>
   ); //end
 }
