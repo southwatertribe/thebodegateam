@@ -7,32 +7,30 @@ const router = express.Router();
 router.post("/InsertCustomer", (req, res) => {
   const db = CustomerDbServices.getCustomerDbInstance();
   const customerFirstName = req.body.customerFirstName;
-  const customerMidleName = req.body.customerMiddleName;
+  const customerMiddleName = req.body.customerMiddleName;
   const customerLastName = req.body.customerLastName;
-  const address1 = "5312 Jira Ave";
-  const address2 = "I love Jira";
-  const state = "JR";
-  const city = "Confluence";
-  const zipcode = "91387";
-  const phone_number = "818-123-1234";
-  const emai_address = "ghita@gmail.com";
+  const customerAddress1 = req.body.customerAddress1;
+  const customerAddress2 = req.body.customerAddress2;
+  const customerCity = req.body.customerCity;
+  const customerState = req.body.customerState;
+  const customerZipcode = req.body.customerZipcode;
+  const customerPhoneNumber = req.body.customerPhoneNumber;
+  const customerEmail = req.body.customerEmail;
 
   const insertVariables = [
     customerFirstName,
-    customerMidleName,
+    customerMiddleName,
     customerLastName,
-    address1,
-    address2,
-    state,
-    city,
-    zipcode,
-    phone_number,
-    emai_address,
+    customerAddress1,
+    customerAddress2,
+    customerCity,
+    customerState,
+    customerZipcode,
+    customerPhoneNumber,
+    customerEmail,
   ];
 
-  //const Adrress = [address1, address2, state, city, zipcode];
-
-  console.log(customerFirstName);
+  console.log(insertVariables);
   const result = db.createNewCustomer(insertVariables);
   //const result = db.updateCustomerLastName(customerLastName, 99);
 
@@ -42,7 +40,7 @@ router.post("/InsertCustomer", (req, res) => {
 });
 
 ///Function purpose to get Customer information by ID
-router.get("/GetCustomerName/:customer_id", (req, res) => {
+router.get("/GetCustomerName", (req, res) => {
   const db = CustomerDbServices.getCustomerDbInstance();
   const fetchCustomerId = req.params.id;
 
@@ -53,12 +51,13 @@ router.get("/GetCustomerName/:customer_id", (req, res) => {
 
 // ----------------- WORKING -----------------
 ///Function purpose to get Customer information by ID
-router.get("/GetCustomer/:customer_id", (req, res) => {
+router.get("/GetCustomer", (req, res) => {
   const db = CustomerDbServices.getCustomerDbInstance();
   //const fetchCustomerId = req.params.id;
-  const fetchCustomerId = 99;
+  const fetchCustomerId = 9;
 
   const result = db.readCustomer(fetchCustomerId);
+  //result.then((val) => console.log(val));
   result.then((Customer) => res.send(Customer));
   result.catch((err) => console.log(err));
 });

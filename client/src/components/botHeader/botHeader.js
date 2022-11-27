@@ -4,7 +4,7 @@ import React from "react"
 
 export default function Footer() {
     return (
-        <footer className={styles.bfootdiv}>
+        <footer id='main-footer' className={styles.bfootdiv}>
             <div class="copyright">
                 Copyright &copy; 2022, Bodega 
             </div>

@@ -1,8 +1,11 @@
-import React from "react";
+import React from 'react'
+import Message from '../components/message/message'
 
 export default function Welcome() {
   return (
     //MAIN WELCOME PAGE
-    <div>Welcome</div>
-  );
+    <div>
+      <Message/>
+    </div>
+  )
 }

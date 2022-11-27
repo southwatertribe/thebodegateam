@@ -38,22 +38,29 @@ class CFOShopDbServices {
   }
 
   //        *********   Read Functionality OF DB for CFO SHOP   **********
-
-  //Get all shops
+  //Function Purpose to pull all CFO shops from the database (COMPLETE)
   async readAllCFOShops() {
     try {
+      //Queery statement to insert CFO profile information into Database
       const response = await new Promise((resolve, reject) => {
-        const sqlSelect = `select * from CFO_Shop;`;
-        connection.query(sqlSelect, (err, results) => {
+        const sqlSelect = `SELECT CFO_Shop_Name, CFO_firstname, CFO_midlename, CFO_lastname, CFO_food_tag, CFO_website_link, CFO_review_score,
+        address1, address2, state, city, zipcode, phone_number, email_address
+        FROM BodegaDB.CFO_Shop 
+         INNER JOIN Address ON CFO_Shop.CFO_id = Address.CFO_Shop_Id 
+         INNER JOIN Contact ON CFO_Shop.CFO_id = Contact.CFO_Shop_id;`;
+
+        connection.query(sqlSelect, CFOId, (err, resuslts) => {
           if (err) reject(new Error(err.message));
-          resolve(results);
+          resolve(resuslts);
         });
-      })
-      return response;      
+      });
+
+      return response;
     } catch (error) {
-      
+      console.log(error);
     }
   }
+
 
 
   //Function Purpose to pull alll CFO shop data from the database
