@@ -17,3 +17,24 @@
   margin: 5px;
   background-color: pink;
 }
+
+
+.CustomerForm {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.CustomerForm input {
+  width: 200px;
+  height: 30px;
+  margin: 10px;
+  font-size: 15px;
+}
+.CustomerForm button {
+  width: 200px;
+  height: 30px;
+  margin: 5px;
+  background-color: pink;
+}
