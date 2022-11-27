@@ -14,7 +14,7 @@ router.post("/InsertCFOShop", (req, res) => {
   const website_link = req.body.cfoWebsite;
   const review_score = 1;
   const address1 = req.body.cfoAddress1;
-  const address2 = req.body.cfoAddress1;
+  const address2 = req.body.cfoAddress2;
   const state = req.body.cfoState;
   const city = req.body.cfoCity;
   const zipcode = req.body.cfoZip;
@@ -64,7 +64,7 @@ router.get("/GetCFOShopName", (req, res) => {
 router.get("/GetCFOShop", (req, res) => {
   const db = CfoShopDbServices.getCFOShopDbInstance();
   //const fetchCFOId = req.params.id;
-  const fetchCFOId = 128;
+  const fetchCFOId = 130;
 
   const result = db.readCFOShop(fetchCFOId);
   //result.then((val) => console.log(val));
