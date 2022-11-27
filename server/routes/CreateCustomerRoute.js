@@ -30,7 +30,6 @@ router.post("/InsertCustomer", (req, res) => {
     customerEmail,
   ];
 
-
   console.log(insertVariables);
   const result = db.createNewCustomer(insertVariables);
   //const result = db.updateCustomerLastName(customerLastName, 99);
@@ -58,7 +57,7 @@ router.get("/GetCustomer", (req, res) => {
   const fetchCustomerId = 9;
 
   const result = db.readCustomer(fetchCustomerId);
-  result.then((val) => console.log(val));
+  //result.then((val) => console.log(val));
   result.then((Customer) => res.send(Customer));
   result.catch((err) => console.log(err));
 });

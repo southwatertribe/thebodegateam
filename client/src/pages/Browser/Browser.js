@@ -4,7 +4,6 @@ import Axios from "axios";
 
 function Browser() {
   const [cfoList, setCFOlist2] = useState([]);
-
   const getCFOdata = () => {
     Axios.get("http://localhost:3001/CreateCFOShop/GetCFOShop").then(
       (response) => {
@@ -13,6 +12,7 @@ function Browser() {
     );
   };
 
+  // Return statemnt should retur cards of CFO so the User can browse
   return (
     <div className="Browse CFO 2">
       <h2>Browse For CFO's</h2>
