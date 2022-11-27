@@ -11,6 +11,8 @@ import Footer from "./components/botHeader/botHeader";
 import CreateCFOShop from "./pages/CreateCFOShop";
 import CreateCustomer from "./pages/CreateCustomer";
 
+//COMMENT TO SEE IF I FIXED MY GITHUB ISSUE
+
 function App() {
   // const [data, setData] = React.useState(null);
 
