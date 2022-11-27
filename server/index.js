@@ -13,11 +13,13 @@ const startServer = async () => {
   app.use(express.json());
   app.use(bodyParser.urlencoded({ extended: true }));
 
+ 
+
   const CFOuserRoute = require("./routes/CFOUser");
   app.use("/browser", CFOuserRoute);
 
-  const createCFOProfileRoute = require("./routes/CreateCFOShopRoute");
-  app.use("/CreateCFOShop/", createCFOProfileRoute);
+  const CFOShopRoute = require("./routes/CFOShop");
+  app.use("/CFOShop/", CFOShopRoute);
 
   const loginRoute = require("./routes/login")
   app.use("/login", loginRoute)

@@ -43,6 +43,15 @@ router.post("/InsertCFOShop", (req, res) => {
   result.catch((err) => console.log(err));
 });
 
+//Get all shops
+router.get("/getShops", (req,res) => {
+  const db = CfoShopDbServices.getCFOShopDbInstance;
+  const result = db.readCFOShop();
+  result.then((CFOShop) => res.json({CFOShop: CFOShop}));
+  result.catch((err) => console.log(err));
+  console.log("someone hit this route TEST PASSED")
+})
+
 ///Function purpose to get CFO shop information by ID
 router.get("/GetCFOShopName/:CFO_id", (req, res) => {
   const db = CfoShopDbServices.getCFOShopDbInstance();

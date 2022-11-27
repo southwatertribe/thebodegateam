@@ -32,12 +32,28 @@ class CFOShopDbServices {
 
       return response;
     } catch (error) {
+      console.log("we hit but..")
       console.log(error);
     }
   }
 
   //        *********   Read Functionality OF DB for CFO SHOP   **********
 
+  //Get all shops
+  async readAllCFOShops() {
+    try {
+      const response = await new Promise((resolve, reject) => {
+        const sqlSelect = `select * from CFO_Shop;`;
+        connection.query(sqlSelect, (err, results) => {
+          if (err) reject(new Error(err.message));
+          resolve(results);
+        });
+      })
+      return response;      
+    } catch (error) {
+      
+    }
+  }
   //Function Purpose to pull alll CFO shop data from the database
   async readCFOShop(CFOId) {
     try {
