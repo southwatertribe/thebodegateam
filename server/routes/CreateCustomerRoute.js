@@ -54,7 +54,7 @@ router.get("/GetCustomerName", (req, res) => {
 router.get("/GetCustomer", (req, res) => {
   const db = CustomerDbServices.getCustomerDbInstance();
   //const fetchCustomerId = req.params.id;
-  const fetchCustomerId = 9;
+  const fetchCustomerId = 29;
 
   const result = db.readCustomer(fetchCustomerId);
   //result.then((val) => console.log(val));
