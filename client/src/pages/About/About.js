@@ -3,9 +3,11 @@ import "./About.css";
 import AboutMessage from "./AboutMessage";
 import Aboutmessage from "./AboutMsg";
 
+import ShopCard from "../../components/shopcard/ShopCard";
 function About() {
   return (
     //Make an about page
+    
     <div>
       <head>
         <title>
