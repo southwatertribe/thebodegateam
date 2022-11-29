@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./pages.css";
 import Axios from "axios";
-import validate from "./Validation.js"
+import valTest from "./Validation.js"
 import requirejs from "requirejs";
 function CreateCFOProfile() {
   const [cfoFirstName, setCfoFirstName] = useState("");
@@ -43,12 +43,12 @@ function CreateCFOProfile() {
       <h2>Create CFO Shop</h2>
       <label>Full Name</label>
 
-      <form >
+      <form>
       <input 
         type="text"
         id="cfoFirstName"
         placeholder="First name" 
-        pattern="^[A-Za-z]&"
+        pattern="/^[A-Za-z]+&/"
         required="true"
         title="Letters only!"
         onChange={(e) => {
@@ -56,6 +56,17 @@ function CreateCFOProfile() {
         }}
       />
       </form>
+      {/* <script>{
+        function test(){
+          const fName = document.getElementById('cfoFirstName');
+          const nameRegex = new RegExp(/^[A-Za-z]+&/);
+          fName.addEventListener('input', function (event){
+          if(!nameRegex.test(fName.value)){
+            alert("Name should only contain letters");
+            return false;
+          } else return true;
+        })}};
+      </script> */}
 
       <form >
       <input
