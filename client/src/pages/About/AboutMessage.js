@@ -1,5 +1,5 @@
 import React from "react";
-import './About.css';
+import './about.module.css';
 
 export default function AboutMessage(){
     return(

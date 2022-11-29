@@ -17,7 +17,6 @@ function App() {
   return (
     <div className="Initial page">
       <Header />
-      <Footer />
       <Routes>
         <Route path="/" element={<Welcome />} /> {}
         <Route path="/browser" element={<Browser />} />
