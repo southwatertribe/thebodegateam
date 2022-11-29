@@ -43,7 +43,7 @@ describe("Testing  CFOShopDBService Functions", function () {
     db.createNewCFOShop(CFOInsertData);
     const result = db.readCFOShop(130);
     //console.log(result);
-    result.then((CFOShop) => console.log(CFOShop));
-    //assert.equal(result, "pizza");
+    result.then((CFOShop) => res.send(CFOShop));
+    assert.equal(result2, CFOInsertData);
   }); //End It for Test Case 1
 }); // Description
