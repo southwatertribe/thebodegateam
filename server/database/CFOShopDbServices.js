@@ -295,6 +295,25 @@ class CFOShopDbServices {
     }
   }
 
+  //Function Purpose to update CFO Adrress (COMPLETE)
+  async updateCFOContactInformation(newCFOContactInformation, CFOId) {
+    try {
+      newCFOContactInformation.push(CFOId);
+      const response = await new Promise((resolve, reject) => {
+        const sqlUpdate =
+          "UPDATE BodegaDB.Contact SET phone_number = ? , email_address = ? WHERE CFO_Shop_id = 128;";
+
+        connection.query(sqlUpdate, newCFOAddress, (err, resuslts) => {
+          if (err) reject(new Error(err.message));
+          resolve(resuslts);
+        });
+      });
+
+      return response;
+    } catch (error) {
+      console.log(error);
+    }
+  }
   //Fucntion purpose to update CFO Menu (COMPLETE)
   async updateCFOMenu(newCFOMenu, CFOId) {
     try {

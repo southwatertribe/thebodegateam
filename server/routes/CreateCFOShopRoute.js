@@ -65,11 +65,10 @@ router.get("/GetCFOShopName", (req, res) => {
 router.get("/GetCFOShop", (req, res) => {
   const db = CfoShopDbServices.getCFOShopDbInstance();
   //const fetchCFOId = req.params.id;
-  const fetchCFOId = 130;
+  const fetchCFOId = 154;
 
   const result = db.readCFOShop(fetchCFOId);
-  //result.then((val) => console.log(val));
-
+  result.then((CFOShop) => res.send(CFOShop));
   result.catch((err) => console.log(err));
 });
 
