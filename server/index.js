@@ -1,7 +1,6 @@
 const config = require("./config/index.js");
 const express = require("express");
-//const mysql = require("mysql2");
-//const connection = require('./database');
+const fileUpload = require("express-fileupload");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 
@@ -12,6 +11,7 @@ const startServer = async () => {
   app.use(cors());
   app.use(express.json());
   app.use(bodyParser.urlencoded({ extended: true }));
+  app.use(fileUpload());
 
   const CFOuserRoute = require("./routes/CFOUser");
   app.use("/browser", CFOuserRoute);
@@ -22,9 +22,8 @@ const startServer = async () => {
   const createCustomerProfileRoute = require("./routes/CreateCustomerRoute");
   app.use("/CreateCustomer/", createCustomerProfileRoute);
 
-  const loginRoute = require("./routes/login")
-  app.use("/login", loginRoute)
-
+  const loginRoute = require("./routes/login");
+  app.use("/login", loginRoute);
 
   app.listen(3001, () => {
     console.log(`Spun up on ${3001}`);

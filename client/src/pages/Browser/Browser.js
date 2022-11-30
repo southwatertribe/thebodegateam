@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
+import { Document, Page } from "@react-pdf/renderer";
 import "../pages.css";
 import Axios from "axios";
 
 function Browser() {
   const [cfoList, setCFOlist2] = useState([]);
   const getCFOdata = () => {
-    Axios.get("http://localhost:3001/CreateCFOShop/GetCFOShop").then(
+    Axios.get("http://localhost:3001/CreateCFOShop/GetCFOShop/").then(
       (response) => {
         setCFOlist2(response.data);
       }
