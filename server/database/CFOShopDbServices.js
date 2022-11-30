@@ -301,7 +301,7 @@ class CFOShopDbServices {
       newCFOContactInformation.push(CFOId);
       const response = await new Promise((resolve, reject) => {
         const sqlUpdate =
-          "UPDATE BodegaDB.Contact SET phone_number = ? , email_address = ? WHERE CFO_Shop_id = 128;";
+          "UPDATE BodegaDB.Contact SET phone_number = ? , email_address = ? WHERE CFO_Shop_id = ?;";
 
         connection.query(sqlUpdate, newCFOAddress, (err, resuslts) => {
           if (err) reject(new Error(err.message));
