@@ -1,0 +1,6 @@
+.imagegrid {
+    display:inline-flex;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 5vw);
+    grid-gap: 15px;
+}

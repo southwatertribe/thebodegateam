@@ -1,10 +1,10 @@
-.aboutdiv {
+.supdiv {
     font-size: x-large;
     font-style: italic;
     border: 5px solid black;
+    margin-top: 50px;
     margin-left: 250px;
     margin-right: 250px;
-    margin-bottom: 50px;
     background-color: pink;
     text-align: center;
     display: flex;
@@ -12,14 +12,10 @@
     align-items: center;
 }
 
-a{
+a {
     font-size: large;
     text-align: center;
     display: block;
     margin-top: 30px;
     margin-bottom: 30px;
- } 
-
-
-
- 
+}
