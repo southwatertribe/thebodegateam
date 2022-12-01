@@ -18,9 +18,6 @@ function Header() {
         <li className={styles.navli}>
           <Link to="/browser">Browse Shops</Link>
         </li>
-        <li className={styles.navli}>
-          <Link to="/about">About</Link>
-        </li>
         <li className={styles.navli}> 
           <Link to="/createCFOShop">Create CFO Shop</Link>
         </li>

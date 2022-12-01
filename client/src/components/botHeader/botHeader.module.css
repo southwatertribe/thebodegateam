@@ -3,8 +3,8 @@
     flex-direction: column;
     width: 100%;
     background-color: pink;
-    position:absolute;
-    bottom:auto;
+    position: relative;
+    bottom: 0px;
     min-height: 70px;
     justify-content: center;
     align-items:center;

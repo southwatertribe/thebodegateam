@@ -1,10 +1,11 @@
 .mdiv {
-    font-size: large;
+    font-size: medium;
+    font-style: italic;
     border: 5px solid black;
-    margin: 30px 1000px 300px 10px;
     background-color: pink;
-    padding-right: 10px;
+    align-items: center;
+    margin: 10px 50px 100px 10px;
     padding-left: 10px;
     padding-top: 10px;
-    padding-bottom: 10px;
+    padding-bottom: 10px;  
 }

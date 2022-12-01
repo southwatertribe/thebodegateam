@@ -1,16 +1,15 @@
 .aboutdiv {
-    font-size: x-large;
+    font-size: medium;
     font-style: italic;
     border: 5px solid black;
-    margin-left: 250px;
-    margin-right: 250px;
-    margin-bottom: 50px;
     background-color: pink;
-    text-align: center;
-    display: flex;
-    justify-content: center;
     align-items: center;
+    margin: 10px 50px 100px 10px;
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px; 
 }
+
 
 a{
     font-size: large;

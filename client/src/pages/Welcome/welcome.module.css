@@ -1,6 +1,20 @@
+.firstMsg {
+    width: 50%;
+    float: left;
+    margin-bottom: 20px;
+}
+
+.secondMsg {
+    width: 50%;
+    float: right;
+    margin-bottom: 20px;
+}
+
 .imagegrid {
-    display:inline-flex;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 5vw);
-    grid-gap: 15px;
+    display: flex;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    margin-left: 10px;
+    margin-right: 10px;
+
 }

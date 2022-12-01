@@ -4,7 +4,6 @@ import "./App.css";
 //Pages
 import Browser from "./pages/Browser/Browser";
 import Welcome from "./pages/Welcome/Welcome";
-import About from "./pages/About/About";
 import YourShop from "./pages/Individual Shop/IndividualShop";
 import Header from "./components/header/Header";
 import Footer from "./components/botHeader/botHeader";
@@ -21,7 +20,6 @@ function App() {
       <Routes>
         <Route path="/" element={<Welcome />} /> {}
         <Route path="/browser" element={<Browser />} />
-        <Route path="/about" element={<About />} />
         <Route path="/CreateCFOShop" element={<CreateCFOShop />} />
         <Route path="/CreateCustomer" element={<CreateCustomer />} />
         <Route path="/yourshop" element={<YourShop />} />
@@ -30,6 +28,7 @@ function App() {
       <div>
       <Footer/>
       </div>
+      
     </div>
     
   );

@@ -5,24 +5,31 @@ import Img2 from '../Welcome/Pictures/Image2.jpg';
 import Img3 from '../Welcome/Pictures/Image 3.jpg';
 import Img4 from '../Welcome/Pictures/Image 4.jpg';
 import AboutMessage from '../About/AboutMessage';
-import './welcome.module.css';
+import style from './welcome.module.css';
+
 
 
 export default function Welcome() {
   return (
     //MAIN WELCOME PAGE
-    <div class="imagegrid">
+    <div>
+    <div class={style.imagegrid}>
       
        <img src= {Img1} align = "right" alt='honey'
-        width="220" height="200"/>
+        width="370" height="200"/>
       <img src= {Img2} align="right" alt='market'
-        width="220" height="200"/>
+        width="370" height="200"/>
       <img src= {Img3} align="right" alt='chef'
-        width="220" height="200"/>  
+        width="370" height="200"/>  
       <img src= {Img4} align="right" alt='transaction'
-        width="220" height="200"/>  
+        width="370" height="200"/>  
+    </div>
+        <div class={style.firstMsg}>
         <Message/>
+        </div>
+        <div class={style.secondMsg}>
         <AboutMessage/>
+        </div>
     </div>
     
   )
