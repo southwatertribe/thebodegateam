@@ -12,11 +12,11 @@ function CreateCFOShop() {
   const [cfoEmail, setCfoEmail] = useState("");
   const [cfoFoodTag, setCfoFoodTag] = useState("");
   const [cfoWebsite, setCfoWebsite] = useState("");
+  const [cfoMenu, setCfoMenu] = useState([]);
   const [cfoAddress1, setCfoAddress1] = useState("");
   const [cfoAddress2, setCfoAddress2] = useState("");
   const [cfoCity, setCfoCity] = useState("");
   const [cfoState, setCfoState] = useState("");
-  const [cfoMenu, setCfoMenu] = useState("");
   const [cfoZip, setCfoZip] = useState("");
   const [cfoList, setCFOlist2] = useState([]);
 
@@ -31,12 +31,12 @@ function CreateCFOShop() {
       cfoEmail: cfoEmail,
       cfoFoodTag: cfoFoodTag,
       cfoWebsite: cfoWebsite,
+      cfoMenu: cfoMenu,
       cfoAddress1: cfoAddress1,
       cfoAddress2: cfoAddress2,
       cfoCity: cfoCity,
       cfoState: cfoState,
       cfoZip: cfoZip,
-      cfoMenu: cfoMenu,
     }).then(() => {
       alert("Successfully added CFO Shop");
     });
@@ -186,11 +186,13 @@ function CreateCFOShop() {
         <label htmlFor="Menu">Upload Menu</label>
         <input
           type="file"
-          id="Menu"
+          id="cfoMenu"
           name="File Name"
           accept="application/pdf"
           onChange={(e) => {
-            setCfoMenu(e.target.value);
+            console.log('cfoMenu: ', cfoMenu);
+            setCfoMenu(e.target.files[0]);
+            //console.log(e.target.files[0], "Testing")
           }}
         />
 
