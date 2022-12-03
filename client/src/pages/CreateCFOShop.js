@@ -16,6 +16,7 @@ function CreateCFOShop() {
   const [cfoAddress2, setCfoAddress2] = useState("");
   const [cfoCity, setCfoCity] = useState("");
   const [cfoState, setCfoState] = useState("");
+  const [cfoMenu, setCfoMenu] = useState("");
   const [cfoZip, setCfoZip] = useState("");
   const [cfoList, setCFOlist2] = useState([]);
 
@@ -35,6 +36,7 @@ function CreateCFOShop() {
       cfoCity: cfoCity,
       cfoState: cfoState,
       cfoZip: cfoZip,
+      cfoMenu: cfoMenu,
     }).then(() => {
       alert("Successfully added CFO Shop");
     });
@@ -54,12 +56,11 @@ function CreateCFOShop() {
     <div className="CFOShopForm">
       <form onReset={clearForm}>
         <h2>Create CFO Shop</h2>
-        <label>Full Name</label>
+        <label>CFO Shop Name</label>
         <input
           type="text"
           id="cfoShopName"
           placeholder="CFO Shop Name"
-          pattern="^[A-Za-z]&"
           required="true"
           title="Letters only!"
           onChange={(e) => {
@@ -70,7 +71,7 @@ function CreateCFOShop() {
           type="text"
           id="cfoFirstName"
           placeholder="First name"
-          pattern="^[A-Za-z]&"
+          pattern="^[a-zA-Z]+$"
           required="true"
           title="Letters only!"
           onChange={(e) => {
@@ -80,6 +81,8 @@ function CreateCFOShop() {
         <input
           type="text"
           id="cfoMiddleName"
+          pattern="^[a-zA-Z]+$"
+          title="Letters only!"
           placeholder="Middle name"
           onChange={(e) => {
             setCfoMiddleName(e.target.value);
@@ -88,6 +91,9 @@ function CreateCFOShop() {
         <input
           type="text"
           id="cfoLastName"
+          pattern="^[a-zA-Z]+$"
+          required="true"
+          title="Letters only!"
           placeholder="Last name"
           onChange={(e) => {
             setCfoLastName(e.target.value);
@@ -97,7 +103,6 @@ function CreateCFOShop() {
         <input
           type="tel"
           id="cfoPhoneNumber"
-          pattern="[0-9]{3}-[0-9]{2}-[0-9]{4}"
           placeholder="123-45-6789"
           onChange={(e) => {
             setCfoPhoneNumber(e.target.value);
@@ -184,6 +189,9 @@ function CreateCFOShop() {
           id="Menu"
           name="File Name"
           accept="application/pdf"
+          onChange={(e) => {
+            setCfoMenu(e.target.value);
+          }}
         />
 
         <button onClick={submitCFOShop}>Submit</button>

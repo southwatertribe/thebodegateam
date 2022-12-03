@@ -10,6 +10,7 @@ router.post("/InsertCFOShop", (req, res) => {
   const cfoFirstName = req.body.cfoFirstName;
   const cfoMiddleName = req.body.cfoMiddleName;
   const cfoLastName = req.body.cfoLastName;
+  const cfoMenu = req.body.cfoMenu;
   const food_tag = req.body.cfoFoodTag;
   const website_link = req.body.cfoWebsite;
   const review_score = 1;
@@ -26,6 +27,7 @@ router.post("/InsertCFOShop", (req, res) => {
     cfoFirstName,
     cfoMiddleName,
     cfoLastName,
+    cfoMenu,
     food_tag,
     website_link,
     review_score,
@@ -41,11 +43,13 @@ router.post("/InsertCFOShop", (req, res) => {
   //const Adrress = [address1, address2, state, city, zipcode];
 
   console.log(insertVariables);
-  const result = db.createNewCFOShop(insertVariables);
+
   //const result = db.updateCFOLastName(cfoLastName, 99);
 
+  const result = db.createNewCFOShop(insertVariables);
   //const result = db.updateCFOAddress(Adrress, 99);
   result.then(res.send("Successfully inserted"));
+
   result.catch((err) => console.log(err));
 });
 
@@ -53,7 +57,6 @@ router.post("/InsertCFOShop", (req, res) => {
 router.get("/GetCFOShopName", (req, res) => {
   const db = CfoShopDbServices.getCFOShopDbInstance();
   const fetchCFOId = req.params.id;
-
   const result = db.readCresult.then((CFOShop) => res.send(CFOShop));
   FOShopName(fetchCFOId);
   result.then((CFOShopName) => res.json({ CFOShopName: CFOShopName }));
@@ -62,14 +65,13 @@ router.get("/GetCFOShopName", (req, res) => {
 
 // ----------------- WORKING -----------------
 ///Function purpose to get CFO shop information by ID
-router.get("/GetCFOShop", (req, res) => {
+router.get("/GetCFOShop/", (req, res) => {
   const db = CfoShopDbServices.getCFOShopDbInstance();
   //const fetchCFOId = req.params.id;
-  const fetchCFOId = 130;
+  const fetchCFOId = 152;
 
   const result = db.readCFOShop(fetchCFOId);
-  //result.then((val) => console.log(val));
-
+  result.then((CFOShop) => res.send(CFOShop));
   result.catch((err) => console.log(err));
 });
 

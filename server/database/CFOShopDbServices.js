@@ -15,8 +15,8 @@ class CFOShopDbServices {
       //Queery statement to insert CFO profile information into Database
       const response = await new Promise((resolve, reject) => {
         const sqlInsert = `INSERT INTO BodegaDB.CFO_Shop 
-        (CFO_Shop_Name,CFO_firstname, CFO_midlename, CFO_lastname, CFO_food_tag, CFO_website_link, CFO_review_score)
-        VALUES (?, ?, ?,?, ?, ?, ?);
+        (CFO_Shop_Name,CFO_firstname, CFO_midlename, CFO_lastname,CFO_menu, CFO_food_tag, CFO_website_link, CFO_review_score)
+        VALUES (?, ?, ?,?, ?, ?, ?,?);
         Select LAST_INSERT_ID() into @tempid_cfo;
         INSERT INTO BodegaDB.Address (address1, address2, state, city, zipcode, CFO_Shop_id)
         VALUES (?, ?, ?, ?, ?, @tempid_cfo); 
@@ -65,7 +65,7 @@ class CFOShopDbServices {
     try {
       //Queery statement to insert CFO profile information into Database
       const response = await new Promise((resolve, reject) => {
-        const sqlSelect = `select CFO_Shop_Name, CFO_firstname, CFO_midlename, CFO_lastname, CFO_food_tag, CFO_website_link, CFO_review_score,
+        const sqlSelect = `select CFO_Shop_Name, CFO_firstname, CFO_midlename, CFO_lastname, CFO_food_tag,CFO_menu, CFO_website_link, CFO_review_score,
         address1, address2, state, city, zipcode, phone_number, email_address
         from BodegaDB.CFO_Shop
         left join BodegaDB.Address 
@@ -295,6 +295,25 @@ class CFOShopDbServices {
     }
   }
 
+  //Function Purpose to update CFO Adrress (COMPLETE)
+  async updateCFOContactInformation(newCFOContactInformation, CFOId) {
+    try {
+      newCFOContactInformation.push(CFOId);
+      const response = await new Promise((resolve, reject) => {
+        const sqlUpdate =
+          "UPDATE BodegaDB.Contact SET phone_number = ? , email_address = ? WHERE CFO_Shop_id = ?;";
+
+        connection.query(sqlUpdate, newCFOAddress, (err, resuslts) => {
+          if (err) reject(new Error(err.message));
+          resolve(resuslts);
+        });
+      });
+
+      return response;
+    } catch (error) {
+      console.log(error);
+    }
+  }
   //Fucntion purpose to update CFO Menu (COMPLETE)
   async updateCFOMenu(newCFOMenu, CFOId) {
     try {
