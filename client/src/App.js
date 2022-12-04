@@ -7,7 +7,6 @@ import Welcome from "./pages/Welcome/Welcome";
 import About from "./pages/About/About";
 import YourShop from "./pages/Individual Shop/IndividualShop";
 import Header from "./components/header/Header";
-import CreateCFOProfile from "./pages/CreateCFOProfile";
 import Footer from "./components/botHeader/botHeader";
 import CreateCFOShop from "./pages/CreateCFOShop";
 
