@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./pages.css";
 import Axios from "axios";
+import Redirect from "./RedirectPage.js"
 
 function CreateCFOShop() {
   const [cfoFirstName, setCfoFirstName] = useState("");
@@ -59,7 +60,14 @@ function CreateCFOShop() {
           setCfoLastName(e.target.value);
         }}
       />
-      <button onClick={submitCFOShop}>Submit</button>
+
+      <button onClick={submitCFOShop} id="myButton" class="submit-button" >Submit</button>
+
+      <script>{
+        document.getElementById("myButton").onclick = function () {
+        window.location.href = <Redirect/>
+        }}
+      </script>
 
       <label>Phone Number</label>
       <input
