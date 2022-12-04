@@ -8,16 +8,16 @@ router.post("/", (req, res) => {
   const cfoFirstName = req.body.cfoFirstName;
   const cfoMidleName = req.body.cfoMiddleName;
   const cfoLastName = req.body.cfoLastName;
-  const food_tag = "Burger";
-  const website_link = "www.facebook.com";
+  const food_tag = req.body.cfoFoodTag;
+  const website_link = req.body.cfoWebsite;
   const review_score = 1;
-  const address1 = "5714 Kelvin Ave";
+  const address1 = req.body.cfoStreet;
   const address2 = "-";
-  const state = "CA";
-  const city = "Los Angeles";
-  const zipcode = "91387";
-  const phone_number = "818-321-1234";
-  const emai_address = "ghita@gmail.com";
+  const state = req.body.cfoState;
+  const city = req.body.cfoCity;
+  const zipcode = req.body.cfoZip;
+  const phone_number = req.body.cfoPhoneNumber;
+  const email_address = req.body.cfoEmail;
 
   const insertVariables = [
     cfoFirstName,
@@ -32,7 +32,7 @@ router.post("/", (req, res) => {
     city,
     zipcode,
     phone_number,
-    emai_address,
+    email_address,
   ];
   db.insertNewCFOShop(insertVariables);
 });
