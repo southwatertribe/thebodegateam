@@ -3,6 +3,7 @@ import "./pages.css";
 import Axios from "axios";
 import valTest from "./Validation.js"
 import requirejs from "requirejs";
+import Redirect from "./RedirectPage";
 function CreateCFOProfile() {
   const [cfoFirstName, setCfoFirstName] = useState("");
   const [cfoMiddleName, setCfoMiddleName] = useState("");
@@ -89,7 +90,13 @@ function CreateCFOProfile() {
         }}
       />
       </form>
-      <button onClick={submitCFOProfile}>Submit</button>
+      <button onClick={submitCFOProfile} id="myButton" class="submit-button" >Submit</button>
+
+      <script>{
+      document.getElementById("myButton").onclick = function () {
+      window.location.href = <Redirect/>
+      }}
+      </script>
 
       <label>Phone Number</label>
       <input

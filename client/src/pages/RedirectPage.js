@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./pages.css";
 import Axios from "axios";
-import CreateCFOShop from "./CreateCFOShop";
+import CreateCFOProfile from "./CreateCFOProfile";
 
 export default function Redirect() {
     return(

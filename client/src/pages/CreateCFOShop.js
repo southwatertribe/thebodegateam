@@ -61,13 +61,8 @@ function CreateCFOShop() {
         }}
       />
 
-      <button onClick={submitCFOShop} id="myButton" class="submit-button" >Submit</button>
+      <button onClick={submitCFOShop}>Submit</button>
 
-      <script>{
-        document.getElementById("myButton").onclick = function () {
-        window.location.href = <Redirect/>
-        }}
-      </script>
 
       <label>Phone Number</label>
       <input
