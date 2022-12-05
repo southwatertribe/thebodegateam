@@ -13,7 +13,7 @@ class CFOReviewsDbServices {
       const CFOReviewInSertData = [CFOReviewScore, CFODescription, CFOId];
 
       const response = await new Promise((resolve, reject) => {
-        const sqlInsert = ``;
+        const sqlInsert = `INSERT INTO Reviews(review_score, review_description, CFO_id_review) VALUES (?, ?,?);`;
 
         connection.query(sqlInsert, CFOReviewInSertData, (err, resuslts) => {
           if (err) reject(new Error(err.message));
