@@ -7,28 +7,80 @@ class CFOReviewsDbServices {
 
   //       *********  Create Functionality OF DB for CFO SHOP Reviews  ********
 
-  //Function purpose to add a new CFO review to the CFO review Table
+  //Function purpose to add a new CFO review to the CFO review Table (Not Completed)
   async setCFOReview(CFOReviewScore, CFODescription, CFOId) {
-    const CFOReviewInSertData = [CFOReviewScore, CFODescription, CFOId];
+    try {
+      const CFOReviewInSertData = [CFOReviewScore, CFODescription, CFOId];
 
-    const response = await new Promise((resolve, reject) => {
-      const sqlInsert = ``;
+      const response = await new Promise((resolve, reject) => {
+        const sqlInsert = ``;
 
-      connection.query(sqlInsert, CFOInsertData, (err, resuslts) => {
-        if (err) reject(new Error(err.message));
-        resolve(resuslts);
+        connection.query(sqlInsert, CFOReviewInSertData, (err, resuslts) => {
+          if (err) reject(new Error(err.message));
+          resolve(resuslts);
+        });
       });
-    });
 
-    return response;
-  }
-  catch(error) {
-    console.log(error);
+      return response;
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   //       *********  Read Functionality OF DB for CFO SHOP Reviews  ********
 
+  //Fucntion purppose to pull the CFO Review score from the DB give a CFO ID (Not Completed)
+  async readCFOReview(CFOId) {
+    try {
+      const response = await new Promise((resolve, reject) => {
+        const sqlSelect = ``;
+
+        connection.query(sqlSelect, CFOId, (err, resuslts) => {
+          if (err) reject(new Error(err.message));
+          resolve(resuslts);
+        });
+      });
+
+      return response;
+    } catch (error) {
+      console.log(error);
+    }
+  }
   //       *********  Update Functionality OF DB for CFO SHOP Reviews  ********
 
+  //Fucntion purppose to update the CFO Review score from the DB give a CFO Review ID (Not Completed)
+  async updateCFOReview(CFOReviewId) {
+    try {
+      const response = await new Promise((resolve, reject) => {
+        const sqlUpdate = ``;
+
+        connection.query(sqlUpdate, CFOReviewId, (err, resuslts) => {
+          if (err) reject(new Error(err.message));
+          resolve(resuslts);
+        });
+      });
+
+      return response;
+    } catch (error) {
+      console.log(error);
+    }
+  }
   //       *********  Delete Functionality OF DB for CFO SHOP Reviews  ********
+  //Fucntion purppose to Delete the CFO Review score from the DB given a CFO Review ID (Not Completed)
+  async udeleteCFOReview(CFOReviewId) {
+    try {
+      const response = await new Promise((resolve, reject) => {
+        const sqlDelete = ``;
+
+        connection.query(sqlDelete, CFOReviewId, (err, resuslts) => {
+          if (err) reject(new Error(err.message));
+          resolve(resuslts);
+        });
+      });
+
+      return response;
+    } catch (error) {
+      console.log(error);
+    }
+  }
 } // End function
