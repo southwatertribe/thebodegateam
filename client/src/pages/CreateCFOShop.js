@@ -52,7 +52,7 @@ function CreateCFOShop() {
 
   return (
     //CREATE CFO PROFILE PAGE
-
+//encType='multipart/form-data'
     <div className="CFOShopForm">
       <form onReset={clearForm}>
         <h2>Create CFO Shop</h2>
@@ -187,11 +187,12 @@ function CreateCFOShop() {
         <input
           type="file"
           id="cfoMenu"
-          name="File Name"
+          name="cfoMenu"
           accept="application/pdf"
           onChange={(e) => {
-            console.log('cfoMenu: ', cfoMenu);
+            //console.log('cfoMenu: ', cfoMenu);
             setCfoMenu(e.target.files[0]);
+            //const fileObject = e.target.files[0]
             //console.log(e.target.files[0], "Testing")
           }}
         />

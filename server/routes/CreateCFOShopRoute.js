@@ -3,6 +3,8 @@ const express = require("express");
 //const app = require("../config/app");
 const CfoShopDbServices = require("../database/CFOShopDbServices");
 const router = express.Router();
+const fileUpload = require('express-fileupload');
+const blob = new Blob();
 
 router.post("/InsertCFOShop", (req, res) => {
   const db = CfoShopDbServices.getCFOShopDbInstance();
@@ -13,7 +15,10 @@ router.post("/InsertCFOShop", (req, res) => {
   const food_tag = req.body.cfoFoodTag;
   const website_link = req.body.cfoWebsite;
   const review_score = 1;
-  const cfo_menu = req.body.cfo_menu;
+  //const cfoMenu = req.body.cfoMenu.toString("base64");
+  //console.log(req.files.cfoMenu.toString());
+  const cfoMenu = req.body.cfoMenu.toString("base64");
+  //const cfoMenu = blob.toString("base64");
   const address1 = req.body.cfoAddress1;
   const address2 = req.body.cfoAddress2;
   const state = req.body.cfoState;
@@ -31,7 +36,7 @@ router.post("/InsertCFOShop", (req, res) => {
     food_tag,
     website_link,
     review_score,
-    cfo_menu,
+    cfoMenu,
     address1,
     address2,
     state,
