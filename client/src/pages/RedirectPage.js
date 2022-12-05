@@ -7,11 +7,7 @@ import "./CreateCFOShop.js";
 export default function Redirect() {
     return(
         <div className="redirect">
-            <h3 class="box-1">
-                <p>
-                    Congratulations! You have created your CFO Shop.
-                </p>
-            </h3>
+            <h3 class="box-1"></h3>
         </div>
     );
 }

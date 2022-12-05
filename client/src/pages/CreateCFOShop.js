@@ -4,6 +4,7 @@ import Axios from "axios";
 import "./RedirectPage";
 import "./Individual Shop/IndividualShop.js"
 import IndividualShop from "./Individual Shop/IndividualShop.js";
+import Redirect from "./RedirectPage";
 
 function CreateCFOShop() {
   const [cfoShopName, setCfoShopName] = useState("");
@@ -42,6 +43,7 @@ function CreateCFOShop() {
     }).then(() => {
       alert("Successfully added CFO Shop");
     });
+    window.location.href="http://localhost:3000/yourshop"
   };
 
   const getCFOdata = () => {
@@ -198,7 +200,7 @@ function CreateCFOShop() {
           }}
         />
 
-        <button onClick={submitCFOShop} id="myButton" class="submit-button" >Submit</button>
+        <button target="_blank" onClick={submitCFOShop} id="myButton" class="submit-button" >Submit</button>
 
         <button type="reset" value="Reset">
           Reset
