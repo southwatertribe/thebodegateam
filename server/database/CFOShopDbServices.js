@@ -15,8 +15,8 @@ class CFOShopDbServices {
       //Queery statement to insert CFO profile information into Database
       const response = await new Promise((resolve, reject) => {
         const sqlInsert = `INSERT INTO BodegaDB.CFO_Shop 
-        (CFO_Shop_Name, CFO_firstname, CFO_midlename, CFO_lastname, CFO_food_tag, CFO_website_link, CFO_review_score, CFO_menu)
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?);
+        (CFO_Shop_Name, CFO_firstname, CFO_midlename, CFO_lastname, CFO_food_tag, CFO_website_link, CFO_menu)
+        VALUES (?, ?, ?, ?, ?, ?, ?);
         Select LAST_INSERT_ID() into @tempid_cfo;
         INSERT INTO BodegaDB.Address (address1, address2, state, city, zipcode, CFO_Shop_id)
         VALUES (?, ?, ?, ?, ?, @tempid_cfo); 
@@ -40,9 +40,9 @@ class CFOShopDbServices {
   //Function Purpose to pull all CFO shops from the database (COMPLETE)
   async readAllCFOShops() {
     try {
-      //Queery statement to insert CFO profile information into Database
+      //Queery statement to pulls a CFO Shops information into Database
       const response = await new Promise((resolve, reject) => {
-        const sqlSelect = `SELECT CFO_Shop_Name, CFO_firstname, CFO_midlename, CFO_lastname, CFO_food_tag, CFO_website_link, CFO_review_score,
+        const sqlSelect = `SELECT CFO_Shop_Name, CFO_firstname, CFO_midlename, CFO_lastname, CFO_food_tag, CFO_website_link, 
         address1, address2, state, city, zipcode, phone_number, email_address
         FROM BodegaDB.CFO_Shop 
          INNER JOIN Address ON CFO_Shop.CFO_id = Address.CFO_Shop_Id 
@@ -63,9 +63,8 @@ class CFOShopDbServices {
   //Function Purpose to pull alll CFO shop data from the database (COMPLETE)
   async readCFOShop(CFOId) {
     try {
-      //Queery statement to insert CFO profile information into Database
       const response = await new Promise((resolve, reject) => {
-        const sqlSelect = `select CFO_Shop_Name, CFO_firstname, CFO_midlename, CFO_lastname, CFO_food_tag,CFO_menu, CFO_website_link, CFO_review_score,
+        const sqlSelect = `select CFO_Shop_Name, CFO_firstname, CFO_midlename, CFO_lastname, CFO_food_tag,CFO_menu, CFO_website_link,
         address1, address2, state, city, zipcode, phone_number, email_address
         from BodegaDB.CFO_Shop
         left join BodegaDB.Address 
@@ -128,27 +127,6 @@ class CFOShopDbServices {
       console.log(error);
     }
   } //end readCFOShopName method
-
-  //Function Purpose to pull CFO review information from the database (COMPLETE)
-  async readCFOShopReviewScore(CFOId) {
-    try {
-      //Queery statement to insert CFO profile information into Database
-      const response = await new Promise((resolve, reject) => {
-        const sqlSelect = `select CFO_review_score
-        from BodegaDB.CFO_Shop
-        where CFO_id = ?;`;
-
-        connection.query(sqlSelect, CFOId, (err, resuslts) => {
-          if (err) reject(new Error(err.message));
-          resolve(resuslts);
-        });
-      });
-
-      return response;
-    } catch (error) {
-      console.log(error);
-    }
-  } //end readCFOShopReviewScore method
 
   //Fucntion purpose to pull CFO Menu from Database (COMPLETE)
   async readCFOShopMenu(CFOId) {
@@ -322,26 +300,6 @@ class CFOShopDbServices {
       const response = await new Promise((resolve, reject) => {
         const sqlUpdate =
           "UPDATE BodegaDB.CFO_Shop SET CFO_menu = ? WHERE CFO_id = ?";
-
-        connection.query(sqlUpdate, insertVariables, (err, resuslts) => {
-          if (err) reject(new Error(err.message));
-          resolve(resuslts);
-        });
-      });
-      return response;
-    } catch (error) {
-      console.log(error);
-    }
-  }
-
-  //Fucntion purpose to update the CFO review score affter a new CFO Score is added (COMPLETE)
-  async updateCFOReviewScore(newCFOReviewScore, CFOId) {
-    try {
-      const insertVariables = [newCFOReviewScore, CFOId];
-
-      const response = await new Promise((resolve, reject) => {
-        const sqlUpdate =
-          "UPDATE BodegaDB.CFO_Shop SET CFO_review_score = ? WHERE CFO_id = ?";
 
         connection.query(sqlUpdate, insertVariables, (err, resuslts) => {
           if (err) reject(new Error(err.message));
