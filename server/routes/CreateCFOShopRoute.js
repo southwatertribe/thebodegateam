@@ -3,6 +3,8 @@ const express = require("express");
 //const app = require("../config/app");
 const CfoShopDbServices = require("../database/CFOShopDbServices");
 const router = express.Router();
+const fileUpload = require("express-fileupload");
+const blob = new Blob();
 
 router.post("/InsertCFOShop", (req, res) => {
   const db = CfoShopDbServices.getCFOShopDbInstance();
@@ -33,7 +35,7 @@ router.post("/InsertCFOShop", (req, res) => {
     food_tag,
     website_link,
     review_score,
-    cfo_menu,
+    cfoMenu,
     address1,
     address2,
     state,
