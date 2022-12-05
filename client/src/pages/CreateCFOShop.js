@@ -12,7 +12,7 @@ function CreateCFOShop() {
   const [cfoEmail, setCfoEmail] = useState("");
   const [cfoFoodTag, setCfoFoodTag] = useState("");
   const [cfoWebsite, setCfoWebsite] = useState("");
-  const [cfoMenu, setCfoMenu] = useState([]);
+  const [cfoMenu, setCfoMenu] = useState("");
   const [cfoAddress1, setCfoAddress1] = useState("");
   const [cfoAddress2, setCfoAddress2] = useState("");
   const [cfoCity, setCfoCity] = useState("");
@@ -54,7 +54,7 @@ function CreateCFOShop() {
     //CREATE CFO PROFILE PAGE
 
     <div className="CFOShopForm">
-      <form onReset={clearForm}>
+      <form onReset={clearForm} enctype="multipart/form-data">
         <h2>Create CFO Shop</h2>
         <label>CFO Shop Name</label>
         <input
@@ -187,10 +187,10 @@ function CreateCFOShop() {
         <input
           type="file"
           id="cfoMenu"
-          name="File Name"
+          name="cfoMenu"
           accept="application/pdf"
           onChange={(e) => {
-            console.log('cfoMenu: ', cfoMenu);
+            console.log("cfoMenu: ", e.target.files[0]);
             setCfoMenu(e.target.files[0]);
             //console.log(e.target.files[0], "Testing")
           }}

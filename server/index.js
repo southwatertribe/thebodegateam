@@ -3,6 +3,7 @@ const express = require("express");
 const fileUpload = require("express-fileupload");
 const bodyParser = require("body-parser");
 const cors = require("cors");
+const multipart = require("multer");
 
 const startServer = async () => {
   const app = express();
