@@ -4,7 +4,6 @@ const express = require("express");
 const CfoShopDbServices = require("../database/CFOShopDbServices");
 const router = express.Router();
 const fileUpload = require("express-fileupload");
-const blob = new Blob();
 
 router.post("/InsertCFOShop", (req, res) => {
   const db = CfoShopDbServices.getCFOShopDbInstance();
@@ -16,7 +15,7 @@ router.post("/InsertCFOShop", (req, res) => {
   const website_link = req.body.cfoWebsite;
   const review_score = 1;
 
-  const cfo_menu = req.body.cfoMenu.toString("base64");
+  const cfoMenu = req.body.cfoMenu.toString("base64");
   //console.log(req.files);
 
   const address1 = req.body.cfoAddress1;
