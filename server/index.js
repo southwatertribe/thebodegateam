@@ -14,9 +14,6 @@ const startServer = async () => {
   app.use(bodyParser.urlencoded({ extended: true }));
   app.use(fileUpload());
 
-  const CFOuserRoute = require("./routes/CFOUser");
-  app.use("/browser", CFOuserRoute);
-
   const createCFOProfileRoute = require("./routes/CreateCFOShopRoute");
   app.use("/CreateCFOShop/", createCFOProfileRoute);
 

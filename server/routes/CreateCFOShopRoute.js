@@ -13,11 +13,7 @@ router.post("/InsertCFOShop", (req, res) => {
   const cfoLastName = req.body.cfoLastName;
   const food_tag = req.body.cfoFoodTag;
   const website_link = req.body.cfoWebsite;
-  const review_score = 1;
-
-  const cfoMenu = req.body.cfoMenu.toString("base64");
-  //console.log(req.files);
-
+  const review_score = 5;
   const address1 = req.body.cfoAddress1;
   const address2 = req.body.cfoAddress2;
   const state = req.body.cfoState;
@@ -33,8 +29,6 @@ router.post("/InsertCFOShop", (req, res) => {
     cfoLastName,
     food_tag,
     website_link,
-    review_score,
-    cfoMenu,
     address1,
     address2,
     state,
