@@ -8,7 +8,7 @@ export default function Support() {
       
       <div>
             <Supportmessage/>
-            <a href="mailto: abc@example.com">Contact the Devs </a>
+            <a href="mailto: dev@bodega.com">Contact the Devs </a>
       </div>   
           
   
