@@ -65,12 +65,27 @@ router.get("/GetCFOShopName", (req, res) => {
 ///Function purpose to get CFO shop information by ID
 router.get("/GetCFOShop/", (req, res) => {
   const db = CfoShopDbServices.getCFOShopDbInstance();
-  //const fetchCFOId = req.params.id;
-  const fetchCFOId = 152;
-
-  const result = db.readCFOShop(fetchCFOId);
+  const CFO_ID = 255;
+  //Pull Data From Frontend
+  const result = db.readCFOShop(CFO_ID);
   result.then((CFOShop) => res.send(CFOShop));
   result.catch((err) => console.log(err));
+
+  //UPDATE BY ID
+  // db.updateCFOFirstName("John", CFO_ID);
+  // db.updateCFOMiddleName("Rob", CFO_ID);
+  // db.updateCFOLastName("Iordache", CFO_ID);
+  // db.updateCFOAddress(
+  //   ["5123 Jellico Ave", "Suite 4", "AL", "LA", "12345"],
+  //   CFO_ID
+  // );
+  // db.updateCFOContactInformation(
+  //   ["123-345-3213", "RobinsPasta@gamil.com"],
+  //   CFO_ID
+  // );
+
+  //Delete CFO SHOP
+  //db.deleteCFOShop(CFO_ID);
 });
 
 module.exports = router;
