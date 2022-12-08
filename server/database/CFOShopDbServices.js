@@ -281,10 +281,14 @@ class CFOShopDbServices {
         const sqlUpdate =
           "UPDATE BodegaDB.Contact SET phone_number = ? , email_address = ? WHERE CFO_Shop_id = ?;";
 
-        connection.query(sqlUpdate, newCFOAddress, (err, resuslts) => {
-          if (err) reject(new Error(err.message));
-          resolve(resuslts);
-        });
+        connection.query(
+          sqlUpdate,
+          newCFOContactInformation,
+          (err, resuslts) => {
+            if (err) reject(new Error(err.message));
+            resolve(resuslts);
+          }
+        );
       });
 
       return response;

@@ -17,7 +17,7 @@ function Browser() {
   return (
     <div className="Browse CFO 2">
       <h2>Browse For CFO's</h2>
-      <button onClick={getCFOdata}>Show CFO Data</button>
+      <button onClick={getCFOdata}>SHOW CFO SHOP</button>
       {cfoList.map((val, key) => {
         return (
           <div className="cfo">
