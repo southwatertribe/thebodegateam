@@ -3,7 +3,6 @@ const express = require("express");
 //const app = require("../config/app");
 const CfoShopDbServices = require("../database/CFOShopDbServices");
 const router = express.Router();
-const fileUpload = require("express-fileupload");
 
 router.post("/InsertCFOShop", (req, res) => {
   const db = CfoShopDbServices.getCFOShopDbInstance();
