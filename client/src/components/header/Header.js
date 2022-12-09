@@ -18,17 +18,17 @@ function Header() {
         <li className={styles.navli}>
           <Link to="/browser">Browse Shops</Link>
         </li>
-        <li className={styles.navli}>
-          <Link to="/about">About</Link>
-        </li>
         <li className={styles.navli}> 
-          <Link to="/CreateCFOShop">Create CFO Shop</Link>
+          <Link to="/createCFOShop">Create CFO Shop</Link>
         </li>
         <li className={styles.navli}>
-          <Link to="/CreateCustomer">Create Customer</Link>
+          <Link to="/createCustomer">Create Customer</Link>
         </li>
         <li className={styles.navli}>
           <Link to="/yourshop">Your Shop</Link>
+        </li>
+        <li className={styles.navli}>
+          <Link to="/support">Support</Link>
         </li>
         <li className={styles.navgoog}>
           <Login></Login>

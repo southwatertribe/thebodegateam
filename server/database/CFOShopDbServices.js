@@ -32,6 +32,7 @@ class CFOShopDbServices {
 
       return response;
     } catch (error) {
+      console.log("we hit but..")
       console.log(error);
     }
   }
@@ -60,7 +61,9 @@ class CFOShopDbServices {
     }
   }
 
-  //Function Purpose to pull alll CFO shop data from the database (COMPLETE)
+
+
+  //Function Purpose to pull alll CFO shop data from the database
   async readCFOShop(CFOId) {
     try {
       const response = await new Promise((resolve, reject) => {

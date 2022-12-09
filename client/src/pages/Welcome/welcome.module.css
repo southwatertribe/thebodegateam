@@ -1,0 +1,18 @@
+.firstMsg {
+    width: 50%;
+    float: left;
+    margin-bottom: 20px;
+}
+
+.secondMsg {
+    width: 50%;
+    float: right;
+    margin-bottom: 20px;
+}
+
+.imagegrid {
+    display: flex;
+    margin-top: 25px;
+    margin-bottom: 25px;
+
+}

@@ -1,25 +1,23 @@
-.aboutdiv {
-    font-size: medium;
+.supdiv {
+    font-size: x-large;
     font-style: italic;
     border: 5px solid black;
+    margin-top: 50px;
+    margin-left: 250px;
+    margin-right: 250px;
     background-color: pink;
+    text-align: center;
+    display: flex;
+    justify-content: center;
     align-items: center;
-    margin: 10px 50px 100px 10px;
-    padding-left: 10px;
-    padding-top: 10px;
-    padding-bottom: 10px; 
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
-
-a{
+a {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: large;
     text-align: center;
     display: block;
     margin-top: 30px;
     margin-bottom: 30px;
- } 
-
-
-
- 
+}

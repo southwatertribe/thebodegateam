@@ -118,6 +118,7 @@ function CreateCFOShop() {
         type="text"
         id="cfoFoodTag"
         name="FoodTag"
+        placeholder="Food Tags"
         onChange={(e) => {
           setCfoFoodTag(e.target.value);
         }}
@@ -136,7 +137,7 @@ function CreateCFOShop() {
       <input
         type="address1"
         id="cfoAddress1"
-        placeholder="address1"
+        placeholder="First Address"
         onChange={(e) => {
           setCfoAddress1(e.target.value);
         }}
@@ -145,7 +146,7 @@ function CreateCFOShop() {
       <input
         type="address2"
         id="cfoAddress2"
-        placeholder="address2"
+        placeholder="Second Address"
         onChange={(e) => {
           setCfoAddress2(e.target.value);
         }}

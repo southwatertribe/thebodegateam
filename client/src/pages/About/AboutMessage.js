@@ -1,9 +1,9 @@
 import React from "react";
-import './About.css';
+import Style from './about.module.css';
 
 export default function AboutMessage(){
     return(
-        <div class="box-2">
+        <div class={Style.aboutdiv}>
             <p>
             Bodega is a startup group of university students
             who want to help out the CFO's of the world. What is

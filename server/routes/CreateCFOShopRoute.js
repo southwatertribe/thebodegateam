@@ -50,6 +50,8 @@ router.post("/InsertCFOShop", (req, res) => {
   result.catch((err) => console.log(err));
 });
 
+
+
 ///Function purpose to get CFO shop information by ID
 router.get("/GetCFOShopName", (req, res) => {
   const db = CfoShopDbServices.getCFOShopDbInstance();
