@@ -1,5 +1,6 @@
 import React from "react";
 import Style from './shop.module.css';
+import CreateCFOShop from "../CreateCFOShop";
 
 function CFOmessage () {
     return (
@@ -11,7 +12,6 @@ function CFOmessage () {
           in the form, create your business and get started on
           your venture of succeeding as a CFO on our site.
         </p>
-  
       </div>
     )
   }

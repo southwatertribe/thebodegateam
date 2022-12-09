@@ -18,7 +18,7 @@
   height: 30px;
   margin: 5px;
   background-color: pink;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 
 .CustomerForm {
@@ -41,10 +41,16 @@
   height: 30px;
   margin: 5px;
   background-color: pink;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 
 input {
-  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 
+.redirect {
+  width: 200px;
+  height: 30px;
+  margin: 5px;
+  background-color: pink;
+}

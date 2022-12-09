@@ -18,10 +18,14 @@ function Header() {
         <li className={styles.navli}>
           <Link to="/browser">Browse Shops</Link>
         </li>
-        <li className={styles.navli}> 
+        <li className={styles.navli}>
           <Link to="/createCFOShop">Create CFO Shop</Link>
         </li>
         <li className={styles.navli}>
+          <Link to="/about">About</Link>
+        </li>
+
+        <li className={styles.Login}>
           <Link to="/createCustomer">Create Customer</Link>
         </li>
         <li className={styles.navli}>
@@ -33,7 +37,6 @@ function Header() {
         <li className={styles.navgoog}>
           <Login></Login>
         </li>
-        
       </ul>
     </div>
   );
