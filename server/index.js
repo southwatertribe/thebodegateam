@@ -1,7 +1,5 @@
 const config = require("./config/index.js");
 const express = require("express");
-//const mysql = require("mysql2");
-//const connection = require('./database');
 const bodyParser = require("body-parser");
 const cors = require("cors");
 
@@ -13,20 +11,14 @@ const startServer = async () => {
   app.use(express.json());
   app.use(bodyParser.urlencoded({ extended: true }));
 
- 
-
-  const CFOuserRoute = require("./routes/CFOUser");
-  app.use("/browser", CFOuserRoute);
-
-  const CFOShopRoute = require("./routes/CFOShop");
-  app.use("/CFOShop/", CFOShopRoute);
+  const createCFOProfileRoute = require("./routes/CreateCFOShopRoute");
+  app.use("/CreateCFOShop/", createCFOProfileRoute);
 
   const createCustomerProfileRoute = require("./routes/CreateCustomerRoute");
   app.use("/CreateCustomer/", createCustomerProfileRoute);
 
-  const loginRoute = require("./routes/login")
-  app.use("/login", loginRoute)
-
+  const loginRoute = require("./routes/login");
+  app.use("/login", loginRoute);
 
   app.listen(3001, () => {
     console.log(`Spun up on ${3001}`);
