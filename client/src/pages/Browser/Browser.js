@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "../pages.css";
 import Axios from "axios";
 //sShop Card
@@ -13,13 +13,9 @@ function Browser() {
       }
     );
   };
-  const shopItems = cfoList.map((shop) => 
-      <ShopCard {...shop}></ShopCard>
-  );
+  const shopItems = cfoList.map((shop) => <ShopCard {...shop}></ShopCard>);
   // Return statemnt should retur cards of CFO so the User can browse
-  return (
-    <ul>{shopItems}</ul>
-  ); //end
+  return <ul>{shopItems}</ul>; //end
 } //end Browser Page
 
 export default Browser;
