@@ -42,7 +42,6 @@ function Browser() {
       })}
     </div>
   ); //end
-  return <ul>{shopItems}</ul>; //end
 } //end Browser Page
 
 export default Browser;

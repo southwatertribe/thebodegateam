@@ -41,8 +41,6 @@ function CreateCFOShop() {
     window.location.href = "http://localhost:3000/yourshop";
   };
 
-  const getCFOdata = () => {};
-
   return (
     //CREATE CFO PROFILE PAGE
     //encType='multipart/form-data'

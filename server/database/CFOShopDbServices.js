@@ -32,7 +32,7 @@ class CFOShopDbServices {
 
       return response;
     } catch (error) {
-      console.log("we hit but..")
+      console.log("we hit but..");
       console.log(error);
     }
   }
@@ -61,8 +61,6 @@ class CFOShopDbServices {
     }
   }
 
-
-
   //Function Purpose to pull alll CFO shop data from the database
   async readCFOShop(CFOId) {
     try {
@@ -77,6 +75,24 @@ class CFOShopDbServices {
         where CFO_id = ?;`;
 
         connection.query(sqlSelect, CFOId, (err, resuslts) => {
+          if (err) reject(new Error(err.message));
+          resolve(resuslts);
+        });
+      });
+
+      return response;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  //Function Purpose to pull alll CFO shop data from the database
+  async readLatestCFOShopID() {
+    try {
+      const response = await new Promise((resolve, reject) => {
+        const sqlSelect = `
+        SELECT MAX(CFO_id) FROM BodegaDB.CFO_Shop;`;
+        connection.query(sqlSelect, (err, resuslts) => {
           if (err) reject(new Error(err.message));
           resolve(resuslts);
         });
