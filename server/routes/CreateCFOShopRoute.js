@@ -3,7 +3,6 @@ const express = require("express");
 //const app = require("../config/app");
 const CfoShopDbServices = require("../database/CFOShopDbServices");
 const router = express.Router();
-const fileUpload = require("express-fileupload");
 
 router.post("/InsertCFOShop", (req, res) => {
   const db = CfoShopDbServices.getCFOShopDbInstance();
@@ -65,11 +64,18 @@ router.get("/GetCFOShopName", (req, res) => {
 ///Function purpose to get CFO shop information by ID
 router.get("/GetCFOShop/", (req, res) => {
   const db = CfoShopDbServices.getCFOShopDbInstance();
-  const CFO_ID = 255;
-  //Pull Data From Frontend
-  const result = db.readCFOShop(CFO_ID);
-  result.then((CFOShop) => res.send(CFOShop));
-  result.catch((err) => console.log(err));
+  const getID = db.readLatestCFOShopID();
+
+  //Geting the most recent CFO Shop added to the table
+  getID.then((CFOId) => {
+    const latestCFOId = CFOId[0]["MAX(CFO_id)"];
+    console.log(latestCFOId);
+
+    //Pull Data From Frontend
+    const result = db.readCFOShop(latestCFOId);
+    result.then((CFOShop) => res.send(CFOShop));
+    result.catch((err) => console.log(err));
+  });
 
   //UPDATE BY ID
   // db.updateCFOFirstName("John", CFO_ID);

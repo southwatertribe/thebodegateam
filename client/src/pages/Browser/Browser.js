@@ -22,6 +22,7 @@ function Browser() {
         return (
           <div className="cfo">
             <div>
+              <h3>CFO_Shop_Name: {val.CFO_Shop_Name}</h3>
               <h3>CFO_firstname: {val.CFO_firstname}</h3>
               <h3>CFO_midlename: {val.CFO_midlename}</h3>
               <h3>CFO_lastname: {val.CFO_lastname}</h3>
