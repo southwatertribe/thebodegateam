@@ -35,11 +35,6 @@ router.post("/InsertCFOShop", (req, res) => {
     phone_number,
     emai_address,
   ];
-  //const Adrress = [address1, address2, state, city, zipcode];
-
-  console.log(insertVariables);
-
-  //const result = db.updateCFOLastName(cfoLastName, 99);
 
   const result = db.createNewCFOShop(insertVariables);
   //const result = db.updateCFOAddress(Adrress, 99);
@@ -67,14 +62,14 @@ router.get("/GetCFOShop/", (req, res) => {
   //Geting the most recent CFO Shop added to the table
   getID.then((CFOId) => {
     const latestCFOId = CFOId[0]["MAX(CFO_id)"];
-    console.log(latestCFOId);
-
-    //Pull Data From Frontend
     const result = db.readCFOShop(latestCFOId);
+
+    //Send Data to Frontend
     result.then((CFOShop) => res.send(CFOShop));
     result.catch((err) => console.log(err));
   });
 
+  //Methods called for testing the Update and Delete Functionality of our database
   //UPDATE BY ID
   // db.updateCFOFirstName("John", CFO_ID);
   // db.updateCFOMiddleName("Rob", CFO_ID);

@@ -29,7 +29,6 @@ router.post("/InsertCustomer", (req, res) => {
     customerEmail,
   ];
 
-  console.log(insertVariables);
   const result = db.createNewCustomer(insertVariables);
   //const result = db.updateCustomerLastName(customerLastName, 99);
 
@@ -52,13 +51,14 @@ router.get("/GetCustomerName", (req, res) => {
 ///Function purpose to get Customer information by ID
 router.get("/GetCustomer", (req, res) => {
   const db = CustomerDbServices.getCustomerDbInstance();
-  const fetchCustomerId = db.readLatestCustomerShopID();
-  //Geting the most recent CFO Shop added to the table
-  fetchCustomerId.then((CFOId) => {
-    const latestCustomerId = CFOId[0]["MAX(customer_id)"];
+  const GetMostRecentCustomer = db.readLatestCustomerShopID();
 
-    //Pull Data From Frontend
+  //Geting the most recent CFO Shop added to the table
+  GetMostRecentCustomer.then((CFOId) => {
+    const latestCustomerId = CFOId[0]["MAX(customer_id)"];
     const result = db.readCustomer(latestCustomerId);
+
+    //Sending Data To Frontend
     result.then((Customer) => res.send(Customer));
     result.catch((err) => console.log(err));
   });
