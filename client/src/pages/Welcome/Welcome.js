@@ -1,5 +1,6 @@
 import React from "react";
 import Message from "../../components/message/message";
+import AboutMessage from "../../components/aboutMessage/AboutMessage";
 import Img1 from "../Welcome/Pictures/Image1.jpg";
 import Img2 from "../Welcome/Pictures/Image2.jpg";
 import Img3 from "../Welcome/Pictures/Image 3.jpg";
@@ -25,7 +26,9 @@ export default function Welcome() {
       <div class={style.firstMsg}>
         <Message />
       </div>
-      <div class={style.secondMsg}></div>
+      <div class={style.secondMsg}>
+        <AboutMessage/>
+      </div>
     </div>
   );
 }
