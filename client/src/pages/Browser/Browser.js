@@ -1,7 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 //import { Document, Page } from "@react-pdf/renderer";
 import "../pages.css";
 import Axios from "axios";
+//sShop Card
+//import ShopCard from "../../components/shopcard/ShopCard";
 
 function Browser() {
   const [cfoList, setCFOlist2] = useState([]);
@@ -12,7 +14,7 @@ function Browser() {
       }
     );
   };
-
+  //const shopItems = cfoList.map((shop) => <ShopCard {...shop}></ShopCard>);
   // Return statemnt should retur cards of CFO so the User can browse
   return (
     <div className="Browse CFO 2">

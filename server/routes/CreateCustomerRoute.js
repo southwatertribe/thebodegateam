@@ -1,6 +1,5 @@
 //Create Customer Rounting file
 const express = require("express");
-//const app = require("../config/app");
 const CustomerDbServices = require("../database/CustomerDbServices");
 const router = express.Router();
 

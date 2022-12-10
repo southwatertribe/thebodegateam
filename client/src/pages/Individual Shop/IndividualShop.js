@@ -3,7 +3,7 @@ import "../pages.css";
 import Axios from "axios";
 
 //sShop CardS
-
+//Function purpose to get the individual shop information from DB
 function IndividualShop() {
   const [cfoList, setCFOlist2] = useState([]);
   const getCFOdata = () => {
@@ -17,7 +17,7 @@ function IndividualShop() {
   // Return statemnt should retur cards of CFO so the User can browse
   return (
     <div className="Individual Shop">
-      <h2>Your CFO's</h2>
+      <h2>Your Shop</h2>
       <button onClick={getCFOdata}>SHOW CFO SHOP</button>
       {cfoList.map((val, key) => {
         return (

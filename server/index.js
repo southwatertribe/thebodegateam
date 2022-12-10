@@ -1,9 +1,7 @@
 const config = require("./config/index.js");
 const express = require("express");
-const fileUpload = require("express-fileupload");
 const bodyParser = require("body-parser");
 const cors = require("cors");
-const multipart = require("multer");
 
 const startServer = async () => {
   const app = express();
@@ -12,7 +10,6 @@ const startServer = async () => {
   app.use(cors());
   app.use(express.json());
   app.use(bodyParser.urlencoded({ extended: true }));
-  app.use(fileUpload());
 
   const createCFOProfileRoute = require("./routes/CreateCFOShopRoute");
   app.use("/CreateCFOShop/", createCFOProfileRoute);

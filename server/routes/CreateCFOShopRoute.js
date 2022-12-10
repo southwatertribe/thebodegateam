@@ -12,7 +12,6 @@ router.post("/InsertCFOShop", (req, res) => {
   const cfoLastName = req.body.cfoLastName;
   const food_tag = req.body.cfoFoodTag;
   const website_link = req.body.cfoWebsite;
-  const review_score = 5;
   const address1 = req.body.cfoAddress1;
   const address2 = req.body.cfoAddress2;
   const state = req.body.cfoState;
@@ -36,7 +35,6 @@ router.post("/InsertCFOShop", (req, res) => {
     phone_number,
     emai_address,
   ];
-
   //const Adrress = [address1, address2, state, city, zipcode];
 
   console.log(insertVariables);

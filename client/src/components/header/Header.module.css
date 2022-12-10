@@ -15,6 +15,7 @@
   justify-content: space-around;
   margin-left: 30px;
   align-items: center;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 .navli {
@@ -25,3 +26,4 @@
 .navgoog {
   align-items: right;
 }
+
