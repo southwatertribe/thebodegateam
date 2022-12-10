@@ -54,6 +54,7 @@ function CreateCFOShop() {
     );
   };
 
+
   return (
     //CREATE CFO PROFILE PAGE
 
@@ -64,6 +65,7 @@ function CreateCFOShop() {
         <input
           type="text"
           id="cfoShopName"
+          value={cfoShopName}
           placeholder="CFO Shop Name"
           required="true"
           title="Letters only!"
@@ -200,7 +202,7 @@ function CreateCFOShop() {
           }}
         />
 
-        <button target="_blank" onClick={submitCFOShop} id="myButton" class="submit-button" >Submit</button>
+        <button target="_blank" onClick={submitCFOShop} type="submit"id="myButton" class="submit-button" >Submit</button>
 
         <button type="reset" value="Reset">
           Reset

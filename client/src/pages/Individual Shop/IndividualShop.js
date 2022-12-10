@@ -9,9 +9,13 @@ function IndividualShop() {
     <div>
       <CFOmessage/>
       <div>
+        <body>
+        <header>
         <p>
           ADD GET REQUESTS FROM AXIOS HERE FOR CFO DATA POST SHOP CREATION
         </p>
+        </header>
+        </body>
       </div>
     </div>
   )
