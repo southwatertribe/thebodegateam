@@ -53,9 +53,9 @@ router.get("/GetCustomer", (req, res) => {
   const db = CustomerDbServices.getCustomerDbInstance();
   const GetMostRecentCustomer = db.readLatestCustomerShopID();
 
-  //Geting the most recent CFO Shop added to the table
-  GetMostRecentCustomer.then((CFOId) => {
-    const latestCustomerId = CFOId[0]["MAX(customer_id)"];
+  //Geting the most recent Customer Shop added to the table
+  GetMostRecentCustomer.then((CustomerId) => {
+    const latestCustomerId = CustomerId[0]["MAX(customer_id)"];
     const result = db.readCustomer(latestCustomerId);
 
     //Sending Data To Frontend

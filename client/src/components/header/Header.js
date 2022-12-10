@@ -28,6 +28,9 @@ function Header() {
           <Link to="/yourshop">Your Shop</Link>
         </li>
         <li className={styles.navli}>
+          <Link to="/customeraccount">Customer Account</Link>
+        </li>
+        <li className={styles.navli}>
           <Link to="/support">Support</Link>
         </li>
         <li className={styles.navgoog}>

@@ -162,8 +162,8 @@ function CreateCustomer() {
         </button>
       </form>
 
-      <div className="Browse Customer 2">
-        <h2>Browser 2</h2>
+      <div className="View Customer Information">
+        <h2>View Customer Information</h2>
         <button onClick={getCustomerdata}>Show Customer Data</button>
         {customerList.map((val, key) => {
           return (
