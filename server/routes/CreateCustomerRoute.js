@@ -52,13 +52,16 @@ router.get("/GetCustomerName", (req, res) => {
 ///Function purpose to get Customer information by ID
 router.get("/GetCustomer", (req, res) => {
   const db = CustomerDbServices.getCustomerDbInstance();
-  //const fetchCustomerId = req.params.id;
-  const fetchCustomerId = 1;
+  const fetchCustomerId = db.readLatestCustomerShopID();
+  //Geting the most recent CFO Shop added to the table
+  fetchCustomerId.then((CFOId) => {
+    const latestCustomerId = CFOId[0]["MAX(customer_id)"];
 
-  const result = db.readCustomer(fetchCustomerId);
-  //result.then((val) => console.log(val));
-  result.then((Customer) => res.send(Customer));
-  result.catch((err) => console.log(err));
+    //Pull Data From Frontend
+    const result = db.readCustomer(latestCustomerId);
+    result.then((Customer) => res.send(Customer));
+    result.catch((err) => console.log(err));
+  });
 });
 
 module.exports = router;

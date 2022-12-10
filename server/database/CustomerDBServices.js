@@ -88,6 +88,23 @@ class CustomerDbServices {
     }
   }
 
+  //Function Purpose to pull the most rece customer ID added to the DB
+  async readLatestCustomerShopID() {
+    try {
+      const response = await new Promise((resolve, reject) => {
+        const sqlSelect = `
+        SELECT MAX(customer_id) FROM BodegaDB.Customer;`;
+        connection.query(sqlSelect, (err, resuslts) => {
+          if (err) reject(new Error(err.message));
+          resolve(resuslts);
+        });
+      });
+
+      return response;
+    } catch (error) {
+      console.log(error);
+    }
+  }
   //Function Purpose to pull Customer name from the database (COMPLETE)
   async readCustomerName(CustomerId) {
     try {
